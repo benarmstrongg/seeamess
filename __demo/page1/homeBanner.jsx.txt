@@ -1,0 +1,59 @@
+FirstStatement
+FirstStatement > VariableDeclarationList
+FirstStatement > VariableDeclarationList > ConstKeyword
+FirstStatement > VariableDeclarationList > SyntaxList
+FirstStatement > VariableDeclarationList > SyntaxList > VariableDeclaration
+FirstStatement > VariableDeclarationList > SyntaxList > VariableDeclaration > Identifier
+FirstStatement > VariableDeclarationList > SyntaxList > VariableDeclaration > FirstAssignment
+FirstStatement > VariableDeclarationList > SyntaxList > VariableDeclaration > FunctionExpression
+FirstStatement > VariableDeclarationList > SyntaxList > VariableDeclaration > FunctionExpression > FunctionKeyword
+FirstStatement > VariableDeclarationList > SyntaxList > VariableDeclaration > FunctionExpression > OpenParenToken
+FirstStatement > VariableDeclarationList > SyntaxList > VariableDeclaration > FunctionExpression > SyntaxList
+FirstStatement > VariableDeclarationList > SyntaxList > VariableDeclaration > FunctionExpression > CloseParenToken
+FirstStatement > VariableDeclarationList > SyntaxList > VariableDeclaration > FunctionExpression > Block
+FirstStatement > VariableDeclarationList > SyntaxList > VariableDeclaration > FunctionExpression > Block > FirstPunctuation
+FirstStatement > VariableDeclarationList > SyntaxList > VariableDeclaration > FunctionExpression > Block > SyntaxList
+FirstStatement > VariableDeclarationList > SyntaxList > VariableDeclaration > FunctionExpression > Block > CloseBraceToken
+FunctionDeclaration
+FunctionDeclaration > FunctionKeyword
+FunctionDeclaration > Identifier
+FunctionDeclaration > OpenParenToken
+FunctionDeclaration > SyntaxList
+FunctionDeclaration > CloseParenToken
+FunctionDeclaration > Block
+FunctionDeclaration > Block > FirstPunctuation
+FunctionDeclaration > Block > SyntaxList
+FunctionDeclaration > Block > CloseBraceToken
+FirstStatement
+FirstStatement > VariableDeclarationList
+FirstStatement > VariableDeclarationList > ConstKeyword
+FirstStatement > VariableDeclarationList > SyntaxList
+FirstStatement > VariableDeclarationList > SyntaxList > VariableDeclaration
+FirstStatement > VariableDeclarationList > SyntaxList > VariableDeclaration > Identifier
+FirstStatement > VariableDeclarationList > SyntaxList > VariableDeclaration > FirstAssignment
+FirstStatement > VariableDeclarationList > SyntaxList > VariableDeclaration > ArrowFunction
+FirstStatement > VariableDeclarationList > SyntaxList > VariableDeclaration > ArrowFunction > OpenParenToken
+FirstStatement > VariableDeclarationList > SyntaxList > VariableDeclaration > ArrowFunction > SyntaxList
+FirstStatement > VariableDeclarationList > SyntaxList > VariableDeclaration > ArrowFunction > CloseParenToken
+FirstStatement > VariableDeclarationList > SyntaxList > VariableDeclaration > ArrowFunction > EqualsGreaterThanToken
+FirstStatement > VariableDeclarationList > SyntaxList > VariableDeclaration > ArrowFunction > Block
+FirstStatement > VariableDeclarationList > SyntaxList > VariableDeclaration > ArrowFunction > Block > FirstPunctuation
+FirstStatement > VariableDeclarationList > SyntaxList > VariableDeclaration > ArrowFunction > Block > SyntaxList
+FirstStatement > VariableDeclarationList > SyntaxList > VariableDeclaration > ArrowFunction > Block > CloseBraceToken
+FirstStatement > VariableDeclarationList > SyntaxList > CommaToken
+FirstStatement > VariableDeclarationList > SyntaxList > VariableDeclaration
+FirstStatement > VariableDeclarationList > SyntaxList > VariableDeclaration > Identifier
+FirstStatement > VariableDeclarationList > SyntaxList > VariableDeclaration > FirstAssignment
+FirstStatement > VariableDeclarationList > SyntaxList > VariableDeclaration > FirstLiteralToken
+FirstStatement > SemicolonToken
+ExpressionStatement
+ExpressionStatement > ArrowFunction
+ExpressionStatement > ArrowFunction > OpenParenToken
+ExpressionStatement > ArrowFunction > SyntaxList
+ExpressionStatement > ArrowFunction > CloseParenToken
+ExpressionStatement > ArrowFunction > EqualsGreaterThanToken
+ExpressionStatement > ArrowFunction > Block
+ExpressionStatement > ArrowFunction > Block > FirstPunctuation
+ExpressionStatement > ArrowFunction > Block > SyntaxList
+ExpressionStatement > ArrowFunction > Block > CloseBraceToken
+EndOfFileToken

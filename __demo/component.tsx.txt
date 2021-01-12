@@ -1,0 +1,263 @@
+ImportDeclaration
+ImportDeclaration > ImportKeyword
+ImportDeclaration > ImportClause
+ImportDeclaration > ImportClause > Identifier
+ImportDeclaration > ImportClause > CommaToken
+ImportDeclaration > ImportClause > NamedImports
+ImportDeclaration > ImportClause > NamedImports > FirstPunctuation
+ImportDeclaration > ImportClause > NamedImports > SyntaxList
+ImportDeclaration > ImportClause > NamedImports > SyntaxList > ImportSpecifier
+ImportDeclaration > ImportClause > NamedImports > SyntaxList > ImportSpecifier > Identifier
+ImportDeclaration > ImportClause > NamedImports > SyntaxList > CommaToken
+ImportDeclaration > ImportClause > NamedImports > SyntaxList > ImportSpecifier
+ImportDeclaration > ImportClause > NamedImports > SyntaxList > ImportSpecifier > Identifier
+ImportDeclaration > ImportClause > NamedImports > CloseBraceToken
+ImportDeclaration > FromKeyword
+ImportDeclaration > StringLiteral
+ImportDeclaration > SemicolonToken
+FirstStatement
+FirstStatement > VariableDeclarationList
+FirstStatement > VariableDeclarationList > ConstKeyword
+FirstStatement > VariableDeclarationList > SyntaxList
+FirstStatement > VariableDeclarationList > SyntaxList > VariableDeclaration
+FirstStatement > VariableDeclarationList > SyntaxList > VariableDeclaration > Identifier
+FirstStatement > VariableDeclarationList > SyntaxList > VariableDeclaration > FirstAssignment
+FirstStatement > VariableDeclarationList > SyntaxList > VariableDeclaration > StringLiteral
+FirstStatement > SemicolonToken
+TypeAliasDeclaration
+TypeAliasDeclaration > TypeKeyword
+TypeAliasDeclaration > Identifier
+TypeAliasDeclaration > FirstAssignment
+TypeAliasDeclaration > ParenthesizedType
+TypeAliasDeclaration > ParenthesizedType > OpenParenToken
+TypeAliasDeclaration > ParenthesizedType > TypeLiteral
+TypeAliasDeclaration > ParenthesizedType > TypeLiteral > FirstPunctuation
+TypeAliasDeclaration > ParenthesizedType > TypeLiteral > SyntaxList
+TypeAliasDeclaration > ParenthesizedType > TypeLiteral > SyntaxList > PropertySignature
+TypeAliasDeclaration > ParenthesizedType > TypeLiteral > SyntaxList > PropertySignature > Identifier
+TypeAliasDeclaration > ParenthesizedType > TypeLiteral > SyntaxList > PropertySignature > ColonToken
+TypeAliasDeclaration > ParenthesizedType > TypeLiteral > SyntaxList > PropertySignature > TypeLiteral
+TypeAliasDeclaration > ParenthesizedType > TypeLiteral > SyntaxList > PropertySignature > TypeLiteral > FirstPunctuation
+TypeAliasDeclaration > ParenthesizedType > TypeLiteral > SyntaxList > PropertySignature > TypeLiteral > SyntaxList
+TypeAliasDeclaration > ParenthesizedType > TypeLiteral > SyntaxList > PropertySignature > TypeLiteral > SyntaxList > PropertySignature
+TypeAliasDeclaration > ParenthesizedType > TypeLiteral > SyntaxList > PropertySignature > TypeLiteral > SyntaxList > PropertySignature > Identifier
+TypeAliasDeclaration > ParenthesizedType > TypeLiteral > SyntaxList > PropertySignature > TypeLiteral > SyntaxList > PropertySignature > ColonToken
+TypeAliasDeclaration > ParenthesizedType > TypeLiteral > SyntaxList > PropertySignature > TypeLiteral > SyntaxList > PropertySignature > StringKeyword
+TypeAliasDeclaration > ParenthesizedType > TypeLiteral > SyntaxList > PropertySignature > TypeLiteral > SyntaxList > PropertySignature > CommaToken
+TypeAliasDeclaration > ParenthesizedType > TypeLiteral > SyntaxList > PropertySignature > TypeLiteral > SyntaxList > PropertySignature
+TypeAliasDeclaration > ParenthesizedType > TypeLiteral > SyntaxList > PropertySignature > TypeLiteral > SyntaxList > PropertySignature > Identifier
+TypeAliasDeclaration > ParenthesizedType > TypeLiteral > SyntaxList > PropertySignature > TypeLiteral > SyntaxList > PropertySignature > ColonToken
+TypeAliasDeclaration > ParenthesizedType > TypeLiteral > SyntaxList > PropertySignature > TypeLiteral > SyntaxList > PropertySignature > AnyKeyword
+TypeAliasDeclaration > ParenthesizedType > TypeLiteral > SyntaxList > PropertySignature > TypeLiteral > CloseBraceToken
+TypeAliasDeclaration > ParenthesizedType > TypeLiteral > SyntaxList > PropertySignature > CommaToken
+TypeAliasDeclaration > ParenthesizedType > TypeLiteral > SyntaxList > PropertySignature
+TypeAliasDeclaration > ParenthesizedType > TypeLiteral > SyntaxList > PropertySignature > Identifier
+TypeAliasDeclaration > ParenthesizedType > TypeLiteral > SyntaxList > PropertySignature > ColonToken
+TypeAliasDeclaration > ParenthesizedType > TypeLiteral > SyntaxList > PropertySignature > NumberKeyword
+TypeAliasDeclaration > ParenthesizedType > TypeLiteral > CloseBraceToken
+TypeAliasDeclaration > ParenthesizedType > CloseParenToken
+FirstStatement
+FirstStatement > VariableDeclarationList
+FirstStatement > VariableDeclarationList > ConstKeyword
+FirstStatement > VariableDeclarationList > SyntaxList
+FirstStatement > VariableDeclarationList > SyntaxList > VariableDeclaration
+FirstStatement > VariableDeclarationList > SyntaxList > VariableDeclaration > Identifier
+FirstStatement > VariableDeclarationList > SyntaxList > VariableDeclaration > FirstAssignment
+FirstStatement > VariableDeclarationList > SyntaxList > VariableDeclaration > ArrowFunction
+FirstStatement > VariableDeclarationList > SyntaxList > VariableDeclaration > ArrowFunction > OpenParenToken
+FirstStatement > VariableDeclarationList > SyntaxList > VariableDeclaration > ArrowFunction > SyntaxList
+FirstStatement > VariableDeclarationList > SyntaxList > VariableDeclaration > ArrowFunction > SyntaxList > Parameter
+FirstStatement > VariableDeclarationList > SyntaxList > VariableDeclaration > ArrowFunction > SyntaxList > Parameter > ObjectBindingPattern
+FirstStatement > VariableDeclarationList > SyntaxList > VariableDeclaration > ArrowFunction > SyntaxList > Parameter > ObjectBindingPattern > FirstPunctuation
+FirstStatement > VariableDeclarationList > SyntaxList > VariableDeclaration > ArrowFunction > SyntaxList > Parameter > ObjectBindingPattern > SyntaxList
+FirstStatement > VariableDeclarationList > SyntaxList > VariableDeclaration > ArrowFunction > SyntaxList > Parameter > ObjectBindingPattern > SyntaxList > BindingElement
+FirstStatement > VariableDeclarationList > SyntaxList > VariableDeclaration > ArrowFunction > SyntaxList > Parameter > ObjectBindingPattern > SyntaxList > BindingElement > Identifier
+FirstStatement > VariableDeclarationList > SyntaxList > VariableDeclaration > ArrowFunction > SyntaxList > Parameter > ObjectBindingPattern > SyntaxList > BindingElement > ColonToken
+FirstStatement > VariableDeclarationList > SyntaxList > VariableDeclaration > ArrowFunction > SyntaxList > Parameter > ObjectBindingPattern > SyntaxList > BindingElement > ObjectBindingPattern
+FirstStatement > VariableDeclarationList > SyntaxList > VariableDeclaration > ArrowFunction > SyntaxList > Parameter > ObjectBindingPattern > SyntaxList > BindingElement > ObjectBindingPattern > FirstPunctuation
+FirstStatement > VariableDeclarationList > SyntaxList > VariableDeclaration > ArrowFunction > SyntaxList > Parameter > ObjectBindingPattern > SyntaxList > BindingElement > ObjectBindingPattern > SyntaxList
+FirstStatement > VariableDeclarationList > SyntaxList > VariableDeclaration > ArrowFunction > SyntaxList > Parameter > ObjectBindingPattern > SyntaxList > BindingElement > ObjectBindingPattern > SyntaxList > BindingElement
+FirstStatement > VariableDeclarationList > SyntaxList > VariableDeclaration > ArrowFunction > SyntaxList > Parameter > ObjectBindingPattern > SyntaxList > BindingElement > ObjectBindingPattern > SyntaxList > BindingElement > Identifier
+FirstStatement > VariableDeclarationList > SyntaxList > VariableDeclaration > ArrowFunction > SyntaxList > Parameter > ObjectBindingPattern > SyntaxList > BindingElement > ObjectBindingPattern > SyntaxList > BindingElement > FirstAssignment
+FirstStatement > VariableDeclarationList > SyntaxList > VariableDeclaration > ArrowFunction > SyntaxList > Parameter > ObjectBindingPattern > SyntaxList > BindingElement > ObjectBindingPattern > SyntaxList > BindingElement > StringLiteral
+FirstStatement > VariableDeclarationList > SyntaxList > VariableDeclaration > ArrowFunction > SyntaxList > Parameter > ObjectBindingPattern > SyntaxList > BindingElement > ObjectBindingPattern > SyntaxList > CommaToken
+FirstStatement > VariableDeclarationList > SyntaxList > VariableDeclaration > ArrowFunction > SyntaxList > Parameter > ObjectBindingPattern > SyntaxList > BindingElement > ObjectBindingPattern > SyntaxList > BindingElement
+FirstStatement > VariableDeclarationList > SyntaxList > VariableDeclaration > ArrowFunction > SyntaxList > Parameter > ObjectBindingPattern > SyntaxList > BindingElement > ObjectBindingPattern > SyntaxList > BindingElement > Identifier
+FirstStatement > VariableDeclarationList > SyntaxList > VariableDeclaration > ArrowFunction > SyntaxList > Parameter > ObjectBindingPattern > SyntaxList > BindingElement > ObjectBindingPattern > CloseBraceToken
+FirstStatement > VariableDeclarationList > SyntaxList > VariableDeclaration > ArrowFunction > SyntaxList > Parameter > ObjectBindingPattern > SyntaxList > CommaToken
+FirstStatement > VariableDeclarationList > SyntaxList > VariableDeclaration > ArrowFunction > SyntaxList > Parameter > ObjectBindingPattern > SyntaxList > BindingElement
+FirstStatement > VariableDeclarationList > SyntaxList > VariableDeclaration > ArrowFunction > SyntaxList > Parameter > ObjectBindingPattern > SyntaxList > BindingElement > Identifier
+FirstStatement > VariableDeclarationList > SyntaxList > VariableDeclaration > ArrowFunction > SyntaxList > Parameter > ObjectBindingPattern > SyntaxList > BindingElement > FirstAssignment
+FirstStatement > VariableDeclarationList > SyntaxList > VariableDeclaration > ArrowFunction > SyntaxList > Parameter > ObjectBindingPattern > SyntaxList > BindingElement > FirstLiteralToken
+FirstStatement > VariableDeclarationList > SyntaxList > VariableDeclaration > ArrowFunction > SyntaxList > Parameter > ObjectBindingPattern > CloseBraceToken
+FirstStatement > VariableDeclarationList > SyntaxList > VariableDeclaration > ArrowFunction > CloseParenToken
+FirstStatement > VariableDeclarationList > SyntaxList > VariableDeclaration > ArrowFunction > EqualsGreaterThanToken
+FirstStatement > VariableDeclarationList > SyntaxList > VariableDeclaration > ArrowFunction > Block
+FirstStatement > VariableDeclarationList > SyntaxList > VariableDeclaration > ArrowFunction > Block > FirstPunctuation
+FirstStatement > VariableDeclarationList > SyntaxList > VariableDeclaration > ArrowFunction > Block > SyntaxList
+FirstStatement > VariableDeclarationList > SyntaxList > VariableDeclaration > ArrowFunction > Block > SyntaxList > FirstStatement
+FirstStatement > VariableDeclarationList > SyntaxList > VariableDeclaration > ArrowFunction > Block > SyntaxList > FirstStatement > VariableDeclarationList
+FirstStatement > VariableDeclarationList > SyntaxList > VariableDeclaration > ArrowFunction > Block > SyntaxList > FirstStatement > VariableDeclarationList > ConstKeyword
+FirstStatement > VariableDeclarationList > SyntaxList > VariableDeclaration > ArrowFunction > Block > SyntaxList > FirstStatement > VariableDeclarationList > SyntaxList
+FirstStatement > VariableDeclarationList > SyntaxList > VariableDeclaration > ArrowFunction > Block > SyntaxList > FirstStatement > VariableDeclarationList > SyntaxList > VariableDeclaration
+FirstStatement > VariableDeclarationList > SyntaxList > VariableDeclaration > ArrowFunction > Block > SyntaxList > FirstStatement > VariableDeclarationList > SyntaxList > VariableDeclaration > ArrayBindingPattern
+FirstStatement > VariableDeclarationList > SyntaxList > VariableDeclaration > ArrowFunction > Block > SyntaxList > FirstStatement > VariableDeclarationList > SyntaxList > VariableDeclaration > ArrayBindingPattern > OpenBracketToken
+FirstStatement > VariableDeclarationList > SyntaxList > VariableDeclaration > ArrowFunction > Block > SyntaxList > FirstStatement > VariableDeclarationList > SyntaxList > VariableDeclaration > ArrayBindingPattern > SyntaxList
+FirstStatement > VariableDeclarationList > SyntaxList > VariableDeclaration > ArrowFunction > Block > SyntaxList > FirstStatement > VariableDeclarationList > SyntaxList > VariableDeclaration > ArrayBindingPattern > SyntaxList > BindingElement
+FirstStatement > VariableDeclarationList > SyntaxList > VariableDeclaration > ArrowFunction > Block > SyntaxList > FirstStatement > VariableDeclarationList > SyntaxList > VariableDeclaration > ArrayBindingPattern > SyntaxList > BindingElement > Identifier
+FirstStatement > VariableDeclarationList > SyntaxList > VariableDeclaration > ArrowFunction > Block > SyntaxList > FirstStatement > VariableDeclarationList > SyntaxList > VariableDeclaration > ArrayBindingPattern > SyntaxList > CommaToken
+FirstStatement > VariableDeclarationList > SyntaxList > VariableDeclaration > ArrowFunction > Block > SyntaxList > FirstStatement > VariableDeclarationList > SyntaxList > VariableDeclaration > ArrayBindingPattern > SyntaxList > BindingElement
+FirstStatement > VariableDeclarationList > SyntaxList > VariableDeclaration > ArrowFunction > Block > SyntaxList > FirstStatement > VariableDeclarationList > SyntaxList > VariableDeclaration > ArrayBindingPattern > SyntaxList > BindingElement > Identifier
+FirstStatement > VariableDeclarationList > SyntaxList > VariableDeclaration > ArrowFunction > Block > SyntaxList > FirstStatement > VariableDeclarationList > SyntaxList > VariableDeclaration > ArrayBindingPattern > CloseBracketToken
+FirstStatement > VariableDeclarationList > SyntaxList > VariableDeclaration > ArrowFunction > Block > SyntaxList > FirstStatement > VariableDeclarationList > SyntaxList > VariableDeclaration > FirstAssignment
+FirstStatement > VariableDeclarationList > SyntaxList > VariableDeclaration > ArrowFunction > Block > SyntaxList > FirstStatement > VariableDeclarationList > SyntaxList > VariableDeclaration > CallExpression
+FirstStatement > VariableDeclarationList > SyntaxList > VariableDeclaration > ArrowFunction > Block > SyntaxList > FirstStatement > VariableDeclarationList > SyntaxList > VariableDeclaration > CallExpression > Identifier
+FirstStatement > VariableDeclarationList > SyntaxList > VariableDeclaration > ArrowFunction > Block > SyntaxList > FirstStatement > VariableDeclarationList > SyntaxList > VariableDeclaration > CallExpression > OpenParenToken
+FirstStatement > VariableDeclarationList > SyntaxList > VariableDeclaration > ArrowFunction > Block > SyntaxList > FirstStatement > VariableDeclarationList > SyntaxList > VariableDeclaration > CallExpression > SyntaxList
+FirstStatement > VariableDeclarationList > SyntaxList > VariableDeclaration > ArrowFunction > Block > SyntaxList > FirstStatement > VariableDeclarationList > SyntaxList > VariableDeclaration > CallExpression > SyntaxList > BinaryExpression
+FirstStatement > VariableDeclarationList > SyntaxList > VariableDeclaration > ArrowFunction > Block > SyntaxList > FirstStatement > VariableDeclarationList > SyntaxList > VariableDeclaration > CallExpression > SyntaxList > BinaryExpression > Identifier
+FirstStatement > VariableDeclarationList > SyntaxList > VariableDeclaration > ArrowFunction > Block > SyntaxList > FirstStatement > VariableDeclarationList > SyntaxList > VariableDeclaration > CallExpression > SyntaxList > BinaryExpression > BarBarToken
+FirstStatement > VariableDeclarationList > SyntaxList > VariableDeclaration > ArrowFunction > Block > SyntaxList > FirstStatement > VariableDeclarationList > SyntaxList > VariableDeclaration > CallExpression > SyntaxList > BinaryExpression > FirstLiteralToken
+FirstStatement > VariableDeclarationList > SyntaxList > VariableDeclaration > ArrowFunction > Block > SyntaxList > FirstStatement > VariableDeclarationList > SyntaxList > VariableDeclaration > CallExpression > CloseParenToken
+FirstStatement > VariableDeclarationList > SyntaxList > VariableDeclaration > ArrowFunction > Block > SyntaxList > FirstStatement > SemicolonToken
+FirstStatement > VariableDeclarationList > SyntaxList > VariableDeclaration > ArrowFunction > Block > SyntaxList > FunctionDeclaration
+FirstStatement > VariableDeclarationList > SyntaxList > VariableDeclaration > ArrowFunction > Block > SyntaxList > FunctionDeclaration > FunctionKeyword
+FirstStatement > VariableDeclarationList > SyntaxList > VariableDeclaration > ArrowFunction > Block > SyntaxList > FunctionDeclaration > Identifier
+FirstStatement > VariableDeclarationList > SyntaxList > VariableDeclaration > ArrowFunction > Block > SyntaxList > FunctionDeclaration > OpenParenToken
+FirstStatement > VariableDeclarationList > SyntaxList > VariableDeclaration > ArrowFunction > Block > SyntaxList > FunctionDeclaration > SyntaxList
+FirstStatement > VariableDeclarationList > SyntaxList > VariableDeclaration > ArrowFunction > Block > SyntaxList > FunctionDeclaration > CloseParenToken
+FirstStatement > VariableDeclarationList > SyntaxList > VariableDeclaration > ArrowFunction > Block > SyntaxList > FunctionDeclaration > Block
+FirstStatement > VariableDeclarationList > SyntaxList > VariableDeclaration > ArrowFunction > Block > SyntaxList > FunctionDeclaration > Block > FirstPunctuation
+FirstStatement > VariableDeclarationList > SyntaxList > VariableDeclaration > ArrowFunction > Block > SyntaxList > FunctionDeclaration > Block > SyntaxList
+FirstStatement > VariableDeclarationList > SyntaxList > VariableDeclaration > ArrowFunction > Block > SyntaxList > FunctionDeclaration > Block > SyntaxList > ExpressionStatement
+FirstStatement > VariableDeclarationList > SyntaxList > VariableDeclaration > ArrowFunction > Block > SyntaxList > FunctionDeclaration > Block > SyntaxList > ExpressionStatement > CallExpression
+FirstStatement > VariableDeclarationList > SyntaxList > VariableDeclaration > ArrowFunction > Block > SyntaxList > FunctionDeclaration > Block > SyntaxList > ExpressionStatement > CallExpression > Identifier
+FirstStatement > VariableDeclarationList > SyntaxList > VariableDeclaration > ArrowFunction > Block > SyntaxList > FunctionDeclaration > Block > SyntaxList > ExpressionStatement > CallExpression > OpenParenToken
+FirstStatement > VariableDeclarationList > SyntaxList > VariableDeclaration > ArrowFunction > Block > SyntaxList > FunctionDeclaration > Block > SyntaxList > ExpressionStatement > CallExpression > SyntaxList
+FirstStatement > VariableDeclarationList > SyntaxList > VariableDeclaration > ArrowFunction > Block > SyntaxList > FunctionDeclaration > Block > SyntaxList > ExpressionStatement > CallExpression > SyntaxList > BinaryExpression
+FirstStatement > VariableDeclarationList > SyntaxList > VariableDeclaration > ArrowFunction > Block > SyntaxList > FunctionDeclaration > Block > SyntaxList > ExpressionStatement > CallExpression > SyntaxList > BinaryExpression > Identifier
+FirstStatement > VariableDeclarationList > SyntaxList > VariableDeclaration > ArrowFunction > Block > SyntaxList > FunctionDeclaration > Block > SyntaxList > ExpressionStatement > CallExpression > SyntaxList > BinaryExpression > PlusToken
+FirstStatement > VariableDeclarationList > SyntaxList > VariableDeclaration > ArrowFunction > Block > SyntaxList > FunctionDeclaration > Block > SyntaxList > ExpressionStatement > CallExpression > SyntaxList > BinaryExpression > FirstLiteralToken
+FirstStatement > VariableDeclarationList > SyntaxList > VariableDeclaration > ArrowFunction > Block > SyntaxList > FunctionDeclaration > Block > SyntaxList > ExpressionStatement > CallExpression > CloseParenToken
+FirstStatement > VariableDeclarationList > SyntaxList > VariableDeclaration > ArrowFunction > Block > SyntaxList > FunctionDeclaration > Block > SyntaxList > ExpressionStatement > SemicolonToken
+FirstStatement > VariableDeclarationList > SyntaxList > VariableDeclaration > ArrowFunction > Block > SyntaxList > FunctionDeclaration > Block > CloseBraceToken
+FirstStatement > VariableDeclarationList > SyntaxList > VariableDeclaration > ArrowFunction > Block > SyntaxList > ReturnStatement
+FirstStatement > VariableDeclarationList > SyntaxList > VariableDeclaration > ArrowFunction > Block > SyntaxList > ReturnStatement > ReturnKeyword
+FirstStatement > VariableDeclarationList > SyntaxList > VariableDeclaration > ArrowFunction > Block > SyntaxList > ReturnStatement > ParenthesizedExpression
+FirstStatement > VariableDeclarationList > SyntaxList > VariableDeclaration > ArrowFunction > Block > SyntaxList > ReturnStatement > ParenthesizedExpression > OpenParenToken
+FirstStatement > VariableDeclarationList > SyntaxList > VariableDeclaration > ArrowFunction > Block > SyntaxList > ReturnStatement > ParenthesizedExpression > JsxElement
+FirstStatement > VariableDeclarationList > SyntaxList > VariableDeclaration > ArrowFunction > Block > SyntaxList > ReturnStatement > ParenthesizedExpression > JsxElement > JsxOpeningElement
+FirstStatement > VariableDeclarationList > SyntaxList > VariableDeclaration > ArrowFunction > Block > SyntaxList > ReturnStatement > ParenthesizedExpression > JsxElement > JsxOpeningElement > FirstBinaryOperator
+FirstStatement > VariableDeclarationList > SyntaxList > VariableDeclaration > ArrowFunction > Block > SyntaxList > ReturnStatement > ParenthesizedExpression > JsxElement > JsxOpeningElement > Identifier
+FirstStatement > VariableDeclarationList > SyntaxList > VariableDeclaration > ArrowFunction > Block > SyntaxList > ReturnStatement > ParenthesizedExpression > JsxElement > JsxOpeningElement > JsxAttributes
+FirstStatement > VariableDeclarationList > SyntaxList > VariableDeclaration > ArrowFunction > Block > SyntaxList > ReturnStatement > ParenthesizedExpression > JsxElement > JsxOpeningElement > JsxAttributes > SyntaxList
+FirstStatement > VariableDeclarationList > SyntaxList > VariableDeclaration > ArrowFunction > Block > SyntaxList > ReturnStatement > ParenthesizedExpression > JsxElement > JsxOpeningElement > GreaterThanToken
+FirstStatement > VariableDeclarationList > SyntaxList > VariableDeclaration > ArrowFunction > Block > SyntaxList > ReturnStatement > ParenthesizedExpression > JsxElement > SyntaxList
+FirstStatement > VariableDeclarationList > SyntaxList > VariableDeclaration > ArrowFunction > Block > SyntaxList > ReturnStatement > ParenthesizedExpression > JsxElement > SyntaxList > JsxText
+FirstStatement > VariableDeclarationList > SyntaxList > VariableDeclaration > ArrowFunction > Block > SyntaxList > ReturnStatement > ParenthesizedExpression > JsxElement > SyntaxList > JsxElement
+FirstStatement > VariableDeclarationList > SyntaxList > VariableDeclaration > ArrowFunction > Block > SyntaxList > ReturnStatement > ParenthesizedExpression > JsxElement > SyntaxList > JsxElement > JsxOpeningElement
+FirstStatement > VariableDeclarationList > SyntaxList > VariableDeclaration > ArrowFunction > Block > SyntaxList > ReturnStatement > ParenthesizedExpression > JsxElement > SyntaxList > JsxElement > JsxOpeningElement > FirstBinaryOperator
+FirstStatement > VariableDeclarationList > SyntaxList > VariableDeclaration > ArrowFunction > Block > SyntaxList > ReturnStatement > ParenthesizedExpression > JsxElement > SyntaxList > JsxElement > JsxOpeningElement > Identifier
+FirstStatement > VariableDeclarationList > SyntaxList > VariableDeclaration > ArrowFunction > Block > SyntaxList > ReturnStatement > ParenthesizedExpression > JsxElement > SyntaxList > JsxElement > JsxOpeningElement > JsxAttributes
+FirstStatement > VariableDeclarationList > SyntaxList > VariableDeclaration > ArrowFunction > Block > SyntaxList > ReturnStatement > ParenthesizedExpression > JsxElement > SyntaxList > JsxElement > JsxOpeningElement > JsxAttributes > SyntaxList
+FirstStatement > VariableDeclarationList > SyntaxList > VariableDeclaration > ArrowFunction > Block > SyntaxList > ReturnStatement > ParenthesizedExpression > JsxElement > SyntaxList > JsxElement > JsxOpeningElement > GreaterThanToken
+FirstStatement > VariableDeclarationList > SyntaxList > VariableDeclaration > ArrowFunction > Block > SyntaxList > ReturnStatement > ParenthesizedExpression > JsxElement > SyntaxList > JsxElement > SyntaxList
+FirstStatement > VariableDeclarationList > SyntaxList > VariableDeclaration > ArrowFunction > Block > SyntaxList > ReturnStatement > ParenthesizedExpression > JsxElement > SyntaxList > JsxElement > SyntaxList > JsxExpression
+FirstStatement > VariableDeclarationList > SyntaxList > VariableDeclaration > ArrowFunction > Block > SyntaxList > ReturnStatement > ParenthesizedExpression > JsxElement > SyntaxList > JsxElement > SyntaxList > JsxExpression > FirstPunctuation
+FirstStatement > VariableDeclarationList > SyntaxList > VariableDeclaration > ArrowFunction > Block > SyntaxList > ReturnStatement > ParenthesizedExpression > JsxElement > SyntaxList > JsxElement > SyntaxList > JsxExpression > BinaryExpression
+FirstStatement > VariableDeclarationList > SyntaxList > VariableDeclaration > ArrowFunction > Block > SyntaxList > ReturnStatement > ParenthesizedExpression > JsxElement > SyntaxList > JsxElement > SyntaxList > JsxExpression > BinaryExpression > Identifier
+FirstStatement > VariableDeclarationList > SyntaxList > VariableDeclaration > ArrowFunction > Block > SyntaxList > ReturnStatement > ParenthesizedExpression > JsxElement > SyntaxList > JsxElement > SyntaxList > JsxExpression > BinaryExpression > BarBarToken
+FirstStatement > VariableDeclarationList > SyntaxList > VariableDeclaration > ArrowFunction > Block > SyntaxList > ReturnStatement > ParenthesizedExpression > JsxElement > SyntaxList > JsxElement > SyntaxList > JsxExpression > BinaryExpression > StringLiteral
+FirstStatement > VariableDeclarationList > SyntaxList > VariableDeclaration > ArrowFunction > Block > SyntaxList > ReturnStatement > ParenthesizedExpression > JsxElement > SyntaxList > JsxElement > SyntaxList > JsxExpression > CloseBraceToken
+FirstStatement > VariableDeclarationList > SyntaxList > VariableDeclaration > ArrowFunction > Block > SyntaxList > ReturnStatement > ParenthesizedExpression > JsxElement > SyntaxList > JsxElement > JsxClosingElement
+FirstStatement > VariableDeclarationList > SyntaxList > VariableDeclaration > ArrowFunction > Block > SyntaxList > ReturnStatement > ParenthesizedExpression > JsxElement > SyntaxList > JsxElement > JsxClosingElement > FirstBinaryOperator
+FirstStatement > VariableDeclarationList > SyntaxList > VariableDeclaration > ArrowFunction > Block > SyntaxList > ReturnStatement > ParenthesizedExpression > JsxElement > SyntaxList > JsxElement > JsxClosingElement > SlashToken
+FirstStatement > VariableDeclarationList > SyntaxList > VariableDeclaration > ArrowFunction > Block > SyntaxList > ReturnStatement > ParenthesizedExpression > JsxElement > SyntaxList > JsxElement > JsxClosingElement > Identifier
+FirstStatement > VariableDeclarationList > SyntaxList > VariableDeclaration > ArrowFunction > Block > SyntaxList > ReturnStatement > ParenthesizedExpression > JsxElement > SyntaxList > JsxElement > JsxClosingElement > GreaterThanToken
+FirstStatement > VariableDeclarationList > SyntaxList > VariableDeclaration > ArrowFunction > Block > SyntaxList > ReturnStatement > ParenthesizedExpression > JsxElement > SyntaxList > JsxText
+FirstStatement > VariableDeclarationList > SyntaxList > VariableDeclaration > ArrowFunction > Block > SyntaxList > ReturnStatement > ParenthesizedExpression > JsxElement > SyntaxList > JsxElement
+FirstStatement > VariableDeclarationList > SyntaxList > VariableDeclaration > ArrowFunction > Block > SyntaxList > ReturnStatement > ParenthesizedExpression > JsxElement > SyntaxList > JsxElement > JsxOpeningElement
+FirstStatement > VariableDeclarationList > SyntaxList > VariableDeclaration > ArrowFunction > Block > SyntaxList > ReturnStatement > ParenthesizedExpression > JsxElement > SyntaxList > JsxElement > JsxOpeningElement > FirstBinaryOperator
+FirstStatement > VariableDeclarationList > SyntaxList > VariableDeclaration > ArrowFunction > Block > SyntaxList > ReturnStatement > ParenthesizedExpression > JsxElement > SyntaxList > JsxElement > JsxOpeningElement > Identifier
+FirstStatement > VariableDeclarationList > SyntaxList > VariableDeclaration > ArrowFunction > Block > SyntaxList > ReturnStatement > ParenthesizedExpression > JsxElement > SyntaxList > JsxElement > JsxOpeningElement > JsxAttributes
+FirstStatement > VariableDeclarationList > SyntaxList > VariableDeclaration > ArrowFunction > Block > SyntaxList > ReturnStatement > ParenthesizedExpression > JsxElement > SyntaxList > JsxElement > JsxOpeningElement > JsxAttributes > SyntaxList
+FirstStatement > VariableDeclarationList > SyntaxList > VariableDeclaration > ArrowFunction > Block > SyntaxList > ReturnStatement > ParenthesizedExpression > JsxElement > SyntaxList > JsxElement > JsxOpeningElement > JsxAttributes > SyntaxList > JsxAttribute
+FirstStatement > VariableDeclarationList > SyntaxList > VariableDeclaration > ArrowFunction > Block > SyntaxList > ReturnStatement > ParenthesizedExpression > JsxElement > SyntaxList > JsxElement > JsxOpeningElement > JsxAttributes > SyntaxList > JsxAttribute > Identifier
+FirstStatement > VariableDeclarationList > SyntaxList > VariableDeclaration > ArrowFunction > Block > SyntaxList > ReturnStatement > ParenthesizedExpression > JsxElement > SyntaxList > JsxElement > JsxOpeningElement > JsxAttributes > SyntaxList > JsxAttribute > FirstAssignment
+FirstStatement > VariableDeclarationList > SyntaxList > VariableDeclaration > ArrowFunction > Block > SyntaxList > ReturnStatement > ParenthesizedExpression > JsxElement > SyntaxList > JsxElement > JsxOpeningElement > JsxAttributes > SyntaxList > JsxAttribute > StringLiteral
+FirstStatement > VariableDeclarationList > SyntaxList > VariableDeclaration > ArrowFunction > Block > SyntaxList > ReturnStatement > ParenthesizedExpression > JsxElement > SyntaxList > JsxElement > JsxOpeningElement > GreaterThanToken
+FirstStatement > VariableDeclarationList > SyntaxList > VariableDeclaration > ArrowFunction > Block > SyntaxList > ReturnStatement > ParenthesizedExpression > JsxElement > SyntaxList > JsxElement > SyntaxList
+FirstStatement > VariableDeclarationList > SyntaxList > VariableDeclaration > ArrowFunction > Block > SyntaxList > ReturnStatement > ParenthesizedExpression > JsxElement > SyntaxList > JsxElement > SyntaxList > JsxExpression
+FirstStatement > VariableDeclarationList > SyntaxList > VariableDeclaration > ArrowFunction > Block > SyntaxList > ReturnStatement > ParenthesizedExpression > JsxElement > SyntaxList > JsxElement > SyntaxList > JsxExpression > FirstPunctuation
+FirstStatement > VariableDeclarationList > SyntaxList > VariableDeclaration > ArrowFunction > Block > SyntaxList > ReturnStatement > ParenthesizedExpression > JsxElement > SyntaxList > JsxElement > SyntaxList > JsxExpression > Identifier
+FirstStatement > VariableDeclarationList > SyntaxList > VariableDeclaration > ArrowFunction > Block > SyntaxList > ReturnStatement > ParenthesizedExpression > JsxElement > SyntaxList > JsxElement > SyntaxList > JsxExpression > CloseBraceToken
+FirstStatement > VariableDeclarationList > SyntaxList > VariableDeclaration > ArrowFunction > Block > SyntaxList > ReturnStatement > ParenthesizedExpression > JsxElement > SyntaxList > JsxElement > JsxClosingElement
+FirstStatement > VariableDeclarationList > SyntaxList > VariableDeclaration > ArrowFunction > Block > SyntaxList > ReturnStatement > ParenthesizedExpression > JsxElement > SyntaxList > JsxElement > JsxClosingElement > FirstBinaryOperator
+FirstStatement > VariableDeclarationList > SyntaxList > VariableDeclaration > ArrowFunction > Block > SyntaxList > ReturnStatement > ParenthesizedExpression > JsxElement > SyntaxList > JsxElement > JsxClosingElement > SlashToken
+FirstStatement > VariableDeclarationList > SyntaxList > VariableDeclaration > ArrowFunction > Block > SyntaxList > ReturnStatement > ParenthesizedExpression > JsxElement > SyntaxList > JsxElement > JsxClosingElement > Identifier
+FirstStatement > VariableDeclarationList > SyntaxList > VariableDeclaration > ArrowFunction > Block > SyntaxList > ReturnStatement > ParenthesizedExpression > JsxElement > SyntaxList > JsxElement > JsxClosingElement > GreaterThanToken
+FirstStatement > VariableDeclarationList > SyntaxList > VariableDeclaration > ArrowFunction > Block > SyntaxList > ReturnStatement > ParenthesizedExpression > JsxElement > SyntaxList > JsxText
+FirstStatement > VariableDeclarationList > SyntaxList > VariableDeclaration > ArrowFunction > Block > SyntaxList > ReturnStatement > ParenthesizedExpression > JsxElement > SyntaxList > JsxElement
+FirstStatement > VariableDeclarationList > SyntaxList > VariableDeclaration > ArrowFunction > Block > SyntaxList > ReturnStatement > ParenthesizedExpression > JsxElement > SyntaxList > JsxElement > JsxOpeningElement
+FirstStatement > VariableDeclarationList > SyntaxList > VariableDeclaration > ArrowFunction > Block > SyntaxList > ReturnStatement > ParenthesizedExpression > JsxElement > SyntaxList > JsxElement > JsxOpeningElement > FirstBinaryOperator
+FirstStatement > VariableDeclarationList > SyntaxList > VariableDeclaration > ArrowFunction > Block > SyntaxList > ReturnStatement > ParenthesizedExpression > JsxElement > SyntaxList > JsxElement > JsxOpeningElement > Identifier
+FirstStatement > VariableDeclarationList > SyntaxList > VariableDeclaration > ArrowFunction > Block > SyntaxList > ReturnStatement > ParenthesizedExpression > JsxElement > SyntaxList > JsxElement > JsxOpeningElement > JsxAttributes
+FirstStatement > VariableDeclarationList > SyntaxList > VariableDeclaration > ArrowFunction > Block > SyntaxList > ReturnStatement > ParenthesizedExpression > JsxElement > SyntaxList > JsxElement > JsxOpeningElement > JsxAttributes > SyntaxList
+FirstStatement > VariableDeclarationList > SyntaxList > VariableDeclaration > ArrowFunction > Block > SyntaxList > ReturnStatement > ParenthesizedExpression > JsxElement > SyntaxList > JsxElement > JsxOpeningElement > JsxAttributes > SyntaxList > JsxAttribute
+FirstStatement > VariableDeclarationList > SyntaxList > VariableDeclaration > ArrowFunction > Block > SyntaxList > ReturnStatement > ParenthesizedExpression > JsxElement > SyntaxList > JsxElement > JsxOpeningElement > JsxAttributes > SyntaxList > JsxAttribute > Identifier
+FirstStatement > VariableDeclarationList > SyntaxList > VariableDeclaration > ArrowFunction > Block > SyntaxList > ReturnStatement > ParenthesizedExpression > JsxElement > SyntaxList > JsxElement > JsxOpeningElement > JsxAttributes > SyntaxList > JsxAttribute > FirstAssignment
+FirstStatement > VariableDeclarationList > SyntaxList > VariableDeclaration > ArrowFunction > Block > SyntaxList > ReturnStatement > ParenthesizedExpression > JsxElement > SyntaxList > JsxElement > JsxOpeningElement > JsxAttributes > SyntaxList > JsxAttribute > JsxExpression
+FirstStatement > VariableDeclarationList > SyntaxList > VariableDeclaration > ArrowFunction > Block > SyntaxList > ReturnStatement > ParenthesizedExpression > JsxElement > SyntaxList > JsxElement > JsxOpeningElement > JsxAttributes > SyntaxList > JsxAttribute > JsxExpression > FirstPunctuation
+FirstStatement > VariableDeclarationList > SyntaxList > VariableDeclaration > ArrowFunction > Block > SyntaxList > ReturnStatement > ParenthesizedExpression > JsxElement > SyntaxList > JsxElement > JsxOpeningElement > JsxAttributes > SyntaxList > JsxAttribute > JsxExpression > Identifier
+FirstStatement > VariableDeclarationList > SyntaxList > VariableDeclaration > ArrowFunction > Block > SyntaxList > ReturnStatement > ParenthesizedExpression > JsxElement > SyntaxList > JsxElement > JsxOpeningElement > JsxAttributes > SyntaxList > JsxAttribute > JsxExpression > CloseBraceToken
+FirstStatement > VariableDeclarationList > SyntaxList > VariableDeclaration > ArrowFunction > Block > SyntaxList > ReturnStatement > ParenthesizedExpression > JsxElement > SyntaxList > JsxElement > JsxOpeningElement > GreaterThanToken
+FirstStatement > VariableDeclarationList > SyntaxList > VariableDeclaration > ArrowFunction > Block > SyntaxList > ReturnStatement > ParenthesizedExpression > JsxElement > SyntaxList > JsxElement > SyntaxList
+FirstStatement > VariableDeclarationList > SyntaxList > VariableDeclaration > ArrowFunction > Block > SyntaxList > ReturnStatement > ParenthesizedExpression > JsxElement > SyntaxList > JsxElement > SyntaxList > JsxText
+FirstStatement > VariableDeclarationList > SyntaxList > VariableDeclaration > ArrowFunction > Block > SyntaxList > ReturnStatement > ParenthesizedExpression > JsxElement > SyntaxList > JsxElement > JsxClosingElement
+FirstStatement > VariableDeclarationList > SyntaxList > VariableDeclaration > ArrowFunction > Block > SyntaxList > ReturnStatement > ParenthesizedExpression > JsxElement > SyntaxList > JsxElement > JsxClosingElement > FirstBinaryOperator
+FirstStatement > VariableDeclarationList > SyntaxList > VariableDeclaration > ArrowFunction > Block > SyntaxList > ReturnStatement > ParenthesizedExpression > JsxElement > SyntaxList > JsxElement > JsxClosingElement > SlashToken
+FirstStatement > VariableDeclarationList > SyntaxList > VariableDeclaration > ArrowFunction > Block > SyntaxList > ReturnStatement > ParenthesizedExpression > JsxElement > SyntaxList > JsxElement > JsxClosingElement > Identifier
+FirstStatement > VariableDeclarationList > SyntaxList > VariableDeclaration > ArrowFunction > Block > SyntaxList > ReturnStatement > ParenthesizedExpression > JsxElement > SyntaxList > JsxElement > JsxClosingElement > GreaterThanToken
+FirstStatement > VariableDeclarationList > SyntaxList > VariableDeclaration > ArrowFunction > Block > SyntaxList > ReturnStatement > ParenthesizedExpression > JsxElement > SyntaxList > JsxText
+FirstStatement > VariableDeclarationList > SyntaxList > VariableDeclaration > ArrowFunction > Block > SyntaxList > ReturnStatement > ParenthesizedExpression > JsxElement > JsxClosingElement
+FirstStatement > VariableDeclarationList > SyntaxList > VariableDeclaration > ArrowFunction > Block > SyntaxList > ReturnStatement > ParenthesizedExpression > JsxElement > JsxClosingElement > FirstBinaryOperator
+FirstStatement > VariableDeclarationList > SyntaxList > VariableDeclaration > ArrowFunction > Block > SyntaxList > ReturnStatement > ParenthesizedExpression > JsxElement > JsxClosingElement > SlashToken
+FirstStatement > VariableDeclarationList > SyntaxList > VariableDeclaration > ArrowFunction > Block > SyntaxList > ReturnStatement > ParenthesizedExpression > JsxElement > JsxClosingElement > Identifier
+FirstStatement > VariableDeclarationList > SyntaxList > VariableDeclaration > ArrowFunction > Block > SyntaxList > ReturnStatement > ParenthesizedExpression > JsxElement > JsxClosingElement > GreaterThanToken
+FirstStatement > VariableDeclarationList > SyntaxList > VariableDeclaration > ArrowFunction > Block > SyntaxList > ReturnStatement > ParenthesizedExpression > CloseParenToken
+FirstStatement > VariableDeclarationList > SyntaxList > VariableDeclaration > ArrowFunction > Block > SyntaxList > ReturnStatement > SemicolonToken
+FirstStatement > VariableDeclarationList > SyntaxList > VariableDeclaration > ArrowFunction > Block > CloseBraceToken
+FunctionDeclaration
+FunctionDeclaration > FunctionKeyword
+FunctionDeclaration > Identifier
+FunctionDeclaration > OpenParenToken
+FunctionDeclaration > SyntaxList
+FunctionDeclaration > SyntaxList > Parameter
+FunctionDeclaration > SyntaxList > Parameter > Identifier
+FunctionDeclaration > SyntaxList > Parameter > QuestionToken
+FunctionDeclaration > CloseParenToken
+FunctionDeclaration > Block
+FunctionDeclaration > Block > FirstPunctuation
+FunctionDeclaration > Block > SyntaxList
+FunctionDeclaration > Block > SyntaxList > ReturnStatement
+FunctionDeclaration > Block > SyntaxList > ReturnStatement > ReturnKeyword
+FunctionDeclaration > Block > SyntaxList > ReturnStatement > StringLiteral
+FunctionDeclaration > Block > SyntaxList > ReturnStatement > SemicolonToken
+FunctionDeclaration > Block > CloseBraceToken
+ExportDeclaration
+ExportDeclaration > ExportKeyword
+ExportDeclaration > NamedExports
+ExportDeclaration > NamedExports > FirstPunctuation
+ExportDeclaration > NamedExports > SyntaxList
+ExportDeclaration > NamedExports > SyntaxList > ExportSpecifier
+ExportDeclaration > NamedExports > SyntaxList > ExportSpecifier > Identifier
+ExportDeclaration > NamedExports > CloseBraceToken
+ExportDeclaration > FromKeyword
+ExportDeclaration > StringLiteral
+ExportDeclaration > SemicolonToken
+ExportAssignment
+ExportAssignment > ExportKeyword
+ExportAssignment > DefaultKeyword
+ExportAssignment > Identifier
+ExportAssignment > SemicolonToken
+EndOfFileToken

@@ -1,0 +1,1 @@
+export { SeeamessConfig } from '../../ui/src/types';

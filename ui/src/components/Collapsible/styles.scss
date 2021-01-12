@@ -1,0 +1,39 @@
+
+  // The main container element
+  .Collapsible {
+    // background-color: ;
+    margin: 10px 0;
+  }
+  
+  
+  //The content within the collaspable area
+  .Collapsible__contentInner {
+    display: inline-block;
+    padding: 10px;
+    border: 1px solid lightgray;
+    // border-top: 0;
+    background-color: #f1f1f1;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    border-top-right-radius: 5px;
+
+  }
+  
+  //The link which when clicked opens the collapsable area
+  .Collapsible__trigger {
+    display: inline-block;
+    font-weight: 400;
+    font-size: 14px;
+    text-decoration: none;
+    position: relative;
+    border: 1px solid lightgray;
+    padding: 10px;
+    background: lightgray;
+    color: black;
+    cursor: pointer;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    &:hover {
+      background-color: #c2c2c2;
+    }
+  }
