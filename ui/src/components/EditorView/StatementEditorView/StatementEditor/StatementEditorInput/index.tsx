@@ -1,13 +1,13 @@
-import { ASTNode } from "jscodeshift";
 import React, { ChangeEvent, FC, KeyboardEvent, SyntheticEvent, useState } from "react";
+import ts from "typescript";
+// import ts from "typescript";
 import { useEditor } from "../../../../../context";
-import { NodeType } from "../../../../../types/jscodeshift";
 import { useCursorCorrector } from "./useCursorCorrector";
 
 interface StatementEditorInputProps {
     placeholder?: string;
     value: string;
-    node: ASTNode;
+    node: ts.Node;
 }
 
 interface InputSelection {
@@ -16,17 +16,17 @@ interface InputSelection {
     size: number;
 }
 
-const extraCursorOffsets: { [key in NodeType]?: number } = {
-    'Identifier': 1,
-    'StringLiteral': 2
-};
+// const extraCursorOffsets: { [key in keyof typeof ts.SyntaxKind]?: number } = {
+//     'AbstractKeyword': 1,
+//     'StringLiteral': 2
+// };
 
 
 
 export const StatementEditorInput: FC<StatementEditorInputProps> = ({ placeholder, value, node }) => {
     const [trackedValue, setTrackedValue] = useState(value);
-    const [cursorPosition, setCursorPosition] = useState(0);
-    const [cursorSelection, setCursorSelection] = useState<InputSelection>();
+    const [cursorPosition/*,setCursorPosition*/] = useState(0);
+    const [cursorSelection/*,setCursorSelection*/] = useState<InputSelection>();
     const correctCursor = useCursorCorrector();
     const { monaco } = useEditor();
 
@@ -55,28 +55,28 @@ export const StatementEditorInput: FC<StatementEditorInputProps> = ({ placeholde
     }
 
     const handleSelect = (event: SyntheticEvent<HTMLInputElement>) => {
-        const { selectionStart, selectionEnd } = event.currentTarget;
-        if (!node.loc || selectionStart === null || selectionEnd === null)
-            return;
-        const selectionSize = selectionEnd - selectionStart;
-        const lineNumber = node.loc.start.line;
-        let column = node.loc.start.column;
-        if (node.type in extraCursorOffsets)
-            column += extraCursorOffsets[node.type as any];
-        if (selectionStart !== selectionEnd) {
-            const startPos = { lineNumber, column: column + selectionStart, size: selectionSize };
-            const endPos = { lineNumber, column: column + selectionStart + selectionSize };
-            monaco.editorInstance.setPosition({ column: column + selectionEnd, lineNumber });
-            monaco.editorInstance.setSelection(monaco.core.Selection.fromPositions(startPos, endPos));
-            setCursorSelection({ start: selectionStart, end: selectionEnd, size: selectionSize });
-            setCursorPosition(selectionEnd);
-        }
-        else {
-            const pos = selectionEnd;
-            monaco.editorInstance.setPosition({ column: column + pos, lineNumber });
-            setCursorSelection(undefined);
-            setCursorPosition(pos);
-        }
+        // const { selectionStart, selectionEnd } = event.currentTarget;
+        // if (!node.loc || selectionStart === null || selectionEnd === null)
+        //     return;
+        // const selectionSize = selectionEnd - selectionStart;
+        // const lineNumber = node.loc.start.line;
+        // let column = node.loc.start.column;
+        // // if (node.type in extraCursorOffsets)
+        // //     column += extraCursorOffsets[node.kind as any];
+        // if (selectionStart !== selectionEnd) {
+        //     const startPos = { lineNumber, column: column + selectionStart, size: selectionSize };
+        //     const endPos = { lineNumber, column: column + selectionStart + selectionSize };
+        //     monaco.editorInstance.setPosition({ column: column + selectionEnd, lineNumber });
+        //     monaco.editorInstance.setSelection(monaco.core.Selection.fromPositions(startPos, endPos));
+        //     setCursorSelection({ start: selectionStart, end: selectionEnd, size: selectionSize });
+        //     setCursorPosition(selectionEnd);
+        // }
+        // else {
+        //     const pos = selectionEnd;
+        //     monaco.editorInstance.setPosition({ column: column + pos, lineNumber });
+        //     setCursorSelection(undefined);
+        //     setCursorPosition(pos);
+        // }
     }
 
     const deleteLeft = () => {

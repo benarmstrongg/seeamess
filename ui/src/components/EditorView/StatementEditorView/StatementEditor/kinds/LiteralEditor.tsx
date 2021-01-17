@@ -1,16 +1,16 @@
 import React from 'react';
-import { Literal, NumericLiteral, StringLiteral } from "jscodeshift";
 import { IStatementEditor } from "../../../../../types/StatementEditorProps";
+import { LiteralLikeNode } from '../../../../EditorContainer/ts-ast-wrapper/kinds/LiteralLikeNode';
 import { StatementEditorInput } from '../StatementEditorInput';
 
 
-export const LiteralEditor: IStatementEditor<Literal | StringLiteral | NumericLiteral> = (props) => {
+export const LiteralEditor: IStatementEditor<LiteralLikeNode> = (props) => {
     const { node, fieldName = '' } = props;
-    const { value } = node;
+    const { text } = node;
     return (
         <span className="LiteralEditor">
             {fieldName}
-            <StatementEditorInput {...props} placeholder={fieldName} node={node} value={value?.toString() || ''} />
+            <StatementEditorInput {...props} placeholder={fieldName} node={node} value={text} />
         </span>
     )
 }

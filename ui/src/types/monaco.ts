@@ -1,6 +1,6 @@
 // don't export from index.ts
-import { Collection } from 'jscodeshift';
 import * as MonacoEditor from 'monaco-editor';
+import { ASTNode } from '../components/EditorContainer/ts-ast-wrapper/ASTNode';
 
 export type EditorInstance = MonacoEditor.editor.IStandaloneCodeEditor;
 
@@ -12,4 +12,4 @@ export type TSWorker = MonacoEditor.languages.typescript.TypeScriptWorker;
 
 export type Uri = MonacoEditor.Uri;
 
-export type MonacoEditorOnChange = (ast: Collection | null, editorInstance: EditorInstance, tsWorker: TSWorker) => any;
+export type MonacoEditorOnChange = (ast: ASTNode | null, editorInstance: EditorInstance, tsWorker: TSWorker) => any;

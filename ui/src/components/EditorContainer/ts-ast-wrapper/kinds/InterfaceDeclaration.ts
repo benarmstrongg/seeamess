@@ -1,0 +1,28 @@
+import ts from "typescript";
+import { ASTNode } from "../ASTNode";
+import { Identifier } from "./Identifier";
+import { TypeElement } from "./TypeElement";
+
+export class InterfaceDeclaration extends ASTNode implements ts.InterfaceDeclaration {
+    _declarationBrand;
+    _statementBrand;
+    name: ts.InterfaceDeclaration['name'];
+    members: ts.InterfaceDeclaration['members'];
+    kind: ts.InterfaceDeclaration['kind'];
+
+    constructor(node: ts.InterfaceDeclaration) {
+        super(node);
+        this.name = node.name;
+        this.members = node.members;
+        this.kind = node.kind;
+    }
+
+    getName(): string {
+        return ASTNode.fromNode(this.name, Identifier).text;
+    }
+
+    getTypeElements(): TypeElement[] {
+        return this.members.map(m => ASTNode.fromNode(m, TypeElement));
+    }
+
+}

@@ -1,24 +1,24 @@
-import { JSXElement } from "jscodeshift";
 import React from "react";
-import { getStatementEditorKey, StatementEditor } from "..";
+import { StatementEditor } from "..";
 import { IStatementEditor } from "../../../../../types/StatementEditorProps";
 import { Collapsible } from "../../../../Collapsible";
+import { JsxElement } from "../../../../EditorContainer/ts-ast-wrapper/kinds/JsxElement";
 import { StatementEditorTitle } from "../StatementEditorTitle";
 
-export const JSXElementEditor: IStatementEditor<JSXElement> = ({ node }) => {
-    const { openingElement, children } = node;
-    const removeEmptyJSXTextChildren = () => {
-        return children.filter(child => child.type === 'JSXText' ? (child.value.trim() !== '') : true);
-    }
-    const collapsibleHeader = openingElement.name.type === 'JSXIdentifier' ? openingElement.name.name : 'JSX Element';
+export const JsxElementEditor: IStatementEditor<JsxElement> = ({ node }) => {
+    const openingElement = node.getOpeningElement();
+    const collapsibleHeader = `<${openingElement.getTagName()}>` || 'JSX Element';
     return (
         <div className="JSXElementEditor">
             <Collapsible trigger={collapsibleHeader}>
+                <div>
+                    <StatementEditorTitle text="JSX Element" />
+                </div>
                 <StatementEditor node={openingElement} />
                 <div>
                     <StatementEditorTitle text="Children" />
-                    {!!children && removeEmptyJSXTextChildren().map((child, i) => (
-                        <StatementEditor key={getStatementEditorKey(child, i)} node={child} />
+                    {node.getChildElements().map(c => (
+                        <StatementEditor key={c.key} node={c} />
                     ))}
                 </div>
             </Collapsible>

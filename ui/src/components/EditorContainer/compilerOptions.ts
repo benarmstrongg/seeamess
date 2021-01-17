@@ -14,6 +14,6 @@ export const tsCompilerOptions: TSCompilerOptions = {
     jsxFactory: 'React.createElement',
     //@ts-ignore
     jsxFragmentFactory: 'React.Fragment',
-    allowSyntheticDefaultImports: true,
+    allowSyntheticDefaultImports: true
     // baseUrl: projectDir
 }

@@ -1,22 +1,32 @@
-import { CallExpression } from "jscodeshift";
 import React from "react";
-import { getStatementEditorKey, StatementEditor } from "..";
+import { StatementEditor } from "..";
 import { IStatementEditor } from "../../../../../types/StatementEditorProps";
 import { Collapsible } from "../../../../Collapsible";
+import { CallExpression } from "../../../../EditorContainer/ts-ast-wrapper/kinds/CallExpression";
+import { StatementEditorTitle } from "../StatementEditorTitle";
 
 export const CallExpressionEditor: IStatementEditor<CallExpression> = ({ node }) => {
-    const { callee, arguments: args } = node;
+    const name = node.getName();
+    const args = node.getArguments();
+    const collapsibleHeader = name ? `${name}()` : 'Call Expression';
     return (
         <div className="CallExpressionEditor">
-            <Collapsible trigger="Call Expression">
-                callee
-                <StatementEditor node={callee} showTypeField={false} fieldName="" />
+            <Collapsible trigger={collapsibleHeader}>
                 <div>
-                    arguments
-                {args.map((arg, i) => (
-                    <StatementEditor key={getStatementEditorKey(arg, i)} node={arg} showTypeField={false} fieldName="" />
-                ))}
+                    <StatementEditorTitle text="Call Expression" />
                 </div>
+                <div>
+                    <StatementEditorTitle text="Name" />
+                    <StatementEditor node={node.expression} />
+                </div>
+                {args.length > 0 && (
+                    <div>
+                        <StatementEditorTitle text="Arguments" />
+                        {args.map(a => (
+                            <StatementEditor key={a.key} node={a} />
+                        ))}
+                    </div>
+                )}
             </Collapsible>
         </div>
     );

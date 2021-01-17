@@ -1,21 +1,23 @@
-import { JSXOpeningElement } from "jscodeshift";
 import React from "react";
-import { getStatementEditorKey, StatementEditor } from "..";
+import { StatementEditor } from "..";
 import { IStatementEditor } from "../../../../../types/StatementEditorProps";
+import { JsxOpeningElement } from "../../../../EditorContainer/ts-ast-wrapper/kinds/JsxOpeningElement";
 import { StatementEditorTitle } from "../StatementEditorTitle";
 
-export const JSXOpeningElementEditor: IStatementEditor<JSXOpeningElement> = ({ node }) => {
-    const { name, attributes } = node;
+export const JsxOpeningElementEditor: IStatementEditor<JsxOpeningElement> = ({ node }) => {
+    const attributes = node.getAttributes();
     return (
         <div className="JSXOpeningElementEditor">
-            <StatementEditorTitle text="Element" />
-            <StatementEditor node={name} />
-            <div>
-                <StatementEditorTitle text="Attributes" />
-                {!!attributes && attributes.map((attr, i) => (
-                    <StatementEditor key={getStatementEditorKey(attr, i)} node={attr} />
-                ))}
-            </div>
+            <StatementEditorTitle text="Tag Name" />
+            <StatementEditor node={node.tagName} />
+            {attributes.length > 0 && (
+                <div>
+                    <StatementEditorTitle text="Attributes" />
+                    {attributes.map(a => (
+                        <StatementEditor key={a.key} node={a} />
+                    ))}
+                </div>
+            )}
         </div>
     );
 }

@@ -2,12 +2,12 @@ import React, { FC, ReactElement, useCallback, useEffect, useMemo, useState } fr
 import { EditorContext } from "../../context/EditorContext";
 import { IEditorView } from "../../types/EditorView";
 import { MonacoEditorOnChange } from "../../types/monaco";
-import { CodeEditorView } from "../Editor/CodeEditorView";
-import { StatementEditorView } from "../Editor/StatementEditorView";
+import { CodeEditorView } from "../EditorView/CodeEditorView";
+import { StatementEditorView } from "../EditorView/StatementEditorView";
 import { MonacoHelper } from "./monacoHelper";
 import { EditorToolbar } from "./EditorToolbar";
 import { useSeeamess } from "../../context";
-import { ASTCollection } from "../../types/jscodeshift";
+import { ASTNode } from "./ts-ast-wrapper/ASTNode";
 
 interface EditorContainerProps {
     initialValue: string;
@@ -16,7 +16,7 @@ interface EditorContainerProps {
 
 export const EditorContainer: FC<EditorContainerProps> = ({ initialValue, filePath }) => {
     const [activeEditor, setActiveEditor] = useState(0);
-    const [astSnapshot, setAstSnapshot] = useState<ASTCollection>();
+    const [astSnapshot, setAstSnapshot] = useState<ASTNode>();
     const { state } = useSeeamess();
     const monacoHelper = useMemo(
         () => new MonacoHelper(state.config.projectDir, state.files, filePath),

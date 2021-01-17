@@ -1,21 +1,21 @@
-import { BinaryExpression } from "jscodeshift";
 import React from "react";
 import { StatementEditor } from "..";
 import { IStatementEditor } from "../../../../../types/StatementEditorProps";
 import { Collapsible } from "../../../../Collapsible";
+import { BinaryExpression } from "../../../../EditorContainer/ts-ast-wrapper/kinds/BinaryExpression";
 
 export const BinaryExpressionEditor: IStatementEditor<BinaryExpression> = ({ node }) => {
-    const validOperators: typeof node.operator[] = [
+    const validOperators = [
         '!=', '!==', '%', '&', '*', '**',
         '+', '-', '..', '/', '<', '<<', '<=',
         '==', '===', '>', '>=', '>>', '>>>', '^',
-        'in', 'instanceof', '|'
+        'in', 'instanceof', '|', '||', '??', '&&'
     ];
     return (
         <div className="BinaryExpressionEditor">
             <Collapsible trigger="Binary Expression">
                 <StatementEditor node={node.left} />
-                <select defaultValue={node.operator}>
+                <select defaultValue={node.getOperatorText()}>
                     {validOperators.map(op => (
                         <option key={op} value={op}>{op}</option>
                     ))}
