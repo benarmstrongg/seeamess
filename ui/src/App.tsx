@@ -1,6 +1,6 @@
 import React, { FC } from 'react';
 import { SeeamessContextProvider } from './context/SeeamesContextProvider';
-import { AppContainer } from './components/AppContainer';
+import { AppContainer } from './components/layout/AppContainer';
 
 const App: FC = () => (
     <div className="App">

@@ -1,6 +1,6 @@
 // don't export from index.ts
 import * as MonacoEditor from 'monaco-editor';
-import { ASTNode } from '../components/EditorContainer/ts-ast-wrapper/ASTNode';
+import { ASTNode } from '../code/ts-ast-wrapper/ASTNode';
 
 export type EditorInstance = MonacoEditor.editor.IStandaloneCodeEditor;
 

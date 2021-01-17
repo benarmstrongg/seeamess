@@ -1,6 +1,6 @@
 import { FC, ReactElement } from "react";
-import { MonacoHelper } from "../components/EditorContainer/monacoHelper";
-import { ASTNode } from "../components/EditorContainer/ts-ast-wrapper/ASTNode";
+import { MonacoHelper } from "../code/monaco-helper";
+import { ASTNode } from "../code/ts-ast-wrapper/ASTNode";
 import { EditorInstance } from "./monaco";
 
 export interface EditorViewProps {

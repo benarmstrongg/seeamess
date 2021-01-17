@@ -1,5 +1,5 @@
 import { Socket } from "socket.io-client";
-import { JsFileInfo, TabState, SeeamessConfig } from ".";
+import { TabState, SeeamessConfig } from ".";
 
 export type AppDispatch =
     {
@@ -28,5 +28,5 @@ export type AppDispatch =
     } |
     {
         event: 'saveFile',
-        data: JsFileInfo
+        data: 'JsFileInfo'
     }
