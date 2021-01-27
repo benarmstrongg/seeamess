@@ -15,7 +15,7 @@
       padding: 10px;
       border: 1px solid lightgray;
       // border-top: 0;
-      background-color: #f1f1f1;
+      background-color: white;
       border-bottom-left-radius: 5px;
       border-bottom-right-radius: 5px;
       border-top-color: transparent;
@@ -38,11 +38,11 @@
     border: 1px solid lightgray;
     border-radius: 5px;
     padding: 10px;
-    background: lightgray;
+    background: #f1f1f1;
     color: black;
     cursor: pointer;
     &:hover {
-      background-color: #c2c2c2;
+      background-color: lightgray;
     }
 
     &.is-open {

@@ -21,7 +21,7 @@ export class PropertyAccessExpression extends ASTNode implements ts.PropertyAcce
     }
 
     getExpressionText(): string {
-        const name = ASTNode.fromNode(this.name, Identifier).text;
+        const name = ASTNode.fromNode(this.name as ts.Identifier, Identifier).text;
         if (ts.isPropertyAccessExpression(this.expression)) {
             return `${ASTNode.fromNode(this.expression, PropertyAccessExpression).getExpressionText()}.${name}`
         }

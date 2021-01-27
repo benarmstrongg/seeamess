@@ -84,7 +84,6 @@ export const ASTNodeInput: FC<StatementEditorInputProps> = ({ placeholder, value
         const newValue = cursorSelection ?
             value.substring(0, cursorSelection.start).concat(value.substring(cursorSelection.end + 1)) :
             value.substring(0, cursorPosition - 1).concat(value.substring(cursorPosition));
-        console.log(cursorSelection);
         setTrackedValue(newValue);
     }
 
@@ -105,12 +104,3 @@ export const ASTNodeInput: FC<StatementEditorInputProps> = ({ placeholder, value
         />
     )
 }
-
-
-        // const cursorPos = monaco.editorInstance.getPosition()!;
-        // const posOffset = monaco.editorInstance.getModel()?.getOffsetAt(cursorPos) || 0;
-        // monaco.tsWorker.getCompletionsAtPosition(filePath, posOffset).then(console.log);
-        // monaco.tsWorker.getDefinitionAtPosition(filePath, posOffset).then(console.log);
-        // monaco.tsWorker.getQuickInfoAtPosition(filePath, posOffset).then(console.log);
-        // monaco.editorInstance.getModel()?.setValue(initialValue)
-        // monaco.tsWorker.findRenameLocations(filePath, posOffset, false, false, false).then(console.log);

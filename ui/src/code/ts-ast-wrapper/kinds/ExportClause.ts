@@ -24,13 +24,13 @@ export class ExportClause extends ASTNode implements Partial<NamedExports>, Part
 
     getNamedExports(): NamedExports | undefined {
         if (!!this.elements) {
-            return ASTNode.fromNode(this, NamedExports);
+            return ASTNode.fromNode(this as ts.NamedExports, NamedExports);
         }
     }
 
     getNamespaceExport(): NamespaceExport | undefined {
         if (!!this.name) {
-            return ASTNode.fromNode(this, NamespaceExport);
+            return ASTNode.fromNode(this as ts.NamespaceExport, NamespaceExport);
         }
     }
 

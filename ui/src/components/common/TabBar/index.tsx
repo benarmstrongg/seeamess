@@ -1,37 +1,41 @@
 import React, { FC, MouseEvent } from "react";
 import { FaTimes } from "react-icons/fa";
-import { TabState, SeeamessConfig, TabAction } from "../../../types";
+import { ContentObject } from "../../../types/ContentObject";
 import './styles.scss';
 
 interface TabBarProps {
-    tabs: TabState[],
-    activeTab: number,
-    config: SeeamessConfig;
-    closeTab: TabAction;
-    changeTab: TabAction;
+    tabs: ContentObject[];
+    activeTab: number;
+    projectDir: string;
+    closeTab: (tabIndex: number) => void;
+    changeTab: (tabIndex: number) => void;
 };
 
-export const TabBar: FC<TabBarProps> = ({ tabs, activeTab, config, closeTab, changeTab }) => {
-    const handleTabClick = (e: MouseEvent, tab: TabState) => {
+export const TabBar: FC<TabBarProps> = ({ tabs, activeTab, projectDir, closeTab, changeTab }) => {
+
+    const handleTabClick = (e: MouseEvent, tabIndex: number) => {
         const clickedElement = e.target as HTMLElement;
-        if (clickedElement.classList.contains('close'))
-            return closeTab(tab);
-        changeTab(tab);
+        if (clickedElement.classList.contains('close')) {
+            return closeTab(tabIndex);
+        }
+        changeTab(tabIndex);
     }
 
     return (
         <div className="TabBar">
             {tabs.map((tab, index) => {
-                const path = getRelativeFilePath(config.projectDir, tab.filePath);
+                const path = getRelativeFilePath(projectDir, tab.objectName);
                 return (
                     <div
                         key={path}
                         className={activeTab === index ? 'Tab active' : 'Tab'}
-                        onClick={(e) => handleTabClick(e, tab)}
+                        onClick={(e) => handleTabClick(e, index)}
                     >
                         <span>{path}</span>
                         <>&nbsp;</>
-                        <FaTimes className="close" />
+                        <div>
+                            <FaTimes className="close" />
+                        </div>
                     </div>
                 );
             })}

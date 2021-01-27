@@ -1,5 +1,7 @@
 import ts from "typescript";
 import { ASTNode } from "../ASTNode";
+import { ArrayBindingPattern } from "./ArrayBindingPattern";
+import { ObjectBindingPattern } from "./ObjectBindingPattern";
 
 export class BindingName extends ASTNode {
     constructor(node: ts.BindingName) {
@@ -7,23 +9,28 @@ export class BindingName extends ASTNode {
         this.kind = node.kind;
     }
 
-    getNames(): string {
+    getNames(): string[] {
         if (ts.isIdentifier(this)) {
-            return this.escapedText.toString();
+            return [this.text || this.escapedText.toString()];
         }
         if (ts.isObjectBindingPattern(this)) {
-            return `{ ${this.elements.map(e => ASTNode.fromNode(e.name, BindingName).getNames()).join(', ')} }`;
+            return ASTNode.fromNode(this, ObjectBindingPattern).getNames();
         }
         if (ts.isArrayBindingPattern(this)) {
-            return `[ ${this.elements.map(e => {
-                if (ts.isBindingElement(e)) {
-                    return ASTNode.fromNode(e.name, BindingName).getNames();
-                }
-                if (ts.isOmittedExpression(e)) {
-                    return e.getText();
-                }
-                return '';
-            }).join(', ')} ]`;
+            return ASTNode.fromNode(this, ArrayBindingPattern).getNames();
+        }
+        return [];
+    }
+
+    getNamesString(): string {
+        if (ts.isIdentifier(this)) {
+            return this.text || this.escapedText.toString();
+        }
+        if (ts.isObjectBindingPattern(this)) {
+            return `{ ${ASTNode.fromNode(this, ObjectBindingPattern).getNamesString()} }`;
+        }
+        if (ts.isArrayBindingPattern(this)) {
+            return `[${ASTNode.fromNode(this, ArrayBindingPattern).getNamesString()}]`;
         }
         return '';
     }

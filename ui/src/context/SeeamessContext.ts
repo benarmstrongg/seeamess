@@ -1,9 +1,8 @@
-import { createContext, useContext, Dispatch } from "react";
-import { AppState, AppDispatch } from "../types";
+import { createContext, useContext } from "react";
+import { SeeamessState } from "../types";
 
 
-export const SeeamessContext = createContext<{ state: AppState, dispatch: Dispatch<AppDispatch> }>
-    ({ state: {} as any, dispatch: () => null });
+export const SeeamessContext = createContext<SeeamessState>({} as any);
 
 
 export const useSeeamess = () => {

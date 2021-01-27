@@ -1,19 +1,18 @@
 import React, { FC } from "react";
-import { TabState } from "../../../types";
-import { EditorContainer } from "../../views/workspace/StandardEditorView/EditorContainer";
+import { ContentObject } from "../../../types/ContentObject";
+import { EditorContainer } from "../../views/workspace/EditorContainer";
 import './styles.scss';
 
 interface TabContainerProps {
-    tab: TabState;
-
+    obj: ContentObject;
 }
 
-export const TabContainer: FC<TabContainerProps> = ({ tab }) => {
-    const { filePath, initialValue } = tab;
-
+export const TabContainer: FC<TabContainerProps> = ({ obj }) => {
     return (
         <div className="TabContainer">
-            <EditorContainer filePath={filePath} initialValue={initialValue} />
+            {obj && (
+                <EditorContainer obj={obj} />
+            )}
         </div>
     );
 }

@@ -25,11 +25,15 @@ export class ParameterDeclaration extends ASTNode implements ts.ParameterDeclara
         return !this.questionToken;
     }
 
-    getNames(): string {
-        return ASTNode.fromNode(this, VariableDeclaration).getNames();
+    getNames(): string[] {
+        return ASTNode.fromNode(this as ts.Node as ts.VariableDeclaration, VariableDeclaration).getNames();
+    }
+
+    getNamesString(): string {
+        return ASTNode.fromNode(this as ts.Node as ts.VariableDeclaration, VariableDeclaration).getNamesString();
     }
 
     getType(): string {
-        return ASTNode.fromNode(this, VariableDeclaration).getType();
+        return ASTNode.fromNode(this as ts.Node as ts.VariableDeclaration, VariableDeclaration).getType();
     }
 }

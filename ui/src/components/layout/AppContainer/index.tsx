@@ -1,53 +1,65 @@
-import React, { FC, useEffect } from "react"
+import React, { FC, useEffect, useState } from "react"
 import { getConfig } from "../../../code/config/getConfig";
-import { useSeeamess } from "../../../context/SeeamessContext";
 import { WorkspaceSection } from "../../sections/WorkspaceSection";
-import { io as socketIO } from 'socket.io-client';
+import { io as socketIO, Socket } from 'socket.io-client';
 import './styles.scss';
 import { ExplorerSection } from "../../sections/ExplorerSection";
-import { OutputSection } from "../../sections/OutputSection";
+import { SeeamessState } from "../../../types";
+import { SeeamessContextProvider2 } from "../../../context";
+import { ContentObject } from "../../../types/ContentObject";
 
 export const AppContainer: FC = () => {
-    const { state, dispatch } = useSeeamess();
+    const [config, setConfig] = useState<SeeamessState['config']>();
+    const [content, setContent] = useState<SeeamessState['content']>();
+    const [socket, setSocket] = useState<Socket>();
 
     useEffect(() => {
         const load = async () => {
-            const config = await getConfig();
-            dispatch({ event: 'setConfig', data: config });
+            const _config = await getConfig();
+            setConfig(_config);
         }
         load();
-    }, [dispatch]);
+    });
 
     useEffect(() => {
-        if (!state.config)
+        if (!config)
             return;
-        const socket = socketIO(`ws://${window.location.hostname}:${state.config.port}`);
-        socket.connect();
-        dispatch({ event: 'setSocket', data: socket });
-    }, [state.config, dispatch]);
+        const socket = socketIO(`ws://${window.location.hostname}:${config.port}`);
+        setSocket(socket.connect());
+    }, [config]);
 
     useEffect(() => {
-        if (!state.socket)
+        if (!socket)
             return;
-        state.socket.on('setFiles', (files: any) => {
-            dispatch({ event: 'setFiles', data: files })
+        socket.on('setFiles', (files: any) => {
+            const filesObj: { [path: string]: ContentObject } = {};
+            Object.entries<string>(files).forEach(([path, text]) => {
+                filesObj[path] = {
+                    contentType: 'files',
+                    objectName: path,
+                    containingFilePath: path,
+                    initialValue: text
+                };
+            })
+            setContent({ files: filesObj });
         });
-    }, [state.socket, dispatch]);
+    }, [socket]);
 
-    if (!state.config)
+    if (!config)
         return (<div>Loading project configuration...</div>);
 
-    if (!state.socket)
+    if (!socket)
         return (<div>Connecting to server...</div>);
 
-    if (!state.files)
+    if (!content)
         return (<div>Waiting for project files...</div>);
 
     return (
         <div className="AppContainer">
-            <ExplorerSection filePaths={Object.keys(state.files)} />
-            <WorkspaceSection />
-            <OutputSection />
+            <SeeamessContextProvider2 config={config} content={content}>
+                <ExplorerSection />
+                <WorkspaceSection />
+            </SeeamessContextProvider2>
         </div>
     )
 }

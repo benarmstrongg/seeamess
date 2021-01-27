@@ -26,7 +26,6 @@ export class CallExpression extends ASTNode implements ts.CallExpression {
         if (ts.isPropertyAccessExpression(this.expression)) {
             return ASTNode.fromNode(this.expression, PropertyAccessExpression).getExpressionText();
         }
-        else console.log(new ASTNode(this.expression));
         return '';
     }
 

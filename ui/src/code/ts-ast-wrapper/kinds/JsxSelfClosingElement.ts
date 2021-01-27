@@ -1,7 +1,5 @@
 import ts from "typescript";
 import { ASTNode } from "../ASTNode";
-import { Identifier } from "./Identifier";
-import { JsxAttribute } from "./JsxAttribute";
 import { JsxOpeningElement } from "./JsxOpeningElement";
 
 export class JsxSelfClosingElement extends ASTNode implements ts.JsxSelfClosingElement {
@@ -23,7 +21,7 @@ export class JsxSelfClosingElement extends ASTNode implements ts.JsxSelfClosingE
     }
 
     getOpeningElement(): JsxOpeningElement {
-        return ASTNode.fromNode(this, JsxOpeningElement);
+        return ASTNode.fromNode(this as ts.Node as ts.JsxOpeningElement, JsxOpeningElement);
     }
 
 

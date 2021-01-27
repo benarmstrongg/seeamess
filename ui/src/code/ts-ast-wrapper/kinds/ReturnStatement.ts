@@ -11,4 +11,8 @@ export class ReturnStatement extends ASTNode implements ts.ReturnStatement {
         this.expression = node.expression;
         this.kind = node.kind;
     }
+
+    getExpression(): ASTNode | undefined {
+        return this.expression && ASTNode.fromNode(this.expression);
+    }
 }

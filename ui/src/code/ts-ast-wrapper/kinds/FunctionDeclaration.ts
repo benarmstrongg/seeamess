@@ -25,6 +25,6 @@ export class FunctionDeclaration extends ASTNode implements ts.FunctionDeclarati
     }
 
     getExpression(): FunctionExpression {
-        return ASTNode.fromNode(this, FunctionExpression);
+        return ASTNode.fromNode(this as any, FunctionExpression);
     }
 }

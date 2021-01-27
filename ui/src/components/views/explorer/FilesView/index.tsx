@@ -1,25 +1,25 @@
 import React, { FC } from "react";
 import { useSeeamess } from "../../../../context/SeeamessContext";
-import path from 'path';
 import { createFileTree, treeItemToComponent } from "./util";
+import path from 'path';
 import './styles.scss';
 
-export const FilesView: FC<{ filePaths: string[] }> = ({ filePaths }) => {
-    const { state, dispatch } = useSeeamess();
-    const { projectDir } = state.config;
+export const FilesView: FC = () => {
+    const seeamess = useSeeamess();
+    const { projectDir } = seeamess.config;
+    const filePaths = Object.keys(seeamess.content.files);
     const relativePaths = filePaths.map(p => p.replace(projectDir, ''));
     const tree = createFileTree(relativePaths);
 
-    const handleFileClick = (filePath: string) => {
+    const handleObjectClick = (filePath: string) => {
         const fullPath = path.join(projectDir, filePath);
-        dispatch({ event: 'openFile', data: fullPath });
+        seeamess.openTab('files', fullPath);
     }
 
     return (
         <div className="FilesView">
             <div className="files">
-                file explorer
-                {Object.entries(tree).map(([key, item]) => treeItemToComponent([key, item], 0, handleFileClick))}
+                {Object.entries(tree).map(([key, item]) => treeItemToComponent([key, item], 0, handleObjectClick))}
             </div>
         </div>
     );

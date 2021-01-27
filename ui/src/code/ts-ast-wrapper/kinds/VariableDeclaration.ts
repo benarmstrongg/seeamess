@@ -20,8 +20,12 @@ export class VariableDeclaration extends ASTNode implements ts.VariableDeclarati
         this.type = node.type;
     }
 
-    getNames(): string {
+    getNames(): string[] {
         return ASTNode.fromNode(this.name, BindingName).getNames();
+    }
+
+    getNamesString(): string {
+        return ASTNode.fromNode(this.name, BindingName).getNamesString();
     }
 
     getType(): string {

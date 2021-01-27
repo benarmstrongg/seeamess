@@ -3,14 +3,29 @@ import { HEADLINE } from './page1/headlineTranslator';
 
 const yes = 'no';
 
+function Comp(...args) {
+    return new class {
+    }
+}
 
 type MyComponentProps = ({ yam: { title: string, str: any }, startCount: number })
 
+@Comp('', 8, 8, 8)
+class myc {
+
+    myf() { }
+}
+
+
+function myC() {
+
+}
+
 const MyComponent = ({ yam: { title = '', str }, startCount = 2 }) => {
-    const [count, setCount] = useState(startCount || 0);
+    const [[count, count2], setCount] = useState([startCount || 0, 7]);
 
     function increment() {
-        setCount(count + 1);
+        setCount([count + 1, count2 + 12]);
     }
 
 

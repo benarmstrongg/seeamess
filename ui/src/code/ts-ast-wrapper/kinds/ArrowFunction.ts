@@ -23,6 +23,6 @@ export class ArrowFunction extends ASTNode implements ts.ArrowFunction {
     }
 
     getExpression(): FunctionExpression {
-        return ASTNode.fromNode(this, FunctionExpression);
+        return ASTNode.fromNode(this as any, FunctionExpression);
     }
 }

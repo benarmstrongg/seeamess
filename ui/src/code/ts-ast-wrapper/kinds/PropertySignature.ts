@@ -26,6 +26,6 @@ export class PropertySignature extends ASTNode implements ts.PropertySignature {
     }
 
     getName(): string {
-        return ASTNode.fromNode(this.name, Identifier).text;
+        return ASTNode.fromNode(this.name as Identifier, Identifier).text;
     }
 }

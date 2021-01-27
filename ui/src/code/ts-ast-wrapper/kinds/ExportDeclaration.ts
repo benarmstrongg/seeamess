@@ -26,6 +26,6 @@ export class ExportDeclaration extends ASTNode implements ts.ExportDeclaration {
     }
 
     getModuleName(): string | undefined {
-        return this.moduleSpecifier && ASTNode.fromNode(this.moduleSpecifier, Identifier).text;
+        return this.moduleSpecifier && ASTNode.fromNode(this.moduleSpecifier as ts.Identifier, Identifier).text;
     }
 }

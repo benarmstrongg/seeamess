@@ -19,13 +19,13 @@ export class JsxOpeningElement extends ASTNode implements ts.JsxOpeningElement {
     }
 
     getTagName(): string {
-        return ASTNode.fromNode(this.tagName, Identifier).text;
+        return ASTNode.fromNode(this.tagName as any, Identifier).text;
     }
 
     getAttributes(): (JsxAttribute)[] {
         return this.attributes.properties.map(p =>
             ts.isJsxSpreadAttribute(p) ?
-                ASTNode.fromNode(p, JsxAttribute) :
+                ASTNode.fromNode(p as any, JsxAttribute) :
                 ASTNode.fromNode(p, JsxAttribute)
         );
 

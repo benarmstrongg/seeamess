@@ -1,50 +1,41 @@
 // @ts-ignore
 // import MonacoJSXHighlighter from 'monaco-jsx-highlighter';
+// import jscodeshift from 'jscodeshift';
 import { monaco as _monaco } from '@monaco-editor/react';
 import { tsCompilerOptions } from './compilerOptions';
 import { EditorInstance, Monaco, MonacoEditorOnChange, TSWorker, Uri } from '../../types/monaco';
 import { ASTNode } from '../ts-ast-wrapper/ASTNode';
-import ts from 'typescript';
 import { ImportDeclaration } from '../ts-ast-wrapper/kinds/ImportDeclaration';
+import { TSHelper } from '../ts-helper';
+import { SeeamessConfig } from '../../types';
+import { ContentObject } from '../../types/ContentObject';
 
 export class MonacoHelper {
+    filePath: string;
     core: Monaco = null as any;
     editorInstance: EditorInstance = null as any;
     tsWorker: TSWorker = null as any;
     get uri(): Uri {
-        return this.core.Uri.file(this.filePath);
+        return this.core.Uri.file(`file://${this.filePath}`);
     };
 
-    constructor(
-        public projectDir: string,
-        public projectFiles: { [filePath: string]: string },
-        public filePath: string,
-    ) { }
+    constructor(public tsHelper: TSHelper, public config: SeeamessConfig, public files: { [name: string]: ContentObject }) {
+        this.filePath = tsHelper.filePath;
+    }
 
     init(initialValue: string, onChange: MonacoEditorOnChange) {
-        this._initMonaco().then(async (_monaco) => {
+        return this._initMonaco().then(async (_monaco) => {
             this.core = _monaco;
             this._setTsCompilerOptions();
-            const ast = this.parseToAST(initialValue);
-            // if (ast) this._registerTsImports(ast);
+            const ast = this.tsHelper.getAST();
+            this._registerTsImports(ast);
             this.editorInstance = this._createEditorInstance(initialValue);
             this.tsWorker = await this._createTsWorkerInstance();
             // this._registerJsxHighlighter();
             this._registerEditorOnChange(onChange);
             onChange(ast, this.editorInstance, this.tsWorker);
+            return true;
         });
-    }
-
-    parseToAST(text?: string): ASTNode | null {
-        let ast: ASTNode | null = null;
-        const value = text || this.editorInstance.getValue();
-        try {
-            ast = ASTNode.fromNode(ts.createSourceFile(this.filePath, value, ts.ScriptTarget.Latest));
-        }
-        catch (e) {
-            console.log(e);
-        }
-        return ast;
     }
 
     private async _initMonaco() {
@@ -56,12 +47,13 @@ export class MonacoHelper {
     }
 
     private _registerTsImports(ast: ASTNode) {
-        const imports = ast.find([ImportDeclaration]);
+        const imports = ast.find({}, [ImportDeclaration]);
+        const { projectDir } = this.config;
         imports.forEach(_import => {
-            const libraryName = ''// _import.node.source.value || '';
-            const globalTypeDefPath = `${this.projectDir}/node_modules/@types/${libraryName}/index.d.ts`;
-            const libraryTypeDefPath = `${this.projectDir}/node_modules/${libraryName}/index.d.ts`;
-            const declarationTsCode = this.projectFiles[globalTypeDefPath] || this.projectFiles[libraryTypeDefPath];
+            const libraryName = _import.getModuleName();
+            const globalTypeDefPath = `${projectDir}/node_modules/@types/${libraryName}/index.d.ts`;
+            const libraryTypeDefPath = `${projectDir}/node_modules/${libraryName}/index.d.ts`;
+            const declarationTsCode = this.files[globalTypeDefPath]?.initialValue || this.files[libraryTypeDefPath]?.initialValue;
             if (libraryName && declarationTsCode) {
                 this.core.languages.typescript.typescriptDefaults.addExtraLib(
                     `declare module '${libraryName}' { ${declarationTsCode} }`
@@ -92,7 +84,7 @@ export class MonacoHelper {
 
     private _registerEditorOnChange(onChange: MonacoEditorOnChange) {
         this.editorInstance.onDidChangeModelContent((e) => {
-            onChange(this.parseToAST(), this.editorInstance, this.tsWorker);
+            onChange(this.tsHelper.getAST(), this.editorInstance, this.tsWorker);
         })
     }
 }

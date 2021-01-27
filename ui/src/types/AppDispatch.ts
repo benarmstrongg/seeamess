@@ -1,5 +1,5 @@
 import { Socket } from "socket.io-client";
-import { TabState, SeeamessConfig } from ".";
+import { SeeamessConfig } from ".";
 
 export type AppDispatch =
     {
@@ -20,11 +20,11 @@ export type AppDispatch =
     } |
     {
         event: 'closeTab',
-        data: TabState
+        data: number
     } |
     {
         event: 'setActiveTab',
-        data: TabState
+        data: number
     } |
     {
         event: 'saveFile',
