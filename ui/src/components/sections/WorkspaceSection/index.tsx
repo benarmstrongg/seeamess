@@ -20,7 +20,7 @@ export const WorkspaceSection: FC = () => {
         <div className="Workspace">workspace
             <TabBar tabs={openTabs} activeTab={activeTab} projectDir={config.projectDir} changeTab={changeTab} closeTab={closeTab} />
             {openTabs.map((obj, index) =>
-                <div hidden={index !== activeTab} key={`${obj.contentType}-${obj.objectName}`}>
+                <div className="WorkspaceSection" hidden={index !== activeTab} key={`${obj.contentType}-${obj.objectName}`}>
                     <TabContainer obj={obj} />
                 </div>
             )}

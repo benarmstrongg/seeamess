@@ -1,4 +1,5 @@
 import React, { FC, ReactElement } from "react";
+import { EditorButton } from "../../../../common/EditorButton";
 import './styles.scss';
 
 interface EditorToolBarProps {
@@ -11,13 +12,13 @@ export const EditorToolbar: FC<EditorToolBarProps> = ({ buttons, setActiveEditor
     return (
         <div className="EditorToolbar">
             {buttons.map((button, i) => (
-                <span
+                <EditorButton
                     key={'button' + i}
-                    className={'button'.concat(activeEditor === i ? ' active' : '')}
+                    active={activeEditor === i}
                     onClick={() => setActiveEditor(i)}
                 >
                     {button}
-                </span>
+                </EditorButton>
             ))}
         </div>
     );

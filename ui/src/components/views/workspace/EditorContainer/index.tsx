@@ -2,7 +2,7 @@ import React, { FC, ReactElement, useCallback, useEffect, useMemo, useState } fr
 import { MonacoHelper } from '../../../../code/monaco-helper';
 import { TSHelper } from "../../../../code/ts-helper";
 import { EditorContext, useSeeamess } from "../../../../context";
-import { ReactComponentEditorView } from "../../../../plugins/react/views/editor";
+import { ReactComponentEditorView } from "../../../../plugins/react/views/ComponentEditor";
 import { ContentObject } from "../../../../types/ContentObject";
 import { IEditorView } from "../../../../types/EditorView";
 import { MonacoEditorOnChange } from "../../../../types/monaco";
@@ -46,14 +46,14 @@ export const EditorContainer: FC<EditorContainerProps> = ({ obj }) => {
                     activeEditor={activeEditor}
                 />
                 {components.map((Editor, index) => (
-                    <div key={Editor.name} hidden={activeEditor !== index}>
+                    <div className="EditorView" key={Editor.name} hidden={activeEditor !== index}>
                         <Editor />
                     </div>
                 ))}
-                <div hidden={activeEditor !== components.length && !!monacoHelper.editorInstance}>
+                <div className="EditorView" hidden={activeEditor !== components.length && !!monacoHelper.editorInstance}>
                     <CodeEditorView />
                 </div>
-                <div hidden={activeEditor !== components.length + 1}>
+                <div className="EditorView" hidden={activeEditor !== components.length + 1}>
                     <StatementEditorView />
                 </div>
             </EditorContext.Provider>
