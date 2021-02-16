@@ -1,4 +1,4 @@
-import React, { FC, useCallback, useReducer, useState } from "react";
+import React, { FC, useCallback, useState } from "react";
 import { SeeamessContext } from "./SeeamessContext";
 import { SeeamessState as S } from "../types";
 import { ASTNode } from "../code/ts-ast-wrapper/ASTNode";
@@ -79,8 +79,6 @@ interface SeeamessContextProviderProps {
 
 export const SeeamessContextProvider2: FC<SeeamessContextProviderProps> = ({ children, content, config }) => {
     const [state, setState] = useState<S>({ ...seeamessStateDefaults, content, config });
-    console.log(state.openTabs);
-
     const getContent = useCallback<S['getContent']>((contentType, objectName) => {
         return state.content[contentType][objectName];
     }, [state]);
