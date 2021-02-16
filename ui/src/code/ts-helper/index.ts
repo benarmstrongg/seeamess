@@ -13,7 +13,7 @@ export class TSHelper {
     }
 
     getAST() {
-        return ASTNode.fromNode(this.sourceFile, SourceFile);
+        return ASTNode.as(this.sourceFile, SourceFile);
     }
 
     _createCompilerHost() {
