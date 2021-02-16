@@ -13,6 +13,6 @@ export class ReturnStatement extends ASTNode implements ts.ReturnStatement {
     }
 
     getExpression(): ASTNode | undefined {
-        return this.expression && ASTNode.fromNode(this.expression);
+        return this.expression && ASTNode.from(this.expression);
     }
 }

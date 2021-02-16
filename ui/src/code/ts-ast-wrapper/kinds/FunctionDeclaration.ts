@@ -21,10 +21,10 @@ export class FunctionDeclaration extends ASTNode implements ts.FunctionDeclarati
     }
 
     getParameters(): ParameterDeclaration[] {
-        return this.parameters.map(p => ASTNode.fromNode(p, ParameterDeclaration));
+        return this.parameters.map(p => ASTNode.as(p, ParameterDeclaration));
     }
 
     getExpression(): FunctionExpression {
-        return ASTNode.fromNode(this as any, FunctionExpression);
+        return ASTNode.as(this as any, FunctionExpression);
     }
 }

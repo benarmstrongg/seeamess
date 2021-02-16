@@ -15,7 +15,7 @@ export class VariableDeclarationList extends ASTNode implements ts.VariableDecla
     }
 
     getDeclarations(): VariableDeclaration[] {
-        return this.declarations.map(d => ASTNode.fromNode(d, VariableDeclaration));
+        return this.declarations.map(d => ASTNode.as(d, VariableDeclaration));
     }
 
     getDeclarationNames(): string[] {

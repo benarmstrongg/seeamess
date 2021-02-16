@@ -26,14 +26,14 @@ export class ParameterDeclaration extends ASTNode implements ts.ParameterDeclara
     }
 
     getNames(): string[] {
-        return ASTNode.fromNode(this as ts.Node as ts.VariableDeclaration, VariableDeclaration).getNames();
+        return ASTNode.as(this as ts.Node as ts.VariableDeclaration, VariableDeclaration).getNames();
     }
 
     getNamesString(): string {
-        return ASTNode.fromNode(this as ts.Node as ts.VariableDeclaration, VariableDeclaration).getNamesString();
+        return ASTNode.as(this as ts.Node as ts.VariableDeclaration, VariableDeclaration).getNamesString();
     }
 
     getType(): string {
-        return ASTNode.fromNode(this as ts.Node as ts.VariableDeclaration, VariableDeclaration).getType();
+        return ASTNode.as(this as ts.Node as ts.VariableDeclaration, VariableDeclaration).getType();
     }
 }

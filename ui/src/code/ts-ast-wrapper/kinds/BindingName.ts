@@ -14,10 +14,10 @@ export class BindingName extends ASTNode {
             return [this.text || this.escapedText.toString()];
         }
         if (ts.isObjectBindingPattern(this)) {
-            return ASTNode.fromNode(this, ObjectBindingPattern).getNames();
+            return ASTNode.as(this, ObjectBindingPattern).getNames();
         }
         if (ts.isArrayBindingPattern(this)) {
-            return ASTNode.fromNode(this, ArrayBindingPattern).getNames();
+            return ASTNode.as(this, ArrayBindingPattern).getNames();
         }
         return [];
     }
@@ -27,10 +27,10 @@ export class BindingName extends ASTNode {
             return this.text || this.escapedText.toString();
         }
         if (ts.isObjectBindingPattern(this)) {
-            return `{ ${ASTNode.fromNode(this, ObjectBindingPattern).getNamesString()} }`;
+            return `{ ${ASTNode.as(this, ObjectBindingPattern).getNamesString()} }`;
         }
         if (ts.isArrayBindingPattern(this)) {
-            return `[${ASTNode.fromNode(this, ArrayBindingPattern).getNamesString()}]`;
+            return `[${ASTNode.as(this, ArrayBindingPattern).getNamesString()}]`;
         }
         return '';
     }

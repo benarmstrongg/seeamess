@@ -23,8 +23,8 @@ export class ImportClause extends ASTNode implements ts.ImportClause {
     getNamedBindings(): NamedImports | NamespaceImport | undefined {
         return this.namedBindings && (
             ts.isNamedImports(this.namedBindings) ?
-                ASTNode.fromNode(this.namedBindings, NamedImports) :
-                ASTNode.fromNode(this.namedBindings, NamespaceImport)
+                ASTNode.as(this.namedBindings, NamedImports) :
+                ASTNode.as(this.namedBindings, NamespaceImport)
         );
     }
 }

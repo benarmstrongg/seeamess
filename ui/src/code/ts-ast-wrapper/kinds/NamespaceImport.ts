@@ -16,6 +16,6 @@ export class NamespaceImport extends ASTNode implements ts.NamespaceImport {
     }
 
     getElements(): Identifier[] {
-        return [ASTNode.fromNode(this.name, Identifier)];
+        return [ASTNode.as(this.name, Identifier)];
     }
 }

@@ -24,12 +24,12 @@ export class CallExpression extends ASTNode implements ts.CallExpression {
             return this.expression.text;
         }
         if (ts.isPropertyAccessExpression(this.expression)) {
-            return ASTNode.fromNode(this.expression, PropertyAccessExpression).getExpressionText();
+            return ASTNode.as(this.expression, PropertyAccessExpression).getExpressionText();
         }
         return '';
     }
 
     getArguments(): ASTNode[] {
-        return this.arguments.map(ASTNode.fromNode);
+        return this.arguments.map(ASTNode.from);
     }
 }

@@ -21,7 +21,7 @@ export class JsxSelfClosingElement extends ASTNode implements ts.JsxSelfClosingE
     }
 
     getOpeningElement(): JsxOpeningElement {
-        return ASTNode.fromNode(this as ts.Node as ts.JsxOpeningElement, JsxOpeningElement);
+        return ASTNode.as(this as ts.Node as ts.JsxOpeningElement, JsxOpeningElement);
     }
 
 

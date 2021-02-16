@@ -19,6 +19,6 @@ export class JsxAttribute extends ASTNode implements ts.JsxAttribute {
     }
 
     getName(): string {
-        return ASTNode.fromNode(this.name, Identifier).text;
+        return ASTNode.as(this.name, Identifier).text;
     }
 }

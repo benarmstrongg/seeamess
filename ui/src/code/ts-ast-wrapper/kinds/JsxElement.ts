@@ -28,27 +28,27 @@ export class JsxElement extends ASTNode implements ts.JsxElement {
     }
 
     getOpeningElement(): JsxOpeningElement {
-        return ASTNode.fromNode(this.openingElement, JsxOpeningElement);
+        return ASTNode.as(this.openingElement, JsxOpeningElement);
     }
 
     getChildElements(): JsxChild[] {
         return this.children.map(c => {
             if (ts.isJsxSelfClosingElement(c)) {
-                return ASTNode.fromNode(c, JsxSelfClosingElement);
+                return ASTNode.as(c, JsxSelfClosingElement);
             }
             if (ts.isJsxText(c)) {
-                return ASTNode.fromNode(c, JsxText);
+                return ASTNode.as(c, JsxText);
             }
             if (ts.isJsxElement(c)) {
-                return ASTNode.fromNode(c, JsxElement);
+                return ASTNode.as(c, JsxElement);
             }
             if (ts.isJsxFragment(c)) {
-                return ASTNode.fromNode(c, JsxFragment);
+                return ASTNode.as(c, JsxFragment);
             }
             if (ts.isJsxExpression(c)) {
-                return ASTNode.fromNode(c, JsxExpression);
+                return ASTNode.as(c, JsxExpression);
             }
-            return ASTNode.fromNode(c) as JsxChild;
+            return ASTNode.from(c) as JsxChild;
         })
     }
 }

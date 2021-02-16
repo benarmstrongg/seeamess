@@ -17,6 +17,6 @@ export class TypeAliasDeclaration extends ASTNode implements ts.TypeAliasDeclara
     }
 
     getName(): string {
-        return ASTNode.fromNode(this.name, Identifier).text;
+        return ASTNode.as(this.name, Identifier).text;
     }
 }

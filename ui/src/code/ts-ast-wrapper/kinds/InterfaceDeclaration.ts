@@ -18,11 +18,11 @@ export class InterfaceDeclaration extends ASTNode implements ts.InterfaceDeclara
     }
 
     getName(): string {
-        return ASTNode.fromNode(this.name, Identifier).text;
+        return ASTNode.as(this.name, Identifier).text;
     }
 
     getTypeElements(): TypeElement[] {
-        return this.members.map(m => ASTNode.fromNode(m, TypeElement));
+        return this.members.map(m => ASTNode.as(m, TypeElement));
     }
 
 }

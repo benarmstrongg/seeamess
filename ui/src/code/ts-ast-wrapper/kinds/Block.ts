@@ -13,6 +13,6 @@ export class Block extends ASTNode implements ts.Block {
     }
 
     getStatements(): ASTNode[] {
-        return this.statements.map(ASTNode.fromNode);
+        return this.statements.map(ASTNode.from);
     }
 }

@@ -22,10 +22,10 @@ export class ExportDeclaration extends ASTNode implements ts.ExportDeclaration {
     }
 
     getExportClause(): ExportClause | undefined {
-        return this.exportClause && ASTNode.fromNode(this.exportClause, ExportClause);
+        return this.exportClause && ASTNode.as(this.exportClause, ExportClause);
     }
 
     getModuleName(): string | undefined {
-        return this.moduleSpecifier && ASTNode.fromNode(this.moduleSpecifier as ts.Identifier, Identifier).text;
+        return this.moduleSpecifier && ASTNode.as(this.moduleSpecifier as ts.Identifier, Identifier).text;
     }
 }

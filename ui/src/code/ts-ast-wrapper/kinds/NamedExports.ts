@@ -15,6 +15,6 @@ export class NamedExports extends ASTNode implements ts.NamedExports {
     }
 
     getElements(): Identifier[] {
-        return this.elements.map(e => ASTNode.fromNode(e.name, Identifier));
+        return this.elements.map(e => ASTNode.as(e.name, Identifier));
     }
 }

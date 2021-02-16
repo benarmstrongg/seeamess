@@ -20,12 +20,12 @@ export class PropertySignature extends ASTNode implements ts.PropertySignature {
 
     getTypeMembers(): ASTNode[] {
         if (this.type && this.type['members']) {
-            return (this.type['members'] as any[]).map(ASTNode.fromNode)
+            return (this.type['members'] as any[]).map(ASTNode.from)
         }
         return [];
     }
 
     getName(): string {
-        return ASTNode.fromNode(this.name as Identifier, Identifier).text;
+        return ASTNode.as(this.name as Identifier, Identifier).text;
     }
 }

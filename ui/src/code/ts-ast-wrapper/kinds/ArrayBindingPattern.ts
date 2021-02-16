@@ -16,13 +16,13 @@ export class ArrayBindingPattern extends ASTNode implements ts.ArrayBindingPatte
     }
 
     getElements(): BindingElement[] {
-        return this.elements.map(e => ASTNode.fromNode(e as any, BindingElement));
+        return this.elements.map(e => ASTNode.as(e as any, BindingElement));
     }
 
     getNames(): string[] {
         return this.elements.map(e => {
             if (ts.isBindingElement(e)) {
-                return ASTNode.fromNode(e.name, BindingName).getNames();
+                return ASTNode.as(e.name, BindingName).getNames();
             }
             if (ts.isOmittedExpression(e)) {
                 return e.getText();
@@ -34,7 +34,7 @@ export class ArrayBindingPattern extends ASTNode implements ts.ArrayBindingPatte
     getNamesString(): string {
         return this.elements.map(e => {
             if (ts.isBindingElement(e)) {
-                return ASTNode.fromNode(e.name, BindingName).getNamesString();
+                return ASTNode.as(e.name, BindingName).getNamesString();
             }
             if (ts.isOmittedExpression(e)) {
                 return e.getText();

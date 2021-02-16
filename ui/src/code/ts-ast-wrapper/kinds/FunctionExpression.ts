@@ -26,10 +26,10 @@ export class FunctionExpression extends ASTNode implements ts.FunctionExpression
     }
 
     getParameters(): ParameterDeclaration[] {
-        return this.parameters.map(p => ASTNode.fromNode(p, ParameterDeclaration));
+        return this.parameters.map(p => ASTNode.as(p, ParameterDeclaration));
     }
 
     getName(): string | undefined {
-        return this.name && ASTNode.fromNode(this.name, Identifier).text;
+        return this.name && ASTNode.as(this.name, Identifier).text;
     }
 }

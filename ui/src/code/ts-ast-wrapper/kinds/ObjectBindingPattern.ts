@@ -15,14 +15,14 @@ export class ObjectBindingPattern extends ASTNode implements ts.ObjectBindingPat
     }
 
     getElements(): BindingElement[] {
-        return this.elements.map(e => ASTNode.fromNode(e, BindingElement));
+        return this.elements.map(e => ASTNode.as(e, BindingElement));
     }
 
     getNames(): string[] {
-        return this.elements.map(e => ASTNode.fromNode(e, BindingElement).getNames()).flat();
+        return this.elements.map(e => ASTNode.as(e, BindingElement).getNames()).flat();
     }
 
     getNamesString(): string {
-        return this.elements.map(e => ASTNode.fromNode(e, BindingElement).getNamesString()).join(', ');
+        return this.elements.map(e => ASTNode.as(e, BindingElement).getNamesString()).join(', ');
     }
 }

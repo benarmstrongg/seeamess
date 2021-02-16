@@ -23,10 +23,10 @@ export class BindingElement extends ASTNode implements ts.BindingElement {
     }
 
     getNames(): string[] {
-        return ASTNode.fromNode(this.name, BindingName).getNames();
+        return ASTNode.as(this.name, BindingName).getNames();
     }
 
     getNamesString(): string {
-        return ASTNode.fromNode(this.name, BindingName).getNamesString();
+        return ASTNode.as(this.name, BindingName).getNamesString();
     }
 }

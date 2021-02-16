@@ -21,18 +21,18 @@ export class VariableDeclaration extends ASTNode implements ts.VariableDeclarati
     }
 
     getNames(): string[] {
-        return ASTNode.fromNode(this.name, BindingName).getNames();
+        return ASTNode.as(this.name, BindingName).getNames();
     }
 
     getNamesString(): string {
-        return ASTNode.fromNode(this.name, BindingName).getNamesString();
+        return ASTNode.as(this.name, BindingName).getNamesString();
     }
 
     getType(): string {
         return (
             this.type && (
                 ts.tokenToString(this.type.kind) ||
-                (this.type['typeName'] && ASTNode.fromNode(this.type['typeName'], Identifier).text)
+                (this.type['typeName'] && ASTNode.as(this.type['typeName'], Identifier).text)
             )
         ) || 'any';
     }
