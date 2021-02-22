@@ -1,1 +1,1 @@
-export { SeeamessConfig } from '../../ui/src/types';
+export { SeeamessConfig } from '../../core/src/types';
