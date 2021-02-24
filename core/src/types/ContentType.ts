@@ -1,5 +1,5 @@
 import ts from "typescript";
-import { ASTNode } from "../code/ts-ast-wrapper/ASTNode";
+import { ASTNode } from "../ast";
 
 export abstract class ContentType extends ASTNode {
     abstract is(node: ts.Node): boolean;

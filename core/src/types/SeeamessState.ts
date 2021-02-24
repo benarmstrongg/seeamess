@@ -1,4 +1,4 @@
-import { ASTNode } from "../code/ts-ast-wrapper/ASTNode";
+import { ASTNode } from "../ast";
 import { ContentObject } from "./ContentObject";
 import { SeeamessConfig } from "./SeeamessConfig";
 

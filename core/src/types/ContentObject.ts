@@ -1,4 +1,4 @@
-import { ASTNode } from "../code/ts-ast-wrapper/ASTNode";
+import { ASTNode } from "../ast";
 
 export interface ContentObject {
     contentType: string;

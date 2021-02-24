@@ -1,12 +1,5 @@
 import ts from "typescript";
-import { ASTNode } from "../../../code/ts-ast-wrapper/ASTNode";
-import { ArrowFunction } from "../../../code/ts-ast-wrapper/kinds/ArrowFunction";
-import { BindingName } from "../../../code/ts-ast-wrapper/kinds/BindingName";
-import { ExpressionStatement } from "../../../code/ts-ast-wrapper/kinds/ExpressionStatement";
-import { Identifier } from "../../../code/ts-ast-wrapper/kinds/Identifier";
-import { JsxOpeningElement } from "../../../code/ts-ast-wrapper/kinds/JsxOpeningElement";
-import { ParameterDeclaration } from "../../../code/ts-ast-wrapper/kinds/ParameterDeclaration";
-import { ReturnStatement } from "../../../code/ts-ast-wrapper/kinds/ReturnStatement";
+import { ASTNode, ArrowFunction, BindingName, JsxOpeningElement, ParameterDeclaration, ReturnStatement } from "../../../ast";
 import { ContentType } from "../../../types/ContentType";
 
 type ReactComponentNode = ts.FunctionDeclaration | ts.ArrowFunction | ts.ClassDeclaration;
