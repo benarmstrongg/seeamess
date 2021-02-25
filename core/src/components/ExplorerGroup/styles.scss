@@ -1,0 +1,15 @@
+.ExplorerGroup {
+    .ExplorerGroup {
+        padding-left: 10px;
+    }
+
+    .ExplorerGroupHeader {
+        cursor: pointer;
+        position: relative;
+
+
+        &:hover {
+            background-color: lightgray;
+        }
+    }
+}

@@ -1,0 +1,9 @@
+.ExplorerItem {
+    cursor: pointer;
+    position: relative;
+    padding-left: 10px;
+
+    &.hover {
+        background-color: lightgray;
+    }
+}
