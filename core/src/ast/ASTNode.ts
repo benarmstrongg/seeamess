@@ -136,22 +136,20 @@ export class ASTNode {
         return result;
     }
 
+    is(node: ts.Node): boolean {
+        return ts[`is${this.kindString}`](node);
+    }
+
     static is<T extends typeof ASTNode>(node: ts.Node, kind: T): node is TsNodeOf<T> {
-        const kindName = kind.name;
-        const isFunction = ts[`is${kindName}`];
-        if (isFunction === undefined) {
-            try {
-                const customContentType = ASTNode.as(node, kind);
-                if (!!customContentType['is']) {
-                    return customContentType['is'](node);
-                }
-            }
-            catch {
-                return false;
-            }
+        let isOfKind = false;
+        try {
+            const contentNode = ASTNode.as(node, kind);
+            isOfKind = contentNode.is(node);
         }
-        return isFunction(node);
-        // return ASTNode.from(node).kindString === kind.name;
+        catch {
+            isOfKind = false;
+        }
+        return isOfKind;
     }
 
     static isMatch<T extends typeof ASTNode>(node: TsNodeOf<T>, query: ASTQuery<T>): boolean {
@@ -172,7 +170,7 @@ export class ASTNode {
         return isMatch;
     }
 
-    static as<T extends typeof ASTNode>(node: TsNodeOf<T>, kind: T): InstanceType<T> {
+    static as<T extends (typeof ASTNode)>(node: TsNodeOf<T>, kind: T): InstanceType<T> {
         return new kind(node) as InstanceType<T>;
     }
 

@@ -7,7 +7,7 @@ import { EditorInstance, Monaco, MonacoEditorOnChange, TSWorker, Uri } from '../
 import { ASTNode, ImportDeclaration } from '../../../ast';
 import { TSHelper } from '../ts-helper';
 import { SeeamessConfig } from '../../../types';
-import { ContentObject } from '../../../types/ContentObject';
+import { ContentObjectMeta } from '../../../types/ContentObjectMeta';
 
 export class MonacoHelper {
     filePath: string;
@@ -18,7 +18,7 @@ export class MonacoHelper {
         return this.core.Uri.file(`file://${this.filePath}`);
     };
 
-    constructor(public tsHelper: TSHelper, public config: SeeamessConfig, public files: { [name: string]: ContentObject }) {
+    constructor(public tsHelper: TSHelper, public config: SeeamessConfig, public files: { [name: string]: ContentObjectMeta }) {
         this.filePath = tsHelper.filePath;
     }
 
@@ -52,7 +52,7 @@ export class MonacoHelper {
             const libraryName = _import.getModuleName();
             const globalTypeDefPath = `${projectDir}/node_modules/@types/${libraryName}/index.d.ts`;
             const libraryTypeDefPath = `${projectDir}/node_modules/${libraryName}/index.d.ts`;
-            const declarationTsCode = this.files[globalTypeDefPath]?.initialValue || this.files[libraryTypeDefPath]?.initialValue;
+            const declarationTsCode = this.files[globalTypeDefPath]?.text || this.files[libraryTypeDefPath]?.text;
             if (libraryName && declarationTsCode) {
                 this.core.languages.typescript.typescriptDefaults.addExtraLib(
                     `declare module '${libraryName}' { ${declarationTsCode} }`

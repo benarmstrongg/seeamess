@@ -1,6 +1,6 @@
 import React, { FC } from "react";
 import './styles.scss';
-import { FileExplorer } from "../../explorers/FilesView";
+import { FileExplorer } from "../../explorers/FileExplorer/FileExplorer";
 
 
 export const ExplorerSection: FC = () => {

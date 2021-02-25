@@ -1,17 +1,16 @@
-import React, { useMemo } from "react";
+import React from "react";
 import { IEditor } from "../../../types/editor";
 import { NodeView } from "../../../components/NodeView";
 import { AiOutlineProfile } from 'react-icons/ai';
 import './styles.scss';
 import { ASTNode } from "../../../ast/ASTNode";
-import { useEditor } from "../../../hooks";
+import { SourceFile } from "../../../ast";
 
-export const StatementEditor: IEditor = () => {
-    const { tsHelper } = useEditor();
-    const fileAST = useMemo(() => tsHelper.getAST(), [tsHelper]);
+export const StatementEditor: IEditor = ({ content }) => {
+    const file = content[0] as SourceFile;
     return (
         <div className="StatementEditorView">
-            {!!fileAST && fileAST.statements.map(ASTNode.from).map(s => (
+            {!!file && file.statements.map(ASTNode.from).map(s => (
                 <NodeView key={s.key} node={s} />
             ))}
         </div>

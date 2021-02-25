@@ -1,10 +1,10 @@
 import React, { FC } from "react";
-import { ContentObject } from "../../../types/ContentObject";
+import { ContentObjectMeta } from "../../../types/ContentObjectMeta";
 import { EditorContainer } from "../../editors/EditorContainer";
 import './styles.scss';
 
 interface TabContainerProps {
-    obj: ContentObject;
+    obj: ContentObjectMeta;
 }
 
 export const TabContainer: FC<TabContainerProps> = ({ obj }) => {

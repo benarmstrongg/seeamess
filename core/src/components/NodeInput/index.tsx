@@ -1,7 +1,5 @@
 import React, { ChangeEvent, FC, KeyboardEvent, SyntheticEvent, useState } from "react";
 import ts from "typescript";
-// import ts from "typescript";
-import { useEditor } from "../../hooks";
 import { useCursorCorrector } from "./useCursorCorrector";
 
 interface StatementEditorInputProps {
@@ -28,7 +26,7 @@ export const NodeInput: FC<StatementEditorInputProps> = ({ placeholder, value, n
     const [cursorPosition/*,setCursorPosition*/] = useState(0);
     const [cursorSelection/*,setCursorSelection*/] = useState<InputSelection>();
     const correctCursor = useCursorCorrector();
-    const { monaco } = useEditor();
+    // const { monaco } = useEditor();
 
     const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
         let diff = event.target.value.substr(cursorPosition, 1);
@@ -80,7 +78,7 @@ export const NodeInput: FC<StatementEditorInputProps> = ({ placeholder, value, n
     }
 
     const deleteLeft = () => {
-        monaco.editorInstance.trigger('keyboard', 'deleteLeft', {});
+        // monaco.editorInstance.trigger('keyboard', 'deleteLeft', {});
         const newValue = cursorSelection ?
             value.substring(0, cursorSelection.start).concat(value.substring(cursorSelection.end + 1)) :
             value.substring(0, cursorPosition - 1).concat(value.substring(cursorPosition));
@@ -88,7 +86,7 @@ export const NodeInput: FC<StatementEditorInputProps> = ({ placeholder, value, n
     }
 
     const insertText = (text: string) => {
-        monaco.editorInstance.trigger('keyboard', 'type', { text });
+        // monaco.editorInstance.trigger('keyboard', 'type', { text });
         const newValue = value.substring(0, cursorPosition).concat(text, value.substring(cursorPosition));
         setTrackedValue(newValue);
     }

@@ -2,19 +2,11 @@ import React, { FC } from "react";
 import { TabBar } from "../../layout/TabBar";
 import './styles.scss';
 import { TabContainer } from "../../layout/TabContainer";
-import { useSeeamess } from "../../../hooks/SeeamessContext";
+import { useConfig, useTabs } from "../../../hooks";
 
 export const EditorSection: FC = () => {
-    const seeamess = useSeeamess();
-    const { openTabs, config, activeTab } = seeamess;
-
-    const changeTab = (index: number) => {
-        seeamess.changeTab(index);
-    }
-
-    const closeTab = (index: number) => {
-        seeamess.closeTab(index);
-    }
+    const { openTabs, activeTab, change: changeTab, close: closeTab } = useTabs();
+    const config = useConfig();
 
     return (
         <div className="Workspace">workspace

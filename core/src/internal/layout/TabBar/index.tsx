@@ -1,10 +1,10 @@
 import React, { FC, MouseEvent } from "react";
 import { FaTimes } from "react-icons/fa";
-import { ContentObject } from "../../../types/ContentObject";
+import { ContentObjectMeta } from "../../../types/ContentObjectMeta";
 import './styles.scss';
 
 interface TabBarProps {
-    tabs: ContentObject[];
+    tabs: ContentObjectMeta[];
     activeTab: number;
     projectDir: string;
     closeTab: (tabIndex: number) => void;
