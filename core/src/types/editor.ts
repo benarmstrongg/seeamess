@@ -4,10 +4,12 @@ import { MonacoHelper } from "../internal/code/monaco-helper";
 import { TSHelper } from "../internal/code/ts-helper";
 import { ContentType } from "./ContentType";
 
-type ContentTypeOrASTNode<T> =
+type ContentTypeOrASTNode<T> = (
     T extends ContentType ? T : (
         T extends ASTNode ? T : ASTNode
-    );
+    )
+);
+
 export interface EditorProps<T extends (ContentType | ASTNode) = ContentType> {
     content: ContentTypeOrASTNode<T>[];
     update(objectName: string, value: ASTNode | string): void;

@@ -21,7 +21,7 @@ export const FilesProvider: FC = ({ children }) => {
                     return;
                 const tsSourceFile = ts.createSourceFile(path, text, ts.ScriptTarget.ESNext, undefined, undefined);
                 filesArr.push({
-                    contentType: 'files',
+                    contentType: 'JavascriptFile',
                     objectName: path,
                     containingFilePath: path,
                     text,

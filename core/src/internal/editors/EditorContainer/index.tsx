@@ -1,12 +1,12 @@
 import React, { FC, ReactElement, useCallback, useEffect, useMemo, useState } from "react";
 import { MonacoHelper } from '../../code/monaco-helper';
 import { TSHelper } from "../../code/ts-helper";
-import { ReactComponentEditorView } from "../../../plugins/react/views/ComponentEditor";
+import ReactComponentEditorView from "../../../plugins/react/editors/ComponentEditor";
 import { ContentObjectMeta } from "../../../types/ContentObjectMeta";
 import { IEditor } from "../../../types/editor";
 import { MonacoEditorOnChange } from "../../../types/monaco";
 import { Spinner } from "../../../components/Spinner";
-import { CodeEditorView } from "../CodeEditor";
+import { CodeEditor } from "../CodeEditor";
 import { StatementEditor } from "../StatementEditor";
 import { EditorToolbar } from "./EditorToolbar";
 import './styles.scss';
@@ -36,13 +36,13 @@ export const EditorContainer: FC<EditorContainerProps> = ({ obj }) => {
         setActiveEditor(index);
     }, [])
 
-    const extraEditors = useMemo(() => [], []);
+    const extraEditors = useMemo(() => [ReactComponentEditorView], []);
     const { buttons, components } = useMemo(() => parseEditors(extraEditors), [extraEditors])
     return (
         <div className="EditorContainer">
             {isReady === false && <Spinner />}
             <EditorToolbar
-                buttons={[...buttons, CodeEditorView.button, StatementEditor.button]}
+                buttons={[...buttons, CodeEditor.button, StatementEditor.button]}
                 setActiveEditor={setActiveEditorCallback}
                 activeEditor={activeEditor}
             />
@@ -52,7 +52,7 @@ export const EditorContainer: FC<EditorContainerProps> = ({ obj }) => {
                 </div>
             ))}
             <div className="EditorView" hidden={activeEditor !== components.length && !!monacoHelper.editorInstance}>
-                <CodeEditorView content={files.map(f => f.node)} update={update} />
+                <CodeEditor content={files.map(f => f.node)} update={update} />
             </div>
             <div className="EditorView" hidden={activeEditor !== components.length + 1}>
                 <StatementEditor content={files.map(f => f.node)} update={update} />

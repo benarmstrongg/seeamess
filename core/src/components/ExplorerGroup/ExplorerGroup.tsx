@@ -1,4 +1,4 @@
-import React, { FC, MouseEvent, useState } from "react";
+import React, { FC, useState } from "react";
 import { FaCaretDown, FaCaretUp } from "react-icons/fa";
 import './styles.scss';
 

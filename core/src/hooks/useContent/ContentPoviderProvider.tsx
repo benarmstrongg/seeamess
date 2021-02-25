@@ -13,13 +13,15 @@ export const ContentProviderProvider: FC = ({ children }) => {
 
     useEffect(() => {
         const contentProvidersObj: IContentProviderContext = {};
+        const fileContentObjects: ContentObjectMeta[] = [];
         files.forEach(file => {
+            fileContentObjects.push(file);
             contentTypes.forEach(contentType => {
                 if (!file.node) {
                     return;
                 }
                 const content = file.node.find({}, [contentType as any]);
-                const contentObjects: ContentObjectMeta<ContentType>[] = [];
+                const contentObjects: ContentObjectMeta[] = [];
                 content.forEach(c => {
                     contentObjects.push({
                         containingFilePath: file.containingFilePath,
@@ -32,6 +34,7 @@ export const ContentProviderProvider: FC = ({ children }) => {
                 contentProvidersObj[contentType.name] = createContext(contentObjects);
             })
         });
+        contentProvidersObj['JavascriptFile'] = createContext(fileContentObjects);
         setContentProviders(contentProvidersObj);
     }, [files, contentTypes]);
 

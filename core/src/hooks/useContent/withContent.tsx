@@ -1,12 +1,15 @@
 import React, { useContext, useState } from "react"
 import { ASTNode } from "../../ast";
 import { ContentProviderContext } from "./ContentProviderContext";
-import { IContentContext as C, WithContentFn } from "./types";
+import { IContentContext as C, WithContentFn, WithContentComponent } from "./types";
 import { ContentProvider } from "./ContentProvider";
+import { IEditor } from "../../types/editor";
 
 
-const WithContent: WithContentFn = (contentType, component) => {
+const WithContent: WithContentComponent = (contentType, component) => {
     const providers = useContext(ContentProviderContext);
+    console.log(providers);
+    console.log(contentType.name);
     const [content, setContent] = useState(useContext(providers[contentType.name]));
 
     const update: C['update'] = (objectName, value) => {
@@ -32,4 +35,8 @@ const WithContent: WithContentFn = (contentType, component) => {
     );
 }
 
-export const withContent = WithContent;
+export const withContent: WithContentFn = (contentType, component) => {
+    const componentWithContent: IEditor = () => WithContent(contentType, component);
+    componentWithContent.button = component.button;
+    return componentWithContent;
+}

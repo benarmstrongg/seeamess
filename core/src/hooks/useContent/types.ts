@@ -1,4 +1,4 @@
-import { Context, FC, ReactElement } from "react";
+import { Context, ReactElement } from "react";
 import { ASTNode } from "../../ast";
 import { ContentObjectMeta } from "../../types/ContentObjectMeta";
 import { ContentType } from "../../types/ContentType";
@@ -19,4 +19,5 @@ export interface ContentPoviderProps {
     update: IContentContext['update'];
 }
 
-export type WithContentFn = (contentType: typeof ASTNode, component: IEditor) => ReactElement<FC<ContentPoviderProps>>;
+export type WithContentComponent = (contentType: typeof ASTNode, component: IEditor) => ReactElement<ContentPoviderProps>;
+export type WithContentFn = (contentType: typeof ASTNode, component: IEditor) => IEditor;
