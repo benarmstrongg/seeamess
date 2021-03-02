@@ -1,7 +1,7 @@
 import React from "react";
 import { ExportDeclaration } from "../../../ast";
 import { IStatementEditor } from "../../../types/StatementEditorProps";
-import { Collapsible } from "../../Collapsible";
+import { Collapsible } from "../../";
 import { NamedExportsEditor } from "./NamedExportsEditor";
 import { NamespaceExportEditor } from "./NamespaceExportEditor";
 

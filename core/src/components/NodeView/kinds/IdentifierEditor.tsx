@@ -1,14 +1,14 @@
 import React from 'react';
 import { Identifier } from "../../../ast";
 import { IStatementEditor } from '../../../types/StatementEditorProps';
-import { NodeInput } from '../../NodeInput';
-import { StatementEditorTitle } from '../StatementEditorTitle';
+import { NodeInput } from '../../';
+import { NodeViewHeading } from '..';
 
 
 export const IdentifierEditor: IStatementEditor<Identifier> = ({ node, fieldName = '' }) => {
     return (
         <span className="IdentifierEditor">
-            <StatementEditorTitle text={fieldName} />
+            <NodeViewHeading text={fieldName} />
             <NodeInput placeholder={fieldName} node={node} value={node.text} />
         </span>
     )

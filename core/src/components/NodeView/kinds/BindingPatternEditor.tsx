@@ -1,5 +1,5 @@
 import React from "react";
-import { NodeView } from "..";
+import { NodeView } from "../../";
 import { ArrayBindingPattern, ObjectBindingPattern } from "../../../ast";
 import { IStatementEditor } from "../../../types/StatementEditorProps";
 

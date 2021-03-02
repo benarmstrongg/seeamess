@@ -2,10 +2,10 @@ import React from 'react';
 import ts from 'typescript';
 import { Identifier, PropertyAccessExpression } from '../../../ast';
 import { IStatementEditor } from "../../../types/StatementEditorProps";
-import { StatementEditorTitle } from '../StatementEditorTitle';
+import { NodeViewHeading } from '..';
 import { IdentifierEditor } from './IdentifierEditor';
 import { ASTNode } from '../../../ast/ASTNode';
-import { Collapsible } from '../../Collapsible';
+import { Collapsible } from '../../';
 
 interface PropertyAccessExpressionEditorProps {
     isTopLevel?: boolean;
@@ -30,7 +30,7 @@ export const PropertyAccessExpressionEditor: IStatementEditor<PropertyAccessExpr
                 {isTopLevel === true ? (
                     <Collapsible trigger={collapsibleHeader}>
                         <div>
-                            <StatementEditorTitle text="Property Access Expression" />
+                            <NodeViewHeading text="Property Access Expression" />
                         </div>
                         {renderExpression()}
                         {renderName()}

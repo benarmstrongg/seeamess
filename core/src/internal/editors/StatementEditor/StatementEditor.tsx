@@ -1,6 +1,6 @@
 import React from "react";
 import { IEditor } from "../../../types/editor";
-import { NodeView } from "../../../components/NodeView";
+import { NodeView } from "../../../components";
 import { AiOutlineProfile } from 'react-icons/ai';
 import { ASTNode } from "../../../ast/ASTNode";
 import { useEditor } from "../../../hooks";

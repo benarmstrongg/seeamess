@@ -1,8 +1,8 @@
 import React from "react";
-import { NodeView } from "..";
+import { NodeView } from "../../";
 import { ImportClause } from "../../../ast";
 import { IStatementEditor } from "../../../types/StatementEditorProps";
-import { StatementEditorTitle } from "../StatementEditorTitle";
+import { NodeViewHeading } from "..";
 
 
 
@@ -12,13 +12,13 @@ export const ImportClauseEditor: IStatementEditor<ImportClause> = ({ node }) => 
         <div className="ImportSpecifierEditor">
             {!!node.name && (
                 <div>
-                    <StatementEditorTitle text="Default Import" />
+                    <NodeViewHeading text="Default Import" />
                     <NodeView node={node.name} />
                 </div>
             )}
             {!!node.namedBindings && (
                 <div>
-                    <StatementEditorTitle text="Named Imports" />
+                    <NodeViewHeading text="Named Imports" />
                     {namedBindings && namedBindings.getElements().map(e => (
                         <NodeView key={e.key} node={e} />
                     ))}

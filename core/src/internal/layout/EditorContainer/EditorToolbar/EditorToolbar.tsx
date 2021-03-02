@@ -1,5 +1,5 @@
 import React, { FC, ReactElement } from "react";
-import { EditorButton } from "../../../../components/EditorButton";
+import { EditorButton } from "../../../../components";
 import './styles.scss';
 
 interface EditorToolBarProps {

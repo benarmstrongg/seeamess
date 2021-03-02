@@ -1,7 +1,7 @@
 import React from 'react';
 import { ArrowFunction } from '../../../ast/kinds/ArrowFunction';
 import { IStatementEditor } from "../../../types/StatementEditorProps";
-import { Collapsible } from '../../Collapsible';
+import { Collapsible } from '../../';
 import { FunctionExpressionEditor } from './FunctionExpressionEditor';
 
 export const ArrowFunctionEditor: IStatementEditor<ArrowFunction> = ({ node }) => {

@@ -1,9 +1,9 @@
 import React from "react";
-import { NodeView } from "..";
+import { NodeView } from "../../";
 import { ExportAssignment } from "../../../ast";
 import { IStatementEditor } from "../../../types/StatementEditorProps";
-import { Collapsible } from "../../Collapsible";
-import { StatementEditorTitle } from "../StatementEditorTitle";
+import { Collapsible } from "../../";
+import { NodeViewHeading } from "..";
 
 export const ExportAssignmentEditor: IStatementEditor<ExportAssignment> = ({ node }) => {
     const getCollapsibleHeader = () => {
@@ -21,7 +21,7 @@ export const ExportAssignmentEditor: IStatementEditor<ExportAssignment> = ({ nod
         <div className="ExportAsssignmentEditor">
             <Collapsible trigger={getCollapsibleHeader()}>
                 <div>
-                    <StatementEditorTitle text="Name" />
+                    <NodeViewHeading text="Name" />
                     <NodeView node={node.expression} />
                 </div>
             </Collapsible>

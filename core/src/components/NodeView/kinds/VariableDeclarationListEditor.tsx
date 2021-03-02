@@ -1,8 +1,8 @@
 import React from "react";
 import { IStatementEditor } from "../../../types/StatementEditorProps";
-import { StatementEditorTitle } from "../StatementEditorTitle";
+import { NodeViewHeading } from "..";
 import { VariableDeclarationEditor } from "./VariableDeclarationEditor";
-import { Collapsible } from "../../Collapsible";
+import { Collapsible } from "../../";
 import { VariableDeclarationList } from "../../../ast";
 
 export const VariableDeclarationListEditor: IStatementEditor<VariableDeclarationList> = ({ node }) => {
@@ -16,10 +16,10 @@ export const VariableDeclarationListEditor: IStatementEditor<VariableDeclaration
             <Collapsible trigger={collapsibleHeader}>
                 {hasMultipleDeclarations && (
                     <div>
-                        <StatementEditorTitle text="Variable Declaration List" />
+                        <NodeViewHeading text="Variable Declaration List" />
                     </div>
                 )}
-                <StatementEditorTitle text="Kind" />
+                <NodeViewHeading text="Kind" />
                 <select defaultValue={kind}>
                     {validKinds.map(k => (
                         <option key={k} value={k}>{k}</option>
@@ -28,7 +28,7 @@ export const VariableDeclarationListEditor: IStatementEditor<VariableDeclaration
                 <br />
                 {hasMultipleDeclarations ? (
                     <>
-                        <StatementEditorTitle text="Declarations" />
+                        <NodeViewHeading text="Declarations" />
                         {declarations.map(d => (
                             <VariableDeclarationEditor key={d.key} node={d} />
                         ))}

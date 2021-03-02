@@ -1,9 +1,8 @@
 import React from "react";
-import { NodeView } from "..";
+import { NodeView, Collapsible } from "../../";
 import { ASTNode, FunctionExpression } from "../../../ast";
 import { IStatementEditor } from "../../../types/StatementEditorProps";
-import { Collapsible } from "../../Collapsible";
-import { StatementEditorTitle } from "../StatementEditorTitle";
+import { NodeViewHeading } from "..";
 
 interface FunctionExpressionEditorProps {
     isTopLevel?: boolean;
@@ -16,19 +15,19 @@ export const FunctionExpressionEditor: IStatementEditor<FunctionExpression, Func
             <div className="FunctionExpressionEditor">
                 {!!name && (
                     <div>
-                        <StatementEditorTitle text="Name" />
+                        <NodeViewHeading text="Name" />
                         <NodeView node={node.name} />
                     </div>
                 )}
                 <div>
-                    <StatementEditorTitle text="Parameters" />
+                    <NodeViewHeading text="Parameters" />
                     {node.getParameters().map(p => (
                         <NodeView key={p.key} node={ASTNode.from(p)} />
                     ))}
                 </div>
                 {!!node.body && (
                     <div>
-                        <StatementEditorTitle text="Body" />
+                        <NodeViewHeading text="Body" />
                         <NodeView node={ASTNode.from(node.body)} />
                     </div>
                 )}

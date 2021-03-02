@@ -1,13 +1,12 @@
 import React, { FC, ReactElement, useCallback, useEffect, useMemo, useState } from "react";
 import { MonacoHelper } from '../../code/monaco-helper';
 import { TSHelper } from "../../code/ts-helper";
-import { ReactComponentEditor } from "../../../plugins/react/editors/ComponentEditor";
+import { ReactComponentEditor } from "../../../plugins/react/editors/ComponentEditor/ReactComponentEditor";
 import { IEditor } from "../../../types/editor";
 import { MonacoEditorOnChange } from "../../../types/monaco";
-import { Spinner } from "../../../components/Spinner";
-import { CodeEditor } from "../../editors/CodeEditor";
-import { StatementEditor } from "../../editors/StatementEditor";
-import { EditorToolbar } from "./EditorToolbar";
+import { Spinner } from "../../../components";
+import { CodeEditor, StatementEditor } from "../../editors";
+import { EditorToolbar } from ".";
 import { useConfig, useFiles } from "../../../hooks";
 import './styles.scss';
 import { ContentType } from "../../../types/ContentType";

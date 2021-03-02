@@ -1,5 +1,5 @@
 import React from "react";
-import { NodeView } from "..";
+import { NodeView } from "../../";
 import { ExpressionStatement } from "../../../ast/kinds/ExpressionStatement";
 import { IStatementEditor } from "../../../types/StatementEditorProps";
 

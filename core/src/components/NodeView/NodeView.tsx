@@ -3,8 +3,8 @@ import ts from 'typescript';
 import { IStatementEditor } from "../../types/StatementEditorProps";
 import { LiteralEditor, VariableDeclarationEditor, VariableDeclarationListEditor, BlockEditor, ReturnStatementEditor, ExpressionStatementEditor, CallExpressionEditor, BinaryExpressionEditor, IdentifierEditor, ImportDeclarationEditor, ImportClauseEditor, JsxElementEditor, JsxOpeningElementEditor, JsxAttributeEditor, ArrowFunctionEditor, JsxTextEditor, ExportAssignmentEditor, ExportDeclarationEditor, FunctionDeclarationEditor, FunctionExpressionEditor, InterfaceDeclarationEditor, JsxSelfClosingElementEditor, ParameterDeclarationEditor, PropertyAccessExpressionEditor, PropertySignatureEditor, TypeAliasDeclarationEditor, BindingPatternEditor, BindingElementEditor } from './kinds';
 
-import { NodeInput } from '../NodeInput';
-import { StatementEditorTitle } from './StatementEditorTitle';
+import { NodeInput } from '..';
+import { NodeViewHeading } from '.';
 import './styles.scss';
 import { ASTNode, ArrayBindingPattern, ArrowFunction, BinaryExpression, BindingElement, Block, CallExpression, ExportAssignment, ExportDeclaration, ExpressionStatement, FunctionDeclaration, FunctionExpression, Identifier, ImportClause, ImportDeclaration, InterfaceDeclaration, JsxAttribute, JsxElement, JsxOpeningElement, JsxSelfClosingElement, JsxText, LiteralLikeNode, ObjectBindingPattern, ParameterDeclaration, PropertyAccessExpression, PropertySignature, ReturnStatement, TypeAliasDeclaration, VariableDeclaration, VariableDeclarationList } from '../../ast';
 
@@ -142,7 +142,7 @@ export const NodeView: IStatementEditor<any, { [prop: string]: any }> = (props) 
             return <BindingElementEditor node={convertNode(BindingElement)} />;
         }
 
-        return <div style={{ background: 'red' }}><br /><br /><StatementEditorTitle text={ts.SyntaxKind[node.kind]} /><br /><br /></div>
+        return <div style={{ background: 'red' }}><br /><br /><NodeViewHeading text={ts.SyntaxKind[node.kind]} /><br /><br /></div>
     }, [node])
 
     const style = {

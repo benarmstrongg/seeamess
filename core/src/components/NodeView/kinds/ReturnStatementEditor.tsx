@@ -1,9 +1,9 @@
 import React from "react";
-import { NodeView } from "..";
+import { NodeView } from "../../";
 import { ReturnStatement } from "../../../ast";
 import { IStatementEditor } from "../../../types/StatementEditorProps";
-import { Collapsible } from "../../Collapsible";
-import { StatementEditorTitle } from "../StatementEditorTitle";
+import { Collapsible } from "../../";
+import { NodeViewHeading } from "..";
 
 export const ReturnStatementEditor: IStatementEditor<ReturnStatement> = ({ node }) => {
     return (
@@ -11,7 +11,7 @@ export const ReturnStatementEditor: IStatementEditor<ReturnStatement> = ({ node 
             <Collapsible trigger="Return Statement">
                 {!!node.expression && (
                     <>
-                        <StatementEditorTitle text="Expression" />
+                        <NodeViewHeading text="Expression" />
                         <NodeView node={node.expression} />
                     </>
 

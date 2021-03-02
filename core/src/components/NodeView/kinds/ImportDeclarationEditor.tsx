@@ -1,9 +1,9 @@
 import React from "react";
 import { IStatementEditor } from "../../../types/StatementEditorProps";
-import { NodeView } from "..";
-import { StatementEditorTitle } from "../StatementEditorTitle";
+import { NodeView } from "../../";
+import { NodeViewHeading } from "..";
 import { ImportDeclaration } from "../../../ast";
-import { Collapsible } from "../../Collapsible";
+import { Collapsible } from "../../";
 
 export const ImportDeclarationEditor: IStatementEditor<ImportDeclaration> = ({ node }) => {
     const collapsibleHeader = `import from '${node.getModuleName()}'` || 'Import Declaration';
@@ -11,10 +11,10 @@ export const ImportDeclarationEditor: IStatementEditor<ImportDeclaration> = ({ n
         <div className="ImportDeclarationEditor">
             <Collapsible trigger={collapsibleHeader}>
                 <div>
-                    <StatementEditorTitle text="Import Declaration" />
+                    <NodeViewHeading text="Import Declaration" />
                 </div>
                 <div>
-                    <StatementEditorTitle text="Source" />
+                    <NodeViewHeading text="Source" />
                     <NodeView node={node.moduleSpecifier} />
                 </div>
                 {!!node.importClause && (

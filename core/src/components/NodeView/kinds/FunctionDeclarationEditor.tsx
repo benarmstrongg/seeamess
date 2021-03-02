@@ -1,8 +1,8 @@
 import React from "react";
 import { FunctionDeclaration } from "../../../ast";
 import { IStatementEditor } from "../../../types/StatementEditorProps";
-import { Collapsible } from "../../Collapsible";
-import { StatementEditorTitle } from "../StatementEditorTitle";
+import { Collapsible } from "../../";
+import { NodeViewHeading } from "..";
 import { FunctionExpressionEditor } from "./FunctionExpressionEditor";
 
 export const FunctionDeclarationEditor: IStatementEditor<FunctionDeclaration> = ({ node }) => {
@@ -13,7 +13,7 @@ export const FunctionDeclarationEditor: IStatementEditor<FunctionDeclaration> = 
         <div className="FunctionDeclarationEditor">
             <Collapsible trigger={collapsibleHeader}>
                 <div>
-                    <StatementEditorTitle text="Function Declaration" />
+                    <NodeViewHeading text="Function Declaration" />
                 </div>
                 <FunctionExpressionEditor node={expression} />
             </Collapsible>

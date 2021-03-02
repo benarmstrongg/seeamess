@@ -1,8 +1,8 @@
 import React from "react";
-import { NodeView } from "..";
+import { NodeView } from "../../";
 import { BinaryExpression } from "../../../ast";
 import { IStatementEditor } from "../../../types/StatementEditorProps";
-import { Collapsible } from "../../Collapsible";
+import { Collapsible } from "../../";
 
 export const BinaryExpressionEditor: IStatementEditor<BinaryExpression> = ({ node }) => {
     const validOperators = [
