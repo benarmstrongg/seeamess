@@ -8,7 +8,7 @@ import { FaFile, FaFolder } from "react-icons/fa";
 export const FileExplorer: FC = () => {
     const { projectDir } = useConfig();
     const { files } = useFiles();
-    const filePaths = files.map(c => c.objectName);
+    const filePaths = files.map(c => c.containingFilePath);
     const tabs = useTabs();
     const relativePaths = filePaths.map(p => p.replace(projectDir, ''));
     const tree = createFileTree(relativePaths);

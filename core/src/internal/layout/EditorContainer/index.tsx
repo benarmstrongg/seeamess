@@ -1,42 +1,41 @@
 import React, { FC, ReactElement, useCallback, useEffect, useMemo, useState } from "react";
 import { MonacoHelper } from '../../code/monaco-helper';
 import { TSHelper } from "../../code/ts-helper";
-import ReactComponentEditorView from "../../../plugins/react/editors/ComponentEditor";
-import { ContentObjectMeta } from "../../../types/ContentObjectMeta";
+import { ReactComponentEditor } from "../../../plugins/react/editors/ComponentEditor";
 import { IEditor } from "../../../types/editor";
 import { MonacoEditorOnChange } from "../../../types/monaco";
 import { Spinner } from "../../../components/Spinner";
-import { CodeEditor } from "../CodeEditor";
-import { StatementEditor } from "../StatementEditor";
+import { CodeEditor } from "../../editors/CodeEditor";
+import { StatementEditor } from "../../editors/StatementEditor";
 import { EditorToolbar } from "./EditorToolbar";
+import { useConfig, useFiles } from "../../../hooks";
 import './styles.scss';
-import { useContent } from "../../../hooks/useContent";
-import { useConfig } from "../../../hooks/useConfig";
+import { ContentType } from "../../../types/ContentType";
 
 interface EditorContainerProps {
-    obj: ContentObjectMeta;
+    obj: ContentType;
 }
 
 export const EditorContainer: FC<EditorContainerProps> = ({ obj }) => {
     const [activeEditor, setActiveEditor] = useState(0);
     const [isReady, setIsReady] = useState(false);
     const config = useConfig();
-    const { content: files, update } = useContent();
-    const tsHelper = useMemo(() => new TSHelper(obj.containingFilePath, obj.text), [obj]);
-    const monacoHelper = useMemo(() => new MonacoHelper(tsHelper, config, files.reduce((o, f) => ({ ...o, [f.objectName]: f }), {})), [tsHelper, config, files]);
+    const { files } = useFiles();
+    const tsHelper = useMemo(() => new TSHelper(obj.containingFilePath, obj.getText()), [obj]);
+    const monacoHelper = useMemo(() => new MonacoHelper(tsHelper, config, files.reduce((o, f) => ({ ...o, [f.containingFilePath]: f }), {})), [tsHelper, config, files]);
     const handleChange = useCallback<MonacoEditorOnChange>((ast, e, t) => { }, []);
 
 
     useEffect(() => {
         if (!monacoHelper.editorInstance)
-            monacoHelper.init(obj.text, handleChange).then(setIsReady);
+            monacoHelper.init(obj.getText(), handleChange).then(setIsReady);
     }, [monacoHelper, handleChange, obj])
 
     const setActiveEditorCallback = useCallback((index: number) => {
         setActiveEditor(index);
     }, [])
 
-    const extraEditors = useMemo(() => [ReactComponentEditorView], []);
+    const extraEditors = useMemo(() => [ReactComponentEditor], []);
     const { buttons, components } = useMemo(() => parseEditors(extraEditors), [extraEditors])
     return (
         <div className="EditorContainer">
@@ -46,16 +45,18 @@ export const EditorContainer: FC<EditorContainerProps> = ({ obj }) => {
                 setActiveEditor={setActiveEditorCallback}
                 activeEditor={activeEditor}
             />
-            {components.map((Editor, index) => (
-                <div className="EditorView" key={Editor.name} hidden={activeEditor !== index}>
-                    <Editor content={files.map(f => f.node)} update={update} />
-                </div>
-            ))}
+            {components.map((Editor, index) => {
+                return (
+                    <div className="EditorView" key={Editor.name} hidden={activeEditor !== index}>
+                        <Editor />
+                    </div>
+                );
+            })}
             <div className="EditorView" hidden={activeEditor !== components.length && !!monacoHelper.editorInstance}>
-                <CodeEditor content={files.map(f => f.node)} update={update} />
+                <CodeEditor />
             </div>
             <div className="EditorView" hidden={activeEditor !== components.length + 1}>
-                <StatementEditor content={files.map(f => f.node)} update={update} />
+                <StatementEditor />
             </div>
         </div>
     )

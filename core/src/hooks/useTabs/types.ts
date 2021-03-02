@@ -1,9 +1,9 @@
-import { ContentObjectMeta } from "../../types/ContentObjectMeta";
+import { ContentType } from "../../types/ContentType";
 
 export interface ITabsContext {
-    openTabs: ContentObjectMeta[];
+    openTabs: ContentType[];
     activeTab: number;
-    open(obj: ContentObjectMeta): void;
+    open(obj: ContentType): void;
     close(tabIndex: number): void;
     change(toIndex: number): void;
 }

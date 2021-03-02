@@ -5,8 +5,7 @@ import { ExplorerSection } from "../../sections/ExplorerSection";
 import { SeeamessConfigProvider } from "../../../hooks/useConfig";
 import { TunnelProvider } from "../../../hooks/useTunnel";
 import { FilesProvider } from "../../../hooks/useFiles";
-import { ContentProviderProvider } from "../../../hooks/useContent";
-import { TabsProvider } from "../../../hooks";
+import { ContentProvider, TabsProvider } from "../../../hooks";
 
 export const AppContainer: FC = () => {
     const AppProvider: FC = ({ children }) => (
@@ -14,9 +13,9 @@ export const AppContainer: FC = () => {
             <TunnelProvider>
                 <TabsProvider>
                     <FilesProvider>
-                        <ContentProviderProvider>
+                        <ContentProvider>
                             {children}
-                        </ContentProviderProvider>
+                        </ContentProvider>
                     </FilesProvider>
                 </TabsProvider>
             </TunnelProvider>

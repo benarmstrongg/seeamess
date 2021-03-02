@@ -2,19 +2,19 @@ import React, { FC } from "react";
 import { TabBar } from "../../layout/TabBar";
 import './styles.scss';
 import { TabContainer } from "../../layout/TabContainer";
-import { useConfig, useTabs } from "../../../hooks";
+import { useTabs } from "../../../hooks";
+import { EditorContainer } from "../../layout/EditorContainer";
 
 export const EditorSection: FC = () => {
-    const { openTabs, activeTab, change: changeTab, close: closeTab } = useTabs();
-    const config = useConfig();
+    const { openTabs } = useTabs();
 
     return (
-        <div className="Workspace">workspace
-            <TabBar tabs={openTabs} activeTab={activeTab} projectDir={config.projectDir} changeTab={changeTab} closeTab={closeTab} />
+        <div className="EditorSection">
+            <TabBar />
             {openTabs.map((obj, index) =>
-                <div className="WorkspaceSection" hidden={index !== activeTab} key={`${obj.contentType}-${obj.objectName}`}>
-                    <TabContainer obj={obj} />
-                </div>
+                <TabContainer tabIndex={index} key={`${obj.containingFilePath}-${obj.kindString}-${obj.pos}`}>
+                    <EditorContainer obj={obj} />
+                </TabContainer>
             )}
         </div>
     );

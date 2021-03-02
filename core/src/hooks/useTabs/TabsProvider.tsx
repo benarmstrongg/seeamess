@@ -7,15 +7,19 @@ export const TabsProvider: FC = ({ children }) => {
     const [openTabs, setOpenTabs] = useState<T['openTabs']>([]);
 
     const open = useCallback<T['open']>(obj => {
-        console.log(obj);
+        console.log(obj.constructor.name)
+        console.log(obj.pos);
         const existingTabIndex = openTabs.findIndex(tab =>
-            tab.contentType === obj.contentType && tab.objectName === obj.objectName
+            tab.constructor.name === obj.constructor.name &&
+            tab.pos === obj.pos &&
+            tab.containingFilePath === obj.containingFilePath
         );
         if (existingTabIndex !== -1) {
             setActiveTab(existingTabIndex);
         }
         else {
             setOpenTabs([...openTabs, obj]);
+            setActiveTab(openTabs.length);
         }
     }, [openTabs]);
 

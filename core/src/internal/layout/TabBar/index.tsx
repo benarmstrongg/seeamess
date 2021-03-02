@@ -1,30 +1,24 @@
 import React, { FC, MouseEvent } from "react";
 import { FaTimes } from "react-icons/fa";
-import { ContentObjectMeta } from "../../../types/ContentObjectMeta";
+import { useConfig, useTabs } from "../../../hooks";
 import './styles.scss';
 
-interface TabBarProps {
-    tabs: ContentObjectMeta[];
-    activeTab: number;
-    projectDir: string;
-    closeTab: (tabIndex: number) => void;
-    changeTab: (tabIndex: number) => void;
-};
-
-export const TabBar: FC<TabBarProps> = ({ tabs, activeTab, projectDir, closeTab, changeTab }) => {
+export const TabBar: FC = () => {
+    const { projectDir } = useConfig();
+    const { openTabs, activeTab, close, change } = useTabs();
 
     const handleTabClick = (e: MouseEvent, tabIndex: number) => {
         const clickedElement = e.target as HTMLElement;
         if (clickedElement.classList.contains('close')) {
-            return closeTab(tabIndex);
+            return close(tabIndex);
         }
-        changeTab(tabIndex);
+        change(tabIndex);
     }
 
     return (
         <div className="TabBar">
-            {tabs.map((tab, index) => {
-                const path = getRelativeFilePath(projectDir, tab.objectName);
+            {openTabs.map((tab, index) => {
+                const path = tab.containingFilePath.replace(projectDir, '');
                 return (
                     <div
                         key={path}
@@ -41,8 +35,4 @@ export const TabBar: FC<TabBarProps> = ({ tabs, activeTab, projectDir, closeTab,
             })}
         </div>
     );
-}
-
-const getRelativeFilePath = (projectDir: string, filePath: string) => {
-    return filePath.replace(projectDir, '');
 }

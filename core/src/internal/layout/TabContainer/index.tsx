@@ -1,18 +1,16 @@
 import React, { FC } from "react";
-import { ContentObjectMeta } from "../../../types/ContentObjectMeta";
-import { EditorContainer } from "../../editors/EditorContainer";
+import { useTabs } from "../../../hooks";
 import './styles.scss';
 
 interface TabContainerProps {
-    obj: ContentObjectMeta;
+    tabIndex: number;
 }
 
-export const TabContainer: FC<TabContainerProps> = ({ obj }) => {
+export const TabContainer: FC<TabContainerProps> = ({ children, tabIndex }) => {
+    const { activeTab } = useTabs();
     return (
-        <div className="TabContainer">
-            {obj && (
-                <EditorContainer obj={obj} />
-            )}
+        <div className="TabContainer" hidden={activeTab !== tabIndex}>
+            {children}
         </div>
     );
 }

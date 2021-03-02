@@ -2,8 +2,9 @@
     cursor: pointer;
     position: relative;
     padding-left: 10px;
+    user-select: none;
 
-    &.hover {
+    &:hover {
         background-color: lightgray;
     }
 }

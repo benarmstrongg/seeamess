@@ -41,6 +41,9 @@ export class ASTNode {
     get sourceFile(): SourceFile {
         return ASTNode.as(this.getSourceFile(), SourceFile);
     }
+    get containingFilePath(): string {
+        return this.sourceFile.fileName;
+    }
 
     constructor(node: ts.Node) {
         this.kind = node.kind;

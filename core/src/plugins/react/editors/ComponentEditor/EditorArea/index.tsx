@@ -14,8 +14,6 @@ interface EditorAreaProps {
 export const EditorArea: FC<EditorAreaProps> = ({ component }) => {
     const [viewMode, setViewMode] = useState<'edit' | 'preview'>('edit');
     const { code, defaultProps } = component.getPreview();
-    console.log(defaultProps);
-    console.log(code);
     return (
         <div className="EditorArea">
             <div className="EditorToolbar">

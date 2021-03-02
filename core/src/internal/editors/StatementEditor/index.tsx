@@ -2,15 +2,15 @@ import React from "react";
 import { IEditor } from "../../../types/editor";
 import { NodeView } from "../../../components/NodeView";
 import { AiOutlineProfile } from 'react-icons/ai';
-import './styles.scss';
 import { ASTNode } from "../../../ast/ASTNode";
-import { SourceFile } from "../../../ast";
+import { useEditor } from "../../../hooks";
+import './styles.scss';
 
-export const StatementEditor: IEditor = ({ content }) => {
-    const file = content[0] as SourceFile;
+export const StatementEditor: IEditor = () => {
+    const { content } = useEditor();
     return (
         <div className="StatementEditorView">
-            {!!file && file.statements.map(ASTNode.from).map(s => (
+            {content.getChildNodes().map(ASTNode.from).map(s => (
                 <NodeView key={s.key} node={s} />
             ))}
         </div>

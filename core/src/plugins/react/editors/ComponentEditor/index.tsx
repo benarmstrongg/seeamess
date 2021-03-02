@@ -1,15 +1,15 @@
-import React, { useMemo } from 'react';
+import React from 'react';
 import { IEditor } from '../../../../types/editor';
 import { FaReact } from 'react-icons/fa';
 import { ReactFunctionComponent } from '../../content-types/FC';
-import { EditorArea } from './EditorArea';
-import { ComponentInfoPanel } from './ComponentInfoPanel';
+// import { EditorArea } from './EditorArea';
+// import { ComponentInfoPanel } from './ComponentInfoPanel';
+import { useContent } from '../../../../hooks';
 import './styles.scss';
-import { withContent } from '../../../../hooks';
 
-const ReactComponentEditorView: IEditor = ({ content }) => {
-    console.log(content);
-    const component = content as any;
+export const ReactComponentEditor: IEditor = () => {
+    const components = useContent(ReactFunctionComponent);
+    console.log(components);
     // const ast = content[0] as ReactFunctionComponent;
     // const component = useMemo(() => ast.find({}, ReactFunctionComponent), [ast]);
     return (
@@ -24,11 +24,11 @@ const ReactComponentEditorView: IEditor = ({ content }) => {
     );
 }
 
-ReactComponentEditorView.button = (
+ReactComponentEditor.button = (
     <>
         <FaReact />
         <>&nbsp;React</>
     </>
 );
 
-export default withContent(ReactFunctionComponent, ReactComponentEditorView);
+ReactComponentEditor.acceptedContentTypes = [];
