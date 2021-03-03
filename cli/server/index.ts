@@ -1,6 +1,6 @@
 import express from 'express';
 import socketio from 'socket.io';
-import { SeeamessConfig } from '../types'
+import { SeeamessConfig } from 'types';
 
 export const create = (config: SeeamessConfig) => {
     const webServer = express();
