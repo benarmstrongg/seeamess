@@ -1,6 +1,6 @@
 import ts from "typescript";
-import { ASTNode, ArrowFunction, BindingName, JsxOpeningElement, ParameterDeclaration, ReturnStatement } from "../../../ast";
-import { ContentType } from "../../../types/ContentType";
+import { ASTNode, ArrowFunction, BindingName, JsxOpeningElement, ParameterDeclaration, ReturnStatement } from "ast";
+import { ContentType } from "types/ContentType";
 
 type ReactComponentNode = ts.FunctionDeclaration | ts.ArrowFunction | ts.ClassDeclaration;
 
@@ -70,9 +70,13 @@ export class ReactFunctionComponent extends ContentType implements ReactComponen
             this.functionNode = node;
             this.componentName = this._getName();
         }
-        else {
+        else if (ts.isVariableDeclaration(node)) {
             this.functionNode = this._getFunctionFromVariableDeclaration(node);
             this.componentName = this._getNameFromVariableDeclaration(node);
+        }
+        else {
+            this.componentName = '';
+            this.functionNode = null as any;
         }
         this.props = this._getProps();
     }
@@ -83,8 +87,8 @@ export class ReactFunctionComponent extends ContentType implements ReactComponen
         if (correctNamingPattern === false) {
             return false;
         }
-        const numParams = this.functionNode.parameters.length;
-        const correctNumParams = !(numParams > 1);
+        const numParams = this.functionNode?.parameters?.length;
+        const correctNumParams = !!numParams && !(numParams > 1);
         if (correctNumParams === false) {
             return false;
         }
@@ -119,7 +123,7 @@ export class ReactFunctionComponent extends ContentType implements ReactComponen
     }
 
     _getFunctionFromVariableDeclaration(node: ts.VariableDeclaration): ts.ArrowFunction {
-        return ASTNode.from(node).find({}, ArrowFunction) ||
+        return node.initializer ? ASTNode.as(node.initializer as any, ArrowFunction) :
             ts.factory.createArrowFunction(undefined, undefined, [], undefined, undefined, ts.factory.createBlock([]));
     }
 

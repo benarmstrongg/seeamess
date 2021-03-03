@@ -1,6 +1,5 @@
 import ts from "typescript";
-import { ASTNode } from "../ASTNode";
-import { PropertyAccessExpression } from "./PropertyAccessExpression";
+import { ASTNode, PropertyAccessExpression } from "ast";
 
 export class CallExpression extends ASTNode implements ts.CallExpression {
     _leftHandSideExpressionBrand;

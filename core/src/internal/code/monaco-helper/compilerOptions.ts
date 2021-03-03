@@ -1,5 +1,5 @@
 import { JsxEmit, ModuleKind, ModuleResolutionKind, ScriptTarget } from "typescript";
-import { TSCompilerOptions } from "../../../types/monaco";
+import { TSCompilerOptions } from "types/monaco";
 
 export const tsCompilerOptions: TSCompilerOptions = {
     target: ScriptTarget.ES2016,

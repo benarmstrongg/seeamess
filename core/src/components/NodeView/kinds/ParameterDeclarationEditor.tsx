@@ -1,10 +1,7 @@
 import React from 'react';
-import { NodeView } from '..';
-import { ASTNode, ParameterDeclaration } from '../../../ast';
-import { IStatementEditor } from "../../../types/StatementEditorProps";
-import { NodeInput } from '../../NodeInput';
-import { Collapsible } from '../../Collapsible';
-import { StatementEditorTitle } from '../StatementEditorTitle';
+import { ASTNode, ParameterDeclaration } from 'ast';
+import { IStatementEditor } from "types/StatementEditorProps";
+import { NodeInput, NodeView, Collapsible, NodeViewHeading } from 'components';
 
 export const ParameterDeclarationEditor: IStatementEditor<ParameterDeclaration> = ({ node }) => {
     const type = node.getType();
@@ -13,25 +10,25 @@ export const ParameterDeclarationEditor: IStatementEditor<ParameterDeclaration> 
         <div className="ParameterDeclarationEditor">
             <Collapsible trigger={node.getNamesString()}>
                 <div>
-                    <StatementEditorTitle text="Parameter" />
+                    <NodeViewHeading text="Parameter" />
                 </div>
                 <div>
-                    <StatementEditorTitle text="Name" />
+                    <NodeViewHeading text="Name" />
                     <NodeView node={node.name} />
                 </div>
                 <div>
-                    <StatementEditorTitle text="Required" />
+                    <NodeViewHeading text="Required" />
                     <input type="checkbox" readOnly checked={node.required === true} />
                 </div>
                 {!!node.type && (
                     <div>
-                        <StatementEditorTitle text="Type" />
+                        <NodeViewHeading text="Type" />
                         <NodeInput placeholder="any" node={ASTNode.from(node.type)} value={type} />
                     </div>
                 )}
                 {!!node.initializer && (
                     <div>
-                        <StatementEditorTitle text="Initializer" />
+                        <NodeViewHeading text="Initializer" />
                         <NodeView node={node.initializer} />
                     </div>
                 )}

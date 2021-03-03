@@ -1,13 +1,19 @@
 import { FC, ReactElement } from "react";
-import { MonacoHelper } from "../internal/code/monaco-helper";
-import { TSHelper } from "../internal/code/ts-helper";
+import { MonacoHelper } from "internal/code/monaco-helper";
+import { TSHelper } from "internal/code/ts-helper";
+import { ContentType } from "./ContentType";
 
-export interface EditorProps {
-}
+// type ContentTypeOrASTNode<T> = (
+//     T extends ContentType ? T : (
+//         T extends ASTNode ? T : ASTNode
+//     )
+// );
 
 
-export interface IEditor extends FC<EditorProps> {
+
+export interface IEditor extends FC {
     button: ReactElement;
+    acceptedContentTypes?: typeof ContentType[]
 }
 
 

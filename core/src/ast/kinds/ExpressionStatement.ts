@@ -1,5 +1,5 @@
 import ts from "typescript";
-import { ASTNode } from "../ASTNode";
+import { ASTNode } from "ast";
 
 export class ExpressionStatement extends ASTNode implements ts.ExpressionStatement {
     _statementBrand: ts.ExpressionStatement['_statementBrand'];

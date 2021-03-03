@@ -1,5 +1,5 @@
 import ts from "typescript";
-import { ASTNode } from "../ASTNode";
+import { ASTNode } from "ast";
 
 export class Identifier extends ASTNode implements ts.Identifier {
     _expressionBrand;

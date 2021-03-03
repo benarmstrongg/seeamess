@@ -1,6 +1,5 @@
-import { ASTNode } from '../ASTNode';
 import ts from 'typescript';
-import { Identifier } from './Identifier';
+import { ASTNode, Identifier } from 'ast';
 
 export class PropertyAccessExpression extends ASTNode implements ts.PropertyAccessExpression {
     _declarationBrand;

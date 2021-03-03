@@ -1,5 +1,5 @@
 import ts from "typescript";
-import { ASTNode } from "../ASTNode";
+import { ASTNode } from "ast";
 
 export class ReturnStatement extends ASTNode implements ts.ReturnStatement {
     _statementBrand: ts.ReturnStatement['_statementBrand'];

@@ -1,6 +1,6 @@
 // import j from "jscodeshift";
 import { FC } from "react";
-import { ASTNode } from "../ast";
+import { ASTNode } from "ast";
 
 type StatementEditorProps<T extends ASTNode, ExtraProps> =
     ExtraProps & {

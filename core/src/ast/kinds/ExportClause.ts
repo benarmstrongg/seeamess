@@ -1,7 +1,5 @@
 import ts from "typescript";
-import { ASTNode } from "../ASTNode";
-import { NamedExports } from "./NamedExports";
-import { NamespaceExport } from "./NamespaceExport";
+import { ASTNode, NamedExports, NamespaceExport } from "ast";
 
 export class ExportClause extends ASTNode implements Partial<NamedExports>, Partial<NamespaceExport> {
     _declarationBrand;

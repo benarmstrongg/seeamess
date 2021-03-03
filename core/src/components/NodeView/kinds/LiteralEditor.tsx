@@ -1,7 +1,7 @@
 import React from 'react';
-import { LiteralLikeNode } from '../../../ast';
-import { IStatementEditor } from "../../../types/StatementEditorProps";
-import { NodeInput } from '../../NodeInput';
+import { LiteralLikeNode } from 'ast';
+import { IStatementEditor } from "types/StatementEditorProps";
+import { NodeInput } from 'components';
 
 
 export const LiteralEditor: IStatementEditor<LiteralLikeNode> = (props) => {

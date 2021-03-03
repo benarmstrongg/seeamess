@@ -1,5 +1,5 @@
 import ts from "typescript";
-import { ASTNode } from "../ASTNode";
+import { ASTNode } from "ast";
 
 export class Block extends ASTNode implements ts.Block {
     _statementBrand: ts.Block['_statementBrand'];

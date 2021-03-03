@@ -1,0 +1,10 @@
+.ExplorerItem {
+    cursor: pointer;
+    position: relative;
+    padding-left: 10px;
+    user-select: none;
+
+    &:hover {
+        background-color: lightgray;
+    }
+}

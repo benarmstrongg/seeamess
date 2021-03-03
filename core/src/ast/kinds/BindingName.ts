@@ -1,7 +1,5 @@
 import ts from "typescript";
-import { ASTNode } from "../ASTNode";
-import { ArrayBindingPattern } from "./ArrayBindingPattern";
-import { ObjectBindingPattern } from "./ObjectBindingPattern";
+import { ASTNode, ArrayBindingPattern, ObjectBindingPattern } from "ast";
 
 export class BindingName extends ASTNode {
     constructor(node: ts.BindingName) {

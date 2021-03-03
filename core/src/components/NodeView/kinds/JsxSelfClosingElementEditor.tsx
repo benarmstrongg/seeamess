@@ -1,9 +1,8 @@
 import React from "react";
-import { JsxSelfClosingElement } from "../../../ast";
-import { IStatementEditor } from "../../../types/StatementEditorProps";
-import { Collapsible } from "../../Collapsible";
-import { StatementEditorTitle } from "../StatementEditorTitle";
-import { JsxOpeningElementEditor } from "./JsxOpeningElementEditor";
+import { JsxSelfClosingElement } from "ast";
+import { IStatementEditor } from "types/StatementEditorProps";
+import { Collapsible, NodeViewHeading } from "components";
+import { JsxOpeningElementEditor } from "components/nodeviews";
 
 export const JsxSelfClosingElementEditor: IStatementEditor<JsxSelfClosingElement> = ({ node }) => {
     const openingElement = node.getOpeningElement();
@@ -12,7 +11,7 @@ export const JsxSelfClosingElementEditor: IStatementEditor<JsxSelfClosingElement
         <div className="JsxSelfClosingElementEditor">
             <Collapsible trigger={collapsibleHeader}>
                 <div>
-                    <StatementEditorTitle text="JSX Self Closing Element" />
+                    <NodeViewHeading text="JSX Self Closing Element" />
                 </div>
                 <JsxOpeningElementEditor node={openingElement} />
             </Collapsible>

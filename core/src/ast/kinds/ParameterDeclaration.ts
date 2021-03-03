@@ -1,6 +1,5 @@
 import ts from "typescript";
-import { ASTNode } from "../ASTNode";
-import { VariableDeclaration } from "./VariableDeclaration";
+import { ASTNode, VariableDeclaration } from "ast";
 
 export class ParameterDeclaration extends ASTNode implements ts.ParameterDeclaration {
     _declarationBrand: ts.ParameterDeclaration['_declarationBrand'];

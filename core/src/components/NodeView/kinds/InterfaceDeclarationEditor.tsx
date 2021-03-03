@@ -1,9 +1,7 @@
-import { IStatementEditor } from '../../../types/StatementEditorProps'
+import { IStatementEditor } from 'types/StatementEditorProps'
 import React from "react";
-import { StatementEditorTitle } from "../StatementEditorTitle";
-import { NodeView } from "..";
-import { InterfaceDeclaration } from '../../../ast';
-import { Collapsible } from '../../Collapsible';
+import { NodeView, Collapsible, NodeViewHeading } from "components";
+import { InterfaceDeclaration } from 'ast';
 
 export const InterfaceDeclarationEditor: IStatementEditor<InterfaceDeclaration> = ({ node }) => {
     const name = node.getName();
@@ -14,12 +12,12 @@ export const InterfaceDeclarationEditor: IStatementEditor<InterfaceDeclaration> 
         <div className="InterfaceDeclarationEditor">
             <Collapsible trigger={collapsibleHeader}>
                 <div>
-                    <StatementEditorTitle text="Name" />
+                    <NodeViewHeading text="Name" />
                     <NodeView node={node.name} />
                 </div>
                 {members.length > 0 && (
                     <div>
-                        <StatementEditorTitle text="Members" />
+                        <NodeViewHeading text="Members" />
                         {members.map(m => (
                             <NodeView key={m.key} node={m} />
                         ))}

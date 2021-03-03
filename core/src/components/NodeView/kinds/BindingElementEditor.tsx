@@ -1,9 +1,7 @@
 import React from "react";
-import { NodeView } from "..";
-import { BindingElement } from "../../../ast";
-import { IStatementEditor } from "../../../types/StatementEditorProps";
-import { Collapsible } from "../../Collapsible";
-import { StatementEditorTitle } from "../StatementEditorTitle";
+import { BindingElement } from "ast";
+import { IStatementEditor } from "types/StatementEditorProps";
+import { Collapsible, NodeView, NodeViewHeading } from "components";
 
 
 export const BindingElementEditor: IStatementEditor<BindingElement> = ({ node }) => {
@@ -12,12 +10,12 @@ export const BindingElementEditor: IStatementEditor<BindingElement> = ({ node })
         <div className="BindingElementEditor">
             <Collapsible trigger={node.getNamesString()}>
                 <div>
-                    <StatementEditorTitle text="Name" />
+                    <NodeViewHeading text="Name" />
                     <NodeView node={node.name} />
                 </div>
                 {!!node.initializer && (
                     <div>
-                        <StatementEditorTitle text="Initializer" />
+                        <NodeViewHeading text="Initializer" />
                         <NodeView node={node.initializer} />
                     </div>
                 )}

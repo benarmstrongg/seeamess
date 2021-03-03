@@ -1,6 +1,5 @@
 import ts from "typescript";
-import { ASTNode } from "../ASTNode";
-import { BindingName } from "./BindingName";
+import { ASTNode, BindingName } from "ast";
 
 export class BindingElement extends ASTNode implements ts.BindingElement {
     _declarationBrand;

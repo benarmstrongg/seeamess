@@ -1,11 +1,8 @@
 import React from 'react';
-import { IStatementEditor } from '../../../types/StatementEditorProps';
-import { NodeInput } from '../../NodeInput';
-import { StatementEditorTitle } from '../StatementEditorTitle';
-import { NodeView } from '..';
-import { ASTNode } from '../../../ast/ASTNode';
-import { VariableDeclaration } from '../../../ast';
-import { Collapsible } from '../../Collapsible';
+import { IStatementEditor } from 'types/StatementEditorProps';
+import { NodeInput, NodeView, Collapsible, NodeViewHeading } from 'components';
+import { ASTNode } from 'ast/ASTNode';
+import { VariableDeclaration } from 'ast';
 
 interface VariableDeclarationEditorProps {
     isCollapsible?: boolean;
@@ -17,18 +14,18 @@ export const VariableDeclarationEditor: IStatementEditor<VariableDeclaration, Va
     const render = () => (
         <>
             <div>
-                <StatementEditorTitle text="Name" />
+                <NodeViewHeading text="Name" />
                 <NodeView node={node.name} />
             </div>
             {!!node.type && (
                 <div>
-                    <StatementEditorTitle text="Type" />
+                    <NodeViewHeading text="Type" />
                     <NodeInput placeholder="any" node={node.type} value={type} />
                 </div>
             )}
             {!!node.initializer && (
                 <div>
-                    <StatementEditorTitle text="Initializer" />
+                    <NodeViewHeading text="Initializer" />
                     <NodeView node={ASTNode.from(node.initializer)} />
                 </div>
             )}
