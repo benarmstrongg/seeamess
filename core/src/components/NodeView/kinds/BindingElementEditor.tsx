@@ -1,9 +1,7 @@
 import React from "react";
-import { NodeView } from "../../";
-import { BindingElement } from "../../../ast";
-import { IStatementEditor } from "../../../types/StatementEditorProps";
-import { Collapsible } from "../../";
-import { NodeViewHeading } from "..";
+import { BindingElement } from "ast";
+import { IStatementEditor } from "types/StatementEditorProps";
+import { Collapsible, NodeView, NodeViewHeading } from "components";
 
 
 export const BindingElementEditor: IStatementEditor<BindingElement> = ({ node }) => {

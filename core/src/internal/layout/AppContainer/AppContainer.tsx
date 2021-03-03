@@ -1,6 +1,6 @@
 import React, { FC } from "react"
-import { ExplorerSection, EditorSection } from "../../sections";
-import { ContentProvider, TabsProvider, FilesProvider, TunnelProvider, SeeamessConfigProvider } from "../../../hooks";
+import { ExplorerSection, EditorSection } from "internal/sections";
+import { ContentProvider, TabsProvider, FilesProvider, TunnelProvider, SeeamessConfigProvider } from "hooks";
 import './styles.scss';
 
 export const AppContainer: FC = () => {

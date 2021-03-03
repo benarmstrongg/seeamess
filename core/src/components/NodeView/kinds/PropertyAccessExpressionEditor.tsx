@@ -1,11 +1,9 @@
 import React from 'react';
 import ts from 'typescript';
-import { Identifier, PropertyAccessExpression } from '../../../ast';
-import { IStatementEditor } from "../../../types/StatementEditorProps";
-import { NodeViewHeading } from '..';
-import { IdentifierEditor } from './IdentifierEditor';
-import { ASTNode } from '../../../ast/ASTNode';
-import { Collapsible } from '../../';
+import { Identifier, PropertyAccessExpression, ASTNode } from 'ast';
+import { IStatementEditor } from "types/StatementEditorProps";
+import { IdentifierEditor } from 'components/nodeviews';
+import { Collapsible, NodeViewHeading } from 'components';
 
 interface PropertyAccessExpressionEditorProps {
     isTopLevel?: boolean;

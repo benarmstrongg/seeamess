@@ -1,7 +1,5 @@
 import ts from "typescript";
-import { ASTNode } from "../ASTNode";
-import { Identifier } from "./Identifier";
-import { JsxAttribute } from "./JsxAttribute";
+import { ASTNode, JsxAttribute, Identifier } from "ast";
 
 export class JsxOpeningElement extends ASTNode implements ts.JsxOpeningElement {
     _expressionBrand;

@@ -1,9 +1,7 @@
 import React from "react";
-import { NodeView } from "../../";
-import { TypeAliasDeclaration } from "../../../ast";
-import { IStatementEditor } from "../../../types/StatementEditorProps";
-import { Collapsible } from "../../";
-import { NodeViewHeading } from "..";
+import { NodeView, Collapsible, NodeViewHeading } from "components";
+import { TypeAliasDeclaration } from "ast";
+import { IStatementEditor } from "types/StatementEditorProps";
 
 export const TypeAliasDeclarationEditor: IStatementEditor<TypeAliasDeclaration> = ({ node }) => {
     const collapsibleHeader = `type ${node.getName()}`;

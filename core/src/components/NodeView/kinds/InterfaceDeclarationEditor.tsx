@@ -1,9 +1,7 @@
-import { IStatementEditor } from '../../../types/StatementEditorProps'
+import { IStatementEditor } from 'types/StatementEditorProps'
 import React from "react";
-import { NodeViewHeading } from "..";
-import { NodeView } from "../../";
-import { InterfaceDeclaration } from '../../../ast';
-import { Collapsible } from '../../';
+import { NodeView, Collapsible, NodeViewHeading } from "components";
+import { InterfaceDeclaration } from 'ast';
 
 export const InterfaceDeclarationEditor: IStatementEditor<InterfaceDeclaration> = ({ node }) => {
     const name = node.getName();

@@ -1,6 +1,6 @@
 import ts from "typescript";
-import { SourceFile } from "../../ast";
-import { ContentType } from "../../types/ContentType";
+import { SourceFile } from "ast";
+import { ContentType } from "types/ContentType";
 
 export class JavascriptFile extends ContentType {
     is(node: SourceFile) {

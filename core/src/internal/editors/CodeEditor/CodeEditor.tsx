@@ -1,7 +1,7 @@
 import React from 'react';
 import { RiCodeSSlashLine } from 'react-icons/ri';
-import { useEditor } from '../../../hooks';
-import { IEditor } from '../../../types/editor';
+import { useEditor } from 'hooks';
+import { IEditor } from 'types/editor';
 import './styles.scss';
 
 

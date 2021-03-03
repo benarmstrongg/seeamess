@@ -1,9 +1,7 @@
 import React from "react";
-import { NodeView } from "../../";
-import { ExportAssignment } from "../../../ast";
-import { IStatementEditor } from "../../../types/StatementEditorProps";
-import { Collapsible } from "../../";
-import { NodeViewHeading } from "..";
+import { NodeView, Collapsible, NodeViewHeading } from "components";
+import { ExportAssignment } from "ast";
+import { IStatementEditor } from "types/StatementEditorProps";
 
 export const ExportAssignmentEditor: IStatementEditor<ExportAssignment> = ({ node }) => {
     const getCollapsibleHeader = () => {

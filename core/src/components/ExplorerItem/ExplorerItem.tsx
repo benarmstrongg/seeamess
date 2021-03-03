@@ -1,5 +1,5 @@
 import React, { FC } from "react";
-import { ContentType } from "../../types/ContentType";
+import { ContentType } from "types/ContentType";
 import './styles.scss';
 
 interface ExplorerItemProps {

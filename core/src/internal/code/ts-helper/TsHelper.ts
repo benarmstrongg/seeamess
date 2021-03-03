@@ -1,5 +1,5 @@
 import ts from "typescript";
-import { ASTNode, SourceFile } from "../../../ast";
+import { ASTNode, SourceFile } from "ast";
 
 export class TSHelper {
     program: ts.Program;

@@ -1,8 +1,7 @@
 import React from 'react';
-import { Identifier } from "../../../ast";
-import { IStatementEditor } from '../../../types/StatementEditorProps';
-import { NodeInput } from '../../';
-import { NodeViewHeading } from '..';
+import { Identifier } from "ast";
+import { IStatementEditor } from 'types/StatementEditorProps';
+import { NodeInput, NodeViewHeading } from 'components';
 
 
 export const IdentifierEditor: IStatementEditor<Identifier> = ({ node, fieldName = '' }) => {

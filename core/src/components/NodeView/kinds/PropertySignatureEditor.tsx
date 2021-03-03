@@ -1,9 +1,7 @@
 import React from "react";
-import { NodeView } from "../../";
-import { PropertySignature } from "../../../ast";
-import { IStatementEditor } from "../../../types/StatementEditorProps";
-import { Collapsible } from "../../";
-import { NodeViewHeading } from "..";
+import { PropertySignature } from "ast";
+import { IStatementEditor } from "types/StatementEditorProps";
+import { Collapsible, NodeView, NodeViewHeading } from "components";
 
 export const PropertySignatureEditor: IStatementEditor<PropertySignature> = ({ node }) => {
     const typeMembers = node.getTypeMembers();

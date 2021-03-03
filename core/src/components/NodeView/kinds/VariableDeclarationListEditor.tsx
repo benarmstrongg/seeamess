@@ -1,9 +1,8 @@
 import React from "react";
-import { IStatementEditor } from "../../../types/StatementEditorProps";
-import { NodeViewHeading } from "..";
-import { VariableDeclarationEditor } from "./VariableDeclarationEditor";
-import { Collapsible } from "../../";
-import { VariableDeclarationList } from "../../../ast";
+import { IStatementEditor } from "types/StatementEditorProps";
+import { VariableDeclarationEditor } from "components/nodeviews";
+import { Collapsible, NodeViewHeading } from "components";
+import { VariableDeclarationList } from "ast";
 
 export const VariableDeclarationListEditor: IStatementEditor<VariableDeclarationList> = ({ node }) => {
     const declarations = node.getDeclarations();

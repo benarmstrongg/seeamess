@@ -1,10 +1,10 @@
 import React from 'react';
-import { IEditor } from '../../../../types/editor';
+import { IEditor } from 'types/editor';
 import { FaReact } from 'react-icons/fa';
 import { ReactFunctionComponent } from '../../content-types/FC';
 // import { EditorArea } from './EditorArea';
 // import { ComponentInfoPanel } from './ComponentInfoPanel';
-import { useContent } from '../../../../hooks';
+import { useContent } from 'hooks';
 import './styles.scss';
 
 export const ReactComponentEditor: IEditor = () => {

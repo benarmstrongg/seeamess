@@ -1,7 +1,6 @@
 import React, { FC } from 'react';
-import { Collapsible } from '../../../../../components';
-import { NodeView } from '../../../../../components';
-// import { ASTNodeInput } from '../../../../../components/common/ASTNodeInput';
+import { Collapsible, NodeView } from 'components';
+// import { ASTNodeInput } from 'components/common/ASTNodeInput';
 import { ReactFunctionComponent } from '../../../content-types/FC';
 import './styles.scss';
 

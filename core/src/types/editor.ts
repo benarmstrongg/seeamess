@@ -1,6 +1,6 @@
 import { FC, ReactElement } from "react";
-import { MonacoHelper } from "../internal/code/monaco-helper";
-import { TSHelper } from "../internal/code/ts-helper";
+import { MonacoHelper } from "internal/code/monaco-helper";
+import { TSHelper } from "internal/code/ts-helper";
 import { ContentType } from "./ContentType";
 
 // type ContentTypeOrASTNode<T> = (

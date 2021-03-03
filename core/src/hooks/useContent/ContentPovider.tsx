@@ -1,8 +1,8 @@
 import React, { FC, useEffect, useMemo, useState } from "react";
-import { JavascriptFile } from "../../internal/content-types/JavascriptFile";
-import { ReactFunctionComponent } from "../../plugins/react/content-types/FC";
-import { ContentType } from "../../types/ContentType";
-import { useFiles } from "../useFiles";
+import { JavascriptFile } from "internal/content-types/JavascriptFile";
+import { ReactFunctionComponent } from "plugins/react/content-types/FC";
+import { ContentType } from "types/ContentType";
+import { useFiles } from "hooks/useFiles";
 import { ContentContext } from "./ContentContext";
 import { IContentContext } from "./types";
 

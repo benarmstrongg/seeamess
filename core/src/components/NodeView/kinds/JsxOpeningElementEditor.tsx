@@ -1,8 +1,7 @@
 import React from "react";
-import { NodeView } from "../../";
-import { JsxOpeningElement } from "../../../ast";
-import { IStatementEditor } from "../../../types/StatementEditorProps";
-import { NodeViewHeading } from "..";
+import { NodeView, NodeViewHeading } from "components";
+import { JsxOpeningElement } from "ast";
+import { IStatementEditor } from "types/StatementEditorProps";
 
 export const JsxOpeningElementEditor: IStatementEditor<JsxOpeningElement> = ({ node }) => {
     const attributes = node.getAttributes();

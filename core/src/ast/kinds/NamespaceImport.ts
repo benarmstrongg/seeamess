@@ -1,6 +1,5 @@
 import ts from "typescript";
-import { ASTNode } from "../ASTNode";
-import { Identifier } from "./Identifier";
+import { ASTNode, Identifier } from "ast";
 
 export class NamespaceImport extends ASTNode implements ts.NamespaceImport {
     _declarationBrand;

@@ -1,4 +1,4 @@
-// import { ASTNode } from "../ast";
+// import { ASTNode } from "ast";
 // import { ContentType } from "./ContentType";
 
 // export interface ContentObjectMeta<T extends ContentType = ContentType, N extends ASTNode = ASTNode> {

@@ -1,7 +1,5 @@
 import ts from "typescript";
-import { ASTNode } from "../ASTNode";
-import { Identifier } from "./Identifier";
-import { ParameterDeclaration } from "./ParameterDeclaration";
+import { ASTNode, Identifier, ParameterDeclaration } from "ast";
 
 export class FunctionExpression extends ASTNode implements ts.FunctionExpression {
     _memberExpressionBrand;

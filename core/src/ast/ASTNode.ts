@@ -1,5 +1,5 @@
 import ts from "typescript";
-import { SourceFile } from ".";
+import { SourceFile } from "ast";
 
 // add this to support ContentType class. If query is passed, kind should be able to be specified
 // export type ASTQuery<T extends typeof ASTNode = typeof ASTNode> = Partial<InstanceType<T> & { nodeKind: T }> | ((node: ts.Node) => boolean)

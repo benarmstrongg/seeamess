@@ -1,9 +1,7 @@
 import React from "react";
-import { JsxText } from "../../../ast";
-import { IStatementEditor } from "../../../types/StatementEditorProps";
-import { NodeInput } from "../../";
-import { Collapsible } from "../../";
-import { NodeViewHeading } from "..";
+import { JsxText } from "ast";
+import { IStatementEditor } from "types/StatementEditorProps";
+import { Collapsible, NodeInput, NodeViewHeading } from "components";
 
 export const JsxTextEditor: IStatementEditor<JsxText> = ({ node }) => {
     const collapsibleHeader = node.text || 'JSX Text';

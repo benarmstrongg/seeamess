@@ -1,9 +1,8 @@
 import React from "react";
-import { IStatementEditor } from "../../../types/StatementEditorProps";
-import { NodeView } from "../../";
+import { IStatementEditor } from "types/StatementEditorProps";
+import { NodeView, Collapsible } from "components";
 import { NodeViewHeading } from "..";
-import { ImportDeclaration } from "../../../ast";
-import { Collapsible } from "../../";
+import { ImportDeclaration } from "ast";
 
 export const ImportDeclarationEditor: IStatementEditor<ImportDeclaration> = ({ node }) => {
     const collapsibleHeader = `import from '${node.getModuleName()}'` || 'Import Declaration';

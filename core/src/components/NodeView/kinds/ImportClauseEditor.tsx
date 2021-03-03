@@ -1,8 +1,7 @@
 import React from "react";
-import { NodeView } from "../../";
-import { ImportClause } from "../../../ast";
-import { IStatementEditor } from "../../../types/StatementEditorProps";
-import { NodeViewHeading } from "..";
+import { NodeView, NodeViewHeading } from "components";
+import { ImportClause } from "ast";
+import { IStatementEditor } from "types/StatementEditorProps";
 
 
 

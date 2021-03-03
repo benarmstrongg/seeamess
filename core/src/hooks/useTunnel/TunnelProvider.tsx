@@ -1,6 +1,6 @@
 import React, { FC, useEffect, useState } from "react";
 import { Socket } from "socket.io-client";
-import { useConfig } from "../useConfig";
+import { useConfig } from "hooks/useConfig";
 import { TunnelContext } from "./TunnelContext";
 import { io as socketIO } from 'socket.io-client';
 

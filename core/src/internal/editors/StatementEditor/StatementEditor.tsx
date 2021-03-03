@@ -1,9 +1,9 @@
 import React from "react";
-import { IEditor } from "../../../types/editor";
-import { NodeView } from "../../../components";
+import { IEditor } from "types/editor";
+import { NodeView } from "components";
 import { AiOutlineProfile } from 'react-icons/ai';
-import { ASTNode } from "../../../ast/ASTNode";
-import { useEditor } from "../../../hooks";
+import { ASTNode } from "ast";
+import { useEditor } from "hooks";
 import './styles.scss';
 
 export const StatementEditor: IEditor = () => {

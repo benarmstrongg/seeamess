@@ -1,8 +1,8 @@
 import React, { FC } from "react";
 import { createFileTree } from "./util";
 import './styles.scss';
-import { useConfig, useFiles, useTabs } from "../../../hooks";
-import { ExplorerItem, ExplorerGroup } from "../../../components";
+import { useConfig, useFiles, useTabs } from "hooks";
+import { ExplorerItem, ExplorerGroup } from "components";
 import { FaFile, FaFolder } from "react-icons/fa";
 
 export const FileExplorer: FC = () => {

@@ -1,8 +1,7 @@
 import React from "react";
-import { NodeView, Collapsible } from "../../";
-import { ASTNode, FunctionExpression } from "../../../ast";
-import { IStatementEditor } from "../../../types/StatementEditorProps";
-import { NodeViewHeading } from "..";
+import { NodeView, Collapsible, NodeViewHeading } from "components";
+import { ASTNode, FunctionExpression } from "ast";
+import { IStatementEditor } from "types/StatementEditorProps";
 
 interface FunctionExpressionEditorProps {
     isTopLevel?: boolean;

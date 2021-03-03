@@ -1,7 +1,5 @@
 import ts from "typescript";
-import { ASTNode } from "../ASTNode";
-import { BindingName } from "./BindingName";
-import { Identifier } from "./Identifier";
+import { ASTNode, BindingName, Identifier } from "ast";
 
 export class VariableDeclaration extends ASTNode implements ts.VariableDeclaration {
     _declarationBrand: ts.VariableDeclaration['_declarationBrand'];

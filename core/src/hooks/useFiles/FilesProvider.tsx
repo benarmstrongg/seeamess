@@ -1,6 +1,6 @@
 import React, { FC, useCallback, useEffect, useState } from "react";
-import { JavascriptFile } from "../../internal/content-types/JavascriptFile";
-import { useTunnel } from "../useTunnel";
+import { JavascriptFile } from "internal/content-types/JavascriptFile";
+import { useTunnel } from "hooks/useTunnel";
 import { FilesContext } from "./FilesContext";
 import { IFilesContext as F } from './types';
 

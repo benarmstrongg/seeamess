@@ -1,6 +1,6 @@
 import ts from "typescript";
-import { ASTNode, ArrowFunction, BindingName, JsxOpeningElement, ParameterDeclaration, ReturnStatement } from "../../../ast";
-import { ContentType } from "../../../types/ContentType";
+import { ASTNode, ArrowFunction, BindingName, JsxOpeningElement, ParameterDeclaration, ReturnStatement } from "ast";
+import { ContentType } from "types/ContentType";
 
 type ReactComponentNode = ts.FunctionDeclaration | ts.ArrowFunction | ts.ClassDeclaration;
 

@@ -1,8 +1,7 @@
 import React from "react";
-import { NodeView } from "../../";
-import { NamespaceExport } from "../../../ast";
-import { IStatementEditor } from "../../../types/StatementEditorProps";
-import { NodeViewHeading } from "..";
+import { NodeView, NodeViewHeading } from "components";
+import { NamespaceExport } from "ast";
+import { IStatementEditor } from "types/StatementEditorProps";
 
 export const NamespaceExportEditor: IStatementEditor<NamespaceExport> = ({ node }) => {
     return (

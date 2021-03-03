@@ -1,5 +1,5 @@
 import ts from "typescript";
-import { ASTNode } from "../ASTNode";
+import { ASTNode } from "ast";
 
 export class LiteralLikeNode extends ASTNode implements ts.LiteralLikeNode {
     text: ts.LiteralLikeNode['text'];

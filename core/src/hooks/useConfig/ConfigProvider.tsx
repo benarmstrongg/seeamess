@@ -1,6 +1,6 @@
 import React, { FC, useEffect, useState } from "react";
-import { getConfig } from "../../internal/code/config/getConfig";
-import { SeeamessConfig } from "../../types";
+import { getConfig } from "internal/code/config/getConfig";
+import { SeeamessConfig } from "types";
 import { ConfigContext } from "./ConfigContext";
 
 

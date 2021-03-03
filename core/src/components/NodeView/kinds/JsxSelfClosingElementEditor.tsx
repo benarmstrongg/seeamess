@@ -1,9 +1,8 @@
 import React from "react";
-import { JsxSelfClosingElement } from "../../../ast";
-import { IStatementEditor } from "../../../types/StatementEditorProps";
-import { Collapsible } from "../../";
-import { NodeViewHeading } from "..";
-import { JsxOpeningElementEditor } from "./JsxOpeningElementEditor";
+import { JsxSelfClosingElement } from "ast";
+import { IStatementEditor } from "types/StatementEditorProps";
+import { Collapsible, NodeViewHeading } from "components";
+import { JsxOpeningElementEditor } from "components/nodeviews";
 
 export const JsxSelfClosingElementEditor: IStatementEditor<JsxSelfClosingElement> = ({ node }) => {
     const openingElement = node.getOpeningElement();

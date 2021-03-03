@@ -1,9 +1,7 @@
 import React from "react";
-import { NodeView } from "../../";
-import { CallExpression } from "../../../ast";
-import { IStatementEditor } from "../../../types/StatementEditorProps";
-import { Collapsible } from "../../";
-import { NodeViewHeading } from "..";
+import { NodeView, Collapsible, NodeViewHeading } from "components";
+import { CallExpression } from "ast";
+import { IStatementEditor } from "types/StatementEditorProps";
 
 export const CallExpressionEditor: IStatementEditor<CallExpression> = ({ node }) => {
     const name = node.getName();

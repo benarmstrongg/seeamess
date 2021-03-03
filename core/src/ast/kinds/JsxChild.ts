@@ -1,7 +1,3 @@
-import { JsxElement } from "./JsxElement";
-import { JsxExpression } from "./JsxExpression";
-import { JsxFragment } from "./JsxFragment";
-import { JsxSelfClosingElement } from "./JsxSelfClosingElement";
-import { JsxText } from "./JsxText";
+import { JsxElement, JsxExpression, JsxFragment, JsxSelfClosingElement, JsxText } from "ast";
 
 export type JsxChild = JsxElement | JsxFragment | JsxText | JsxExpression | JsxSelfClosingElement;

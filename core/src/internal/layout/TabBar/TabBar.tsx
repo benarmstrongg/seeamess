@@ -1,6 +1,6 @@
 import React, { FC, MouseEvent } from "react";
 import { FaTimes } from "react-icons/fa";
-import { useConfig, useTabs } from "../../../hooks";
+import { useConfig, useTabs } from "hooks";
 import './styles.scss';
 
 export const TabBar: FC = () => {

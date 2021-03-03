@@ -1,6 +1,6 @@
 import { useState } from "react";
-import { ContentType } from "../../types/ContentType";
-import { useTabs } from "../useTabs";
+import { ContentType } from "types/ContentType";
+import { useTabs } from "hooks/useTabs";
 import { IEditorContext } from "./types";
 
 export function useEditor<T extends ContentType>(contentType?: new (...args: any) => T): IEditorContext<T> {

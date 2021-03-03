@@ -1,7 +1,5 @@
 import ts from "typescript";
-import { ASTNode } from "../ASTNode";
-import { Identifier } from "./Identifier";
-import { TypeElement } from "./TypeElement";
+import { ASTNode, Identifier, TypeElement } from "ast";
 
 export class InterfaceDeclaration extends ASTNode implements ts.InterfaceDeclaration {
     _declarationBrand;

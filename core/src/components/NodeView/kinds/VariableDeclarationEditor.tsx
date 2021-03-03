@@ -1,11 +1,8 @@
 import React from 'react';
-import { IStatementEditor } from '../../../types/StatementEditorProps';
-import { NodeInput } from '../../';
-import { NodeViewHeading } from '..';
-import { NodeView } from '../../';
-import { ASTNode } from '../../../ast/ASTNode';
-import { VariableDeclaration } from '../../../ast';
-import { Collapsible } from '../../';
+import { IStatementEditor } from 'types/StatementEditorProps';
+import { NodeInput, NodeView, Collapsible, NodeViewHeading } from 'components';
+import { ASTNode } from 'ast/ASTNode';
+import { VariableDeclaration } from 'ast';
 
 interface VariableDeclarationEditorProps {
     isCollapsible?: boolean;

@@ -1,9 +1,8 @@
 import React from "react";
-import { ExportDeclaration } from "../../../ast";
-import { IStatementEditor } from "../../../types/StatementEditorProps";
-import { Collapsible } from "../../";
-import { NamedExportsEditor } from "./NamedExportsEditor";
-import { NamespaceExportEditor } from "./NamespaceExportEditor";
+import { ExportDeclaration } from "ast";
+import { IStatementEditor } from "types/StatementEditorProps";
+import { Collapsible } from "components";
+import { NamedExportsEditor, NamespaceExportEditor } from "components/nodeviews";
 
 export const ExportDeclarationEditor: IStatementEditor<ExportDeclaration> = ({ node }) => {
     const exportClause = node.getExportClause();

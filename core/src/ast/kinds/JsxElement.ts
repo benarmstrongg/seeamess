@@ -1,11 +1,5 @@
 import ts from "typescript";
-import { ASTNode } from "../ASTNode";
-import { JsxChild } from "./JsxChild";
-import { JsxExpression } from "./JsxExpression";
-import { JsxFragment } from "./JsxFragment";
-import { JsxOpeningElement } from "./JsxOpeningElement";
-import { JsxSelfClosingElement } from "./JsxSelfClosingElement";
-import { JsxText } from "./JsxText";
+import { ASTNode, JsxChild, JsxExpression, JsxFragment, JsxSelfClosingElement, JsxOpeningElement, JsxText } from "ast";
 
 export class JsxElement extends ASTNode implements ts.JsxElement {
     _expressionBrand;

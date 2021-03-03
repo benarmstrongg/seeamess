@@ -1,7 +1,5 @@
 import ts from "typescript";
-import { ASTNode } from "../ASTNode";
-import { ExportClause } from "./ExportClause";
-import { Identifier } from "./Identifier";
+import { ASTNode, ExportClause, Identifier } from "ast";
 
 export class ExportDeclaration extends ASTNode implements ts.ExportDeclaration {
     _declarationBrand;

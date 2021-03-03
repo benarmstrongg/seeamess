@@ -1,7 +1,7 @@
 import React from "react";
-import { NodeView } from "../../";
-import { Block } from "../../../ast";
-import { IStatementEditor } from "../../../types/StatementEditorProps";
+import { NodeView } from "components";
+import { Block } from "ast";
+import { IStatementEditor } from "types/StatementEditorProps";
 
 export const BlockEditor: IStatementEditor<Block> = ({ node }) => {
     return (

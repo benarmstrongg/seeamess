@@ -1,9 +1,8 @@
 import React from "react";
-import { FunctionDeclaration } from "../../../ast";
-import { IStatementEditor } from "../../../types/StatementEditorProps";
-import { Collapsible } from "../../";
-import { NodeViewHeading } from "..";
-import { FunctionExpressionEditor } from "./FunctionExpressionEditor";
+import { FunctionDeclaration } from "ast";
+import { IStatementEditor } from "types/StatementEditorProps";
+import { Collapsible, NodeViewHeading } from "components";
+import { FunctionExpressionEditor } from "components/nodeviews";
 
 export const FunctionDeclarationEditor: IStatementEditor<FunctionDeclaration> = ({ node }) => {
     const expression = node.getExpression();

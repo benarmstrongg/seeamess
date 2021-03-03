@@ -1,5 +1,5 @@
 import React, { FC } from "react";
-import { useTabs } from "../../../hooks";
+import { useTabs } from "hooks";
 import './styles.scss';
 
 interface TabContainerProps {

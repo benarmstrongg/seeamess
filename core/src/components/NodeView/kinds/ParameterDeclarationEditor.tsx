@@ -1,10 +1,7 @@
 import React from 'react';
-import { NodeView } from '../../';
-import { ASTNode, ParameterDeclaration } from '../../../ast';
-import { IStatementEditor } from "../../../types/StatementEditorProps";
-import { NodeInput } from '../../';
-import { Collapsible } from '../../';
-import { NodeViewHeading } from '..';
+import { ASTNode, ParameterDeclaration } from 'ast';
+import { IStatementEditor } from "types/StatementEditorProps";
+import { NodeInput, NodeView, Collapsible, NodeViewHeading } from 'components';
 
 export const ParameterDeclarationEditor: IStatementEditor<ParameterDeclaration> = ({ node }) => {
     const type = node.getType();

@@ -1,8 +1,7 @@
 import React from "react";
-import { NodeView } from "../../";
-import { NamedExports } from "../../../ast";
-import { IStatementEditor } from "../../../types/StatementEditorProps";
-import { NodeViewHeading } from "..";
+import { NodeView, NodeViewHeading } from "components";
+import { NamedExports } from "ast";
+import { IStatementEditor } from "types/StatementEditorProps";
 
 export const NamedExportsEditor: IStatementEditor<NamedExports> = ({ node }) => {
     const namedBindings = node.getElements();

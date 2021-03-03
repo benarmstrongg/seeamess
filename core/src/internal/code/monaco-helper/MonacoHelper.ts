@@ -3,11 +3,11 @@
 // import jscodeshift from 'jscodeshift';
 import { monaco as _monaco } from '@monaco-editor/react';
 import { tsCompilerOptions } from './compilerOptions';
-import { EditorInstance, Monaco, MonacoEditorOnChange, TSWorker, Uri } from '../../../types/monaco';
-import { ASTNode, ImportDeclaration } from '../../../ast';
-import { TSHelper } from '../ts-helper';
-import { SeeamessConfig } from '../../../types';
-import { ContentType } from '../../../types/ContentType';
+import { EditorInstance, Monaco, MonacoEditorOnChange, TSWorker, Uri } from 'types/monaco';
+import { ASTNode, ImportDeclaration } from 'ast';
+import { TSHelper } from 'internal/code/ts-helper';
+import { SeeamessConfig } from 'types';
+import { ContentType } from 'types/ContentType';
 
 export class MonacoHelper {
     filePath: string;
