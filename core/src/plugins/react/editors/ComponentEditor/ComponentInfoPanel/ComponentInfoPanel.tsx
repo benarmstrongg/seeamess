@@ -1,6 +1,5 @@
 import React, { FC } from 'react';
 import { Collapsible, NodeView } from 'components';
-// import { ASTNodeInput } from 'components/common/ASTNodeInput';
 import { ReactFunctionComponent } from '../../../content-types/FC';
 import './styles.scss';
 
@@ -13,7 +12,7 @@ export const ComponentInfoPanel: FC<ComponentInfoPanelProps> = ({ component }) =
         <div className="ComponentInfoPanel">
             {component.componentName}
             <Collapsible trigger="Props">
-                {component.props.map(p => <NodeView node={p.parent} />)}
+                {component.props.map(p => <NodeView key={p.propName} node={p.parent} />)}
             </Collapsible>
         </div>
     );

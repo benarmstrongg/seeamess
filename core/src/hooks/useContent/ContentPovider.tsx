@@ -15,7 +15,10 @@ export const ContentProvider: FC = ({ children }) => {
         const _content: { [contentType: string]: ContentType[] } = {};
         files.forEach(file => {
             contentTypes.forEach(contentType => {
-                _content[contentType.name] = file.find({}, [contentType as any]);;
+                if (_content[contentType.name] === undefined) {
+                    _content[contentType.name] = [];
+                }
+                _content[contentType.name].push(...file.find({}, [contentType as any]) as ContentType[]);
             })
         });
         _content[JavascriptFile.name] = files;

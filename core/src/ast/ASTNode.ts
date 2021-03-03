@@ -65,7 +65,6 @@ export class ASTNode {
         this.getLeadingTriviaWidth = node.getLeadingTriviaWidth;
         this.getLastToken = node.getLastToken;
         this.forEachChild = node.forEachChild;
-        // this.parent = node.parent || this.sourceFile;
         Object.assign(this, node);
     }
 
@@ -116,22 +115,22 @@ export class ASTNode {
             }
             node.forEachChild(visitNode);
         }
-        const topLevelMatch = isMulti === true ?
-            (hasQuery ?
-                this.getChildNodes().filter(child => ASTNode.is(child, Kind) && ASTNode.isMatch(child, query)) :
-                this.getChildNodes().filter(child => ASTNode.is(child, Kind))
-            ).map((n) => ASTNode.as(n, Kind)) :
-            (hasQuery ?
-                this.getChildNodes().find(child => ASTNode.is(child, Kind) && ASTNode.isMatch(child, query)) :
-                this.getChildNodes().find(child => ASTNode.is(child, Kind))
-            );
+        // const topLevelMatch = isMulti === true ?
+        //     (hasQuery ?
+        //         this.getChildNodes().filter(child => ASTNode.is(child, Kind) && ASTNode.isMatch(child, query)) :
+        //         this.getChildNodes().filter(child => ASTNode.is(child, Kind))
+        //     ).map((n) => ASTNode.as(n, Kind)) :
+        //     (hasQuery ?
+        //         this.getChildNodes().find(child => ASTNode.is(child, Kind) && ASTNode.isMatch(child, query)) :
+        //         this.getChildNodes().find(child => ASTNode.is(child, Kind))
+        //     );
         // TODO: should this be here?
-        if (isMulti === true && (topLevelMatch as T[]).length > 0) {
-            return topLevelMatch as InstanceType<T>[];
-        }
-        if (isMulti === false && topLevelMatch !== undefined) {
-            return ASTNode.as(topLevelMatch as ts.Node, Kind);
-        }
+        // if (isMulti === true && (topLevelMatch as T[]).length > 0) {
+        //     return topLevelMatch as InstanceType<T>[];
+        // }
+        // if (isMulti === false && topLevelMatch !== undefined) {
+        //     return ASTNode.as(topLevelMatch as ts.Node, Kind);
+        // }
         this.forEachChild(visitNode);
         if (result === undefined) {
             return isMulti ? [] : undefined;
@@ -140,7 +139,7 @@ export class ASTNode {
     }
 
     is(node: ts.Node): boolean {
-        return ts[`is${this.kindString}`](node);
+        return ts[`is${this.constructor.name}`](node);
     }
 
     static is<T extends typeof ASTNode>(node: ts.Node, kind: T): node is TsNodeOf<T> {

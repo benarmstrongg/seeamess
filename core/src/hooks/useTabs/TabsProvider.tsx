@@ -7,8 +7,6 @@ export const TabsProvider: FC = ({ children }) => {
     const [openTabs, setOpenTabs] = useState<T['openTabs']>([]);
 
     const open = useCallback<T['open']>(obj => {
-        console.log(obj.constructor.name)
-        console.log(obj.pos);
         const existingTabIndex = openTabs.findIndex(tab =>
             tab.constructor.name === obj.constructor.name &&
             tab.pos === obj.pos &&

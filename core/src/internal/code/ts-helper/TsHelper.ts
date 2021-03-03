@@ -8,7 +8,7 @@ export class TSHelper {
 
     constructor(public filePath: string, public fileText: string) {
         this.sourceFile = ts.createSourceFile(filePath, fileText, ts.ScriptTarget.Latest);
-        this.program = ts.createProgram([filePath], {}, this._createCompilerHost());
+        this.program = ts.createProgram([filePath], {}, TSHelper._createCompilerHost(filePath, this.sourceFile));
         this.typeChecker = this.program.getTypeChecker();
     }
 
@@ -16,11 +16,11 @@ export class TSHelper {
         return ASTNode.as(this.sourceFile, SourceFile);
     }
 
-    _createCompilerHost() {
+    static _createCompilerHost(filePath, sourceFile) {
         const customCompilerHost: ts.CompilerHost = {
             getSourceFile: (name, _) => {
-                if (name === this.filePath)
-                    return this.sourceFile;
+                if (name === filePath)
+                    return sourceFile;
                 //return ts.createSourceFile(name, this.projectFiles[name], ts.ScriptTarget.Latest);
             },
             writeFile: (filename, data) => { },
