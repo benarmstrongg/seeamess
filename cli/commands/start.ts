@@ -18,8 +18,9 @@ export const start = async () => {
     webServer.get('/config', (_, res) => res.send(config));
     socketServer.on('saveFile', (filePath, fileText) => fileExplorer.saveFile(filePath, fileText));
     socketServer.on('connection', (socket: Socket) => {
+        console.log('files sent');
         socket.emit('setFiles', projectFiles);
-    })
+    });
 }
 
 start();

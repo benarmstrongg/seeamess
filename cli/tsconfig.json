@@ -1,5 +1,12 @@
 {
     "compilerOptions": {
-        "esModuleInterop": true
-    }
+        "esModuleInterop": true,
+        "baseUrl": "./",
+        "paths": {
+            "types": ["../core/src/types"]
+        }
+    },
+    "include": [
+        "./"
+    ]
 }

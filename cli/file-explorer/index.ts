@@ -1,7 +1,7 @@
 import fs from 'fs';
 import path from 'path';
 import Glob from 'glob';
-import { SeeamessConfig } from '../types';
+import { SeeamessConfig } from 'types';
 import { promisify } from 'util';
 
 const glob = promisify(Glob);
