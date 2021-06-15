@@ -3,7 +3,7 @@ import ts from 'typescript';
 import { IStatementEditor } from "types/StatementEditorProps";
 import { LiteralEditor, VariableDeclarationEditor, VariableDeclarationListEditor, BlockEditor, ReturnStatementEditor, ExpressionStatementEditor, CallExpressionEditor, BinaryExpressionEditor, IdentifierEditor, ImportDeclarationEditor, ImportClauseEditor, JsxElementEditor, JsxOpeningElementEditor, JsxAttributeEditor, ArrowFunctionEditor, JsxTextEditor, ExportAssignmentEditor, ExportDeclarationEditor, FunctionDeclarationEditor, FunctionExpressionEditor, InterfaceDeclarationEditor, JsxSelfClosingElementEditor, ParameterDeclarationEditor, PropertyAccessExpressionEditor, PropertySignatureEditor, TypeAliasDeclarationEditor, BindingPatternEditor, BindingElementEditor } from 'components/nodeviews';
 import { NodeInput, NodeViewHeading } from 'components';
-import { ASTNode, ArrayBindingPattern, ArrowFunction, BinaryExpression, BindingElement, Block, CallExpression, ExportAssignment, ExportDeclaration, ExpressionStatement, FunctionDeclaration, FunctionExpression, Identifier, ImportClause, ImportDeclaration, InterfaceDeclaration, JsxAttribute, JsxElement, JsxOpeningElement, JsxSelfClosingElement, JsxText, LiteralLikeNode, ObjectBindingPattern, ParameterDeclaration, PropertyAccessExpression, PropertySignature, ReturnStatement, TypeAliasDeclaration, VariableDeclaration, VariableDeclarationList } from 'ast';
+import { AST, ArrayBindingPattern, ArrowFunction, BinaryExpression, BindingElement, Block, CallExpression, ExportAssignment, ExportDeclaration, ExpressionStatement, FunctionDeclaration, FunctionExpression, Identifier, ImportClause, ImportDeclaration, InterfaceDeclaration, JsxAttribute, JsxElement, JsxOpeningElement, JsxSelfClosingElement, JsxText, LiteralLikeNode, ObjectBindingPattern, ParameterDeclaration, PropertyAccessExpression, PropertySignature, ReturnStatement, TypeAliasDeclaration, VariableDeclaration, VariableDeclarationList } from 'ast';
 import './styles.scss';
 
 export const NodeView: IStatementEditor<any, { [prop: string]: any }> = (props) => {
@@ -13,8 +13,8 @@ export const NodeView: IStatementEditor<any, { [prop: string]: any }> = (props) 
         if (!node) {
             return <>no node</>;
         }
-        function convertNode<T extends typeof ASTNode>(kind: T) {
-            return ASTNode.as(node, kind);
+        function convertNode<T extends typeof AST>(kind: T) {
+            return AST.as(node, kind);
         }
         if (node.kind === ts.SyntaxKind.FirstStatement) {
             return <NodeView node={node['declarationList']} />;

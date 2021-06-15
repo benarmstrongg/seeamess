@@ -1,7 +1,7 @@
 import ts from "typescript";
-import { ASTNode, Identifier, ParameterDeclaration } from "ast";
+import { AST, Identifier, ParameterDeclaration } from "ast";
 
-export class FunctionExpression extends ASTNode implements ts.FunctionExpression {
+export class FunctionExpression extends AST implements ts.FunctionExpression {
     _memberExpressionBrand;
     _leftHandSideExpressionBrand;
     _unaryExpressionBrand;
@@ -24,10 +24,10 @@ export class FunctionExpression extends ASTNode implements ts.FunctionExpression
     }
 
     getParameters(): ParameterDeclaration[] {
-        return this.parameters.map(p => ASTNode.as(p, ParameterDeclaration));
+        return this.parameters.map(p => AST.as(p, ParameterDeclaration));
     }
 
     getName(): string | undefined {
-        return this.name && ASTNode.as(this.name, Identifier).text;
+        return this.name && AST.as(this.name, Identifier).text;
     }
 }

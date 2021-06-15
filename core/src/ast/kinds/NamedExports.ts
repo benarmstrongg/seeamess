@@ -1,7 +1,7 @@
 import ts from "typescript";
-import { ASTNode, Identifier } from "ast";
+import { AST, Identifier } from "ast";
 
-export class NamedExports extends ASTNode implements ts.NamedExports {
+export class NamedExports extends AST implements ts.NamedExports {
     elements: ts.NamedExports['elements'];
     parent: ts.NamedExports['parent'];
     kind: ts.NamedExports['kind'];
@@ -14,6 +14,6 @@ export class NamedExports extends ASTNode implements ts.NamedExports {
     }
 
     getElements(): Identifier[] {
-        return this.elements.map(e => ASTNode.as(e.name, Identifier));
+        return this.elements.map(e => AST.as(e.name, Identifier));
     }
 }

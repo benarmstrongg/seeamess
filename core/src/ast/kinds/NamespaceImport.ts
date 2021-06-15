@@ -1,7 +1,7 @@
 import ts from "typescript";
-import { ASTNode, Identifier } from "ast";
+import { AST, Identifier } from "ast";
 
-export class NamespaceImport extends ASTNode implements ts.NamespaceImport {
+export class NamespaceImport extends AST implements ts.NamespaceImport {
     _declarationBrand;
     name: ts.NamespaceImport['name'];
     parent: ts.NamespaceImport['parent'];
@@ -15,6 +15,6 @@ export class NamespaceImport extends ASTNode implements ts.NamespaceImport {
     }
 
     getElements(): Identifier[] {
-        return [ASTNode.as(this.name, Identifier)];
+        return [AST.as(this.name, Identifier)];
     }
 }

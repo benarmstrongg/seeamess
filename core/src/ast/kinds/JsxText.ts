@@ -1,7 +1,7 @@
 import ts from "typescript";
-import { ASTNode } from "ast";
+import { AST } from "ast";
 
-export class JsxText extends ASTNode implements ts.JsxText {
+export class JsxText extends AST implements ts.JsxText {
     containsOnlyTriviaWhiteSpaces: ts.JsxText['containsOnlyTriviaWhiteSpaces'];
     text: ts.JsxText['text'];
     parent: ts.JsxText['parent'];

@@ -1,7 +1,7 @@
 import ts from "typescript";
-import { ASTNode } from "ast";
+import { AST } from "ast";
 
-export class JsxFragment extends ASTNode implements ts.JsxFragment {
+export class JsxFragment extends AST implements ts.JsxFragment {
     _expressionBrand;
     _updateExpressionBrand;
     _unaryExpressionBrand;

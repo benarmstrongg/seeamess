@@ -1,5 +1,5 @@
 import ts from "typescript";
-import { ASTNode, ArrowFunction, BindingName, JsxOpeningElement, ParameterDeclaration, ReturnStatement } from "ast";
+import { AST, ArrowFunction, BindingName, JsxOpeningElement, ParameterDeclaration, ReturnStatement, JsxElement } from "ast";
 import { ContentType } from "types/ContentType";
 
 type ReactComponentNode = ts.FunctionDeclaration | ts.ArrowFunction | ts.ClassDeclaration;
@@ -33,7 +33,7 @@ export class ReactComponent extends ContentType implements ReactComponentBase {
     }
 
     private _findComponent(): ReactFunctionComponent | ReactClassComponent | undefined {
-        const parentNode = ASTNode.from(this.parent);
+        const parentNode = AST.from(this.parent);
         if (!parentNode) {
             return undefined;
         }
@@ -88,12 +88,12 @@ export class ReactFunctionComponent extends ContentType implements ReactComponen
             return false;
         }
         const numParams = this.functionNode?.parameters?.length;
-        const correctNumParams = !!numParams && !(numParams > 1);
+        const correctNumParams = !numParams || numParams === 1;
         if (correctNumParams === false) {
             return false;
         }
         const returnStatement = this.find({}, ReturnStatement);
-        const correctReturnType = !!(returnStatement?.find({}, JsxOpeningElement));
+        const correctReturnType = !!(returnStatement?.find({}, JsxOpeningElement) || returnStatement?.find({}, JsxElement));
         if (correctReturnType === false) {
             return false;
         }
@@ -105,7 +105,7 @@ export class ReactFunctionComponent extends ContentType implements ReactComponen
         if (this.functionNode.parameters.length === 0) {
             return { code, defaultProps: {} };
         }
-        const parameterDeclaration = ASTNode.as(this.functionNode.parameters[0], ParameterDeclaration);
+        const parameterDeclaration = AST.as(this.functionNode.parameters[0], ParameterDeclaration);
         const props = new Props(parameterDeclaration.name);
         const defaultProps = {};
         props.getProps().forEach(prop => {
@@ -123,7 +123,7 @@ export class ReactFunctionComponent extends ContentType implements ReactComponen
     }
 
     _getFunctionFromVariableDeclaration(node: ts.VariableDeclaration): ts.ArrowFunction {
-        return node.initializer ? ASTNode.as(node.initializer as any, ArrowFunction) :
+        return node.initializer ? AST.as(node.initializer as any, ArrowFunction) :
             ts.factory.createArrowFunction(undefined, undefined, [], undefined, undefined, ts.factory.createBlock([]));
     }
 
@@ -174,7 +174,7 @@ class Props extends BindingName {
     }
 }
 
-class Prop extends ASTNode {
+class Prop extends AST {
     propName: string;
     defaultValue: any;
 

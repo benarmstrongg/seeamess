@@ -1,7 +1,7 @@
 import ts from "typescript";
-import { ASTNode, JsxAttribute, Identifier } from "ast";
+import { AST, JsxAttribute, Identifier } from "ast";
 
-export class JsxOpeningElement extends ASTNode implements ts.JsxOpeningElement {
+export class JsxOpeningElement extends AST implements ts.JsxOpeningElement {
     _expressionBrand;
     tagName: ts.JsxOpeningElement['tagName'];
     attributes: ts.JsxOpeningElement['attributes'];
@@ -17,14 +17,14 @@ export class JsxOpeningElement extends ASTNode implements ts.JsxOpeningElement {
     }
 
     getTagName(): string {
-        return ASTNode.as(this.tagName as any, Identifier).text;
+        return AST.as(this.tagName as any, Identifier).text;
     }
 
     getAttributes(): (JsxAttribute)[] {
         return this.attributes.properties.map(p =>
             ts.isJsxSpreadAttribute(p) ?
-                ASTNode.as(p as any, JsxAttribute) :
-                ASTNode.as(p, JsxAttribute)
+                AST.as(p as any, JsxAttribute) :
+                AST.as(p, JsxAttribute)
         );
 
     }

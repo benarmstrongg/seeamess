@@ -1,7 +1,7 @@
 import ts from "typescript";
-import { ASTNode } from "ast";
+import { AST } from "ast";
 
-export class JsxExpression extends ASTNode implements ts.JsxExpression {
+export class JsxExpression extends AST implements ts.JsxExpression {
     _expressionBrand;
     parent: ts.JsxExpression['parent'];
     kind: ts.JsxExpression['kind'];

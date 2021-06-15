@@ -1,7 +1,7 @@
 import ts from "typescript";
-import { ASTNode } from "ast";
+import { AST } from "ast";
 
-export class ExportAssignment extends ASTNode implements ts.ExportAssignment {
+export class ExportAssignment extends AST implements ts.ExportAssignment {
     _declarationBrand;
     _statementBrand;
     expression: ts.ExportAssignment['expression'];

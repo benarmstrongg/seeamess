@@ -1,7 +1,7 @@
 import ts from "typescript";
-import { ASTNode } from "ast";
+import { AST } from "ast";
 
-export class Block extends ASTNode implements ts.Block {
+export class Block extends AST implements ts.Block {
     _statementBrand: ts.Block['_statementBrand'];
     statements: ts.Block['statements'];
     kind: ts.Block['kind'];
@@ -12,7 +12,7 @@ export class Block extends ASTNode implements ts.Block {
         this.kind = node.kind;
     }
 
-    getStatements(): ASTNode[] {
-        return this.statements.map(ASTNode.from);
+    getStatements(): AST[] {
+        return this.statements.map(AST.from);
     }
 }

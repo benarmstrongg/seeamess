@@ -1,7 +1,7 @@
 import ts from "typescript";
-import { ASTNode, Identifier } from "ast";
+import { AST, Identifier } from "ast";
 
-export class JsxAttribute extends ASTNode implements ts.JsxAttribute {
+export class JsxAttribute extends AST implements ts.JsxAttribute {
     _declarationBrand;
     _objectLiteralBrand;
     name: ts.JsxAttribute['name'];
@@ -18,6 +18,6 @@ export class JsxAttribute extends ASTNode implements ts.JsxAttribute {
     }
 
     getName(): string {
-        return ASTNode.as(this.name, Identifier).text;
+        return AST.as(this.name, Identifier).text;
     }
 }

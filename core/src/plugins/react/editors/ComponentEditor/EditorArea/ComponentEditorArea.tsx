@@ -29,14 +29,13 @@ export const EditorArea: FC<EditorAreaProps> = ({ component }) => {
                 />
             </div>
             {viewMode === 'preview' ? (
-                <LiveProvider code={code} scope={defaultProps} lang="tsx" >
+                <LiveProvider code={code} scope={defaultProps} lang="tsx" onErrorCapture={(e) => console.log(1)} >
                     <LivePreview />
-                    <LiveError onErrorCapture={(e) => console.log(e)} />
+                    <LiveError onErrorCapture={(e) => console.log(1)} />
                 </LiveProvider>
             ) : (
-                    <UIView />
-                )
-            }
+                <UIView />
+            )}
         </div>
     );
 }

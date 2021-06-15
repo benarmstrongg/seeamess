@@ -1,7 +1,7 @@
 import ts from "typescript";
-import { ASTNode, ArrayBindingPattern, ObjectBindingPattern } from "ast";
+import { AST, ArrayBindingPattern, ObjectBindingPattern } from "ast";
 
-export class BindingName extends ASTNode {
+export class BindingName extends AST {
     constructor(node: ts.BindingName) {
         super(node);
         this.kind = node.kind;
@@ -12,10 +12,10 @@ export class BindingName extends ASTNode {
             return [this.text || this.escapedText.toString()];
         }
         if (ts.isObjectBindingPattern(this)) {
-            return ASTNode.as(this, ObjectBindingPattern).getNames();
+            return AST.as(this, ObjectBindingPattern).getNames();
         }
         if (ts.isArrayBindingPattern(this)) {
-            return ASTNode.as(this, ArrayBindingPattern).getNames();
+            return AST.as(this, ArrayBindingPattern).getNames();
         }
         return [];
     }
@@ -25,10 +25,10 @@ export class BindingName extends ASTNode {
             return this.text || this.escapedText.toString();
         }
         if (ts.isObjectBindingPattern(this)) {
-            return `{ ${ASTNode.as(this, ObjectBindingPattern).getNamesString()} }`;
+            return `{ ${AST.as(this, ObjectBindingPattern).getNamesString()} }`;
         }
         if (ts.isArrayBindingPattern(this)) {
-            return `[${ASTNode.as(this, ArrayBindingPattern).getNamesString()}]`;
+            return `[${AST.as(this, ArrayBindingPattern).getNamesString()}]`;
         }
         return '';
     }

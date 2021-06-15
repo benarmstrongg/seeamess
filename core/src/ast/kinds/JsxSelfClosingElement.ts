@@ -1,7 +1,7 @@
 import ts from "typescript";
-import { ASTNode, JsxOpeningElement } from "ast";
+import { AST, JsxOpeningElement } from "ast";
 
-export class JsxSelfClosingElement extends ASTNode implements ts.JsxSelfClosingElement {
+export class JsxSelfClosingElement extends AST implements ts.JsxSelfClosingElement {
     _primaryExpressionBrand;
     _leftHandSideExpressionBrand;
     _unaryExpressionBrand;
@@ -20,7 +20,7 @@ export class JsxSelfClosingElement extends ASTNode implements ts.JsxSelfClosingE
     }
 
     getOpeningElement(): JsxOpeningElement {
-        return ASTNode.as(this as ts.Node as ts.JsxOpeningElement, JsxOpeningElement);
+        return AST.as(this as ts.Node as ts.JsxOpeningElement, JsxOpeningElement);
     }
 
 

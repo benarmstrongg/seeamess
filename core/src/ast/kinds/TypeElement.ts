@@ -1,7 +1,7 @@
 import ts from "typescript";
-import { ASTNode } from "ast";
+import { AST } from "ast";
 
-export class TypeElement extends ASTNode implements ts.TypeElement {
+export class TypeElement extends AST implements ts.TypeElement {
     _declarationBrand;
     _typeElementBrand;
     questionToken?: ts.TypeElement['questionToken'];

@@ -1,7 +1,7 @@
 import ts from "typescript";
-import { ASTNode, NamedImports, NamespaceImport } from "ast";
+import { AST, NamedImports, NamespaceImport } from "ast";
 
-export class ImportClause extends ASTNode implements ts.ImportClause {
+export class ImportClause extends AST implements ts.ImportClause {
     _declarationBrand;
     isTypeOnly: ts.ImportClause['isTypeOnly'];
     namedBindings?: ts.ImportClause['namedBindings'];
@@ -21,8 +21,8 @@ export class ImportClause extends ASTNode implements ts.ImportClause {
     getNamedBindings(): NamedImports | NamespaceImport | undefined {
         return this.namedBindings && (
             ts.isNamedImports(this.namedBindings) ?
-                ASTNode.as(this.namedBindings, NamedImports) :
-                ASTNode.as(this.namedBindings, NamespaceImport)
+                AST.as(this.namedBindings, NamedImports) :
+                AST.as(this.namedBindings, NamespaceImport)
         );
     }
 }

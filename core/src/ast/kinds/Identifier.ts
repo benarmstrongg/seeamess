@@ -1,7 +1,7 @@
 import ts from "typescript";
-import { ASTNode } from "ast";
+import { AST } from "ast";
 
-export class Identifier extends ASTNode implements ts.Identifier {
+export class Identifier extends AST implements ts.Identifier {
     _expressionBrand;
     _declarationBrand;
     _updateExpressionBrand;

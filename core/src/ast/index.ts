@@ -1,2 +1,2 @@
-export * from './ASTNode';
+export * from './AST';
 export * from './kinds';

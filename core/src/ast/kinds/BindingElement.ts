@@ -1,7 +1,7 @@
 import ts from "typescript";
-import { ASTNode, BindingName } from "ast";
+import { AST, BindingName } from "ast";
 
-export class BindingElement extends ASTNode implements ts.BindingElement {
+export class BindingElement extends AST implements ts.BindingElement {
     _declarationBrand;
     name: ts.BindingElement['name'];
     parent: ts.BindingElement['parent'];
@@ -22,10 +22,10 @@ export class BindingElement extends ASTNode implements ts.BindingElement {
     }
 
     getNames(): string[] {
-        return ASTNode.as(this.name, BindingName).getNames();
+        return AST.as(this.name, BindingName).getNames();
     }
 
     getNamesString(): string {
-        return ASTNode.as(this.name, BindingName).getNamesString();
+        return AST.as(this.name, BindingName).getNamesString();
     }
 }

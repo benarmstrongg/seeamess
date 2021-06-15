@@ -7,9 +7,10 @@ import { MonacoEditorOnChange } from "types/monaco";
 import { Spinner } from "components";
 import { CodeEditor, StatementEditor } from "internal/editors";
 import { EditorToolbar } from ".";
-import { useConfig, useFiles } from "hooks";
+import { useConfig, useEditor, useFiles } from "hooks";
 import './styles.scss';
 import { ContentType } from "types/ContentType";
+import { AST } from "ast";
 
 interface EditorContainerProps {
     obj: ContentType;
@@ -23,6 +24,7 @@ export const EditorContainer: FC<EditorContainerProps> = ({ obj }) => {
     const tsHelper = useMemo(() => new TSHelper(obj.containingFilePath, obj.getText()), [obj]);
     const monacoHelper = useMemo(() => new MonacoHelper(tsHelper, config, files.reduce((o, f) => ({ ...o, [f.containingFilePath]: f }), {})), [tsHelper, config, files]);
     const handleChange = useCallback<MonacoEditorOnChange>((ast, e, t) => { }, []);
+    const { content } = useEditor();
 
 
     useEffect(() => {
@@ -34,8 +36,27 @@ export const EditorContainer: FC<EditorContainerProps> = ({ obj }) => {
         setActiveEditor(index);
     }, [])
 
-    const extraEditors = useMemo(() => [ReactComponentEditor], []);
-    const { buttons, components } = useMemo(() => parseEditors(extraEditors), [extraEditors])
+    const extraEditors: IEditor[] = [ReactComponentEditor];
+    // const { buttons, components } = parseEditors(extraEditors);
+    const buttons: IEditor['button'][] = [];
+    const components: IEditor[] = [];
+    extraEditors.forEach((Editor, index) => {
+        let shouldRender = false;
+        for (const c of Editor.acceptedContentTypes || []) {
+            if (AST.is(content, c as any as typeof AST)) {
+                shouldRender = true;
+                break;
+            }
+            else if (content.find({}, c as any) !== undefined) {
+                shouldRender = true;
+                break;
+            }
+        }
+        if (shouldRender) {
+            buttons.push(Editor.button);
+            components.push(Editor);
+        }
+    })
     return (
         <div className="EditorContainer">
             {isReady === false && <Spinner />}

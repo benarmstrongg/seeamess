@@ -1,7 +1,7 @@
 import ts from 'typescript';
-import { ASTNode, Identifier } from 'ast';
+import { AST, Identifier } from 'ast';
 
-export class PropertyAccessExpression extends ASTNode implements ts.PropertyAccessExpression {
+export class PropertyAccessExpression extends AST implements ts.PropertyAccessExpression {
     _declarationBrand;
     _expressionBrand;
     _updateExpressionBrand;
@@ -20,12 +20,12 @@ export class PropertyAccessExpression extends ASTNode implements ts.PropertyAcce
     }
 
     getExpressionText(): string {
-        const name = ASTNode.as(this.name as ts.Identifier, Identifier).text;
+        const name = AST.as(this.name as ts.Identifier, Identifier).text;
         if (ts.isPropertyAccessExpression(this.expression)) {
-            return `${ASTNode.as(this.expression, PropertyAccessExpression).getExpressionText()}.${name}`
+            return `${AST.as(this.expression, PropertyAccessExpression).getExpressionText()}.${name}`
         }
         if (ts.isIdentifier(this.expression)) {
-            return `${ASTNode.as(this.expression, Identifier).text}.${name}`;
+            return `${AST.as(this.expression, Identifier).text}.${name}`;
         }
         return '';
     }

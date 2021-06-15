@@ -1,7 +1,7 @@
 import ts from "typescript";
-import { ASTNode } from "ast";
+import { AST } from "ast";
 
-export class ImportDeclaration extends ASTNode implements ts.ImportDeclaration {
+export class ImportDeclaration extends AST implements ts.ImportDeclaration {
     _statementBrand: ts.ImportDeclaration['_statementBrand'];
     moduleSpecifier: ts.ImportDeclaration['moduleSpecifier'];
     importClause?: ts.ImportDeclaration['importClause'];

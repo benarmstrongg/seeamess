@@ -1,7 +1,7 @@
 import ts from "typescript";
-import { ASTNode, BindingElement, BindingName } from "ast";
+import { AST, BindingElement, BindingName } from "ast";
 
-export class ArrayBindingPattern extends ASTNode implements ts.ArrayBindingPattern {
+export class ArrayBindingPattern extends AST implements ts.ArrayBindingPattern {
     elements: ts.ArrayBindingPattern['elements'];
     parent: ts.ArrayBindingPattern['parent'];
     kind: ts.ArrayBindingPattern['kind'];
@@ -14,13 +14,13 @@ export class ArrayBindingPattern extends ASTNode implements ts.ArrayBindingPatte
     }
 
     getElements(): BindingElement[] {
-        return this.elements.map(e => ASTNode.as(e as any, BindingElement));
+        return this.elements.map(e => AST.as(e as any, BindingElement));
     }
 
     getNames(): string[] {
         return this.elements.map(e => {
             if (ts.isBindingElement(e)) {
-                return ASTNode.as(e.name, BindingName).getNames();
+                return AST.as(e.name, BindingName).getNames();
             }
             if (ts.isOmittedExpression(e)) {
                 return e.getText();
@@ -32,7 +32,7 @@ export class ArrayBindingPattern extends ASTNode implements ts.ArrayBindingPatte
     getNamesString(): string {
         return this.elements.map(e => {
             if (ts.isBindingElement(e)) {
-                return ASTNode.as(e.name, BindingName).getNamesString();
+                return AST.as(e.name, BindingName).getNamesString();
             }
             if (ts.isOmittedExpression(e)) {
                 return e.getText();

@@ -1,5 +1,5 @@
 import ts from "typescript";
-import { ASTNode, SourceFile } from "ast";
+import { AST, SourceFile } from "ast";
 
 export class TSHelper {
     program: ts.Program;
@@ -13,7 +13,7 @@ export class TSHelper {
     }
 
     getAST() {
-        return ASTNode.as(this.sourceFile, SourceFile);
+        return AST.as(this.sourceFile, SourceFile);
     }
 
     static _createCompilerHost(filePath, sourceFile) {

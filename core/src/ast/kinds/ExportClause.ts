@@ -1,7 +1,7 @@
 import ts from "typescript";
-import { ASTNode, NamedExports, NamespaceExport } from "ast";
+import { AST, NamedExports, NamespaceExport } from "ast";
 
-export class ExportClause extends ASTNode implements Partial<NamedExports>, Partial<NamespaceExport> {
+export class ExportClause extends AST implements Partial<NamedExports>, Partial<NamespaceExport> {
     _declarationBrand;
     parent: any;
     kind: any;
@@ -22,13 +22,13 @@ export class ExportClause extends ASTNode implements Partial<NamedExports>, Part
 
     getNamedExports(): NamedExports | undefined {
         if (!!this.elements) {
-            return ASTNode.as(this as ts.NamedExports, NamedExports);
+            return AST.as(this as ts.NamedExports, NamedExports);
         }
     }
 
     getNamespaceExport(): NamespaceExport | undefined {
         if (!!this.name) {
-            return ASTNode.as(this as ts.NamespaceExport, NamespaceExport);
+            return AST.as(this as ts.NamespaceExport, NamespaceExport);
         }
     }
 

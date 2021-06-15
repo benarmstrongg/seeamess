@@ -1,7 +1,7 @@
 import ts from "typescript";
-import { ASTNode, BindingName, Identifier } from "ast";
+import { AST, BindingName, Identifier } from "ast";
 
-export class VariableDeclaration extends ASTNode implements ts.VariableDeclaration {
+export class VariableDeclaration extends AST implements ts.VariableDeclaration {
     _declarationBrand: ts.VariableDeclaration['_declarationBrand'];
     name: ts.VariableDeclaration['name'];
     parent: ts.VariableDeclaration['parent'];
@@ -19,18 +19,18 @@ export class VariableDeclaration extends ASTNode implements ts.VariableDeclarati
     }
 
     getNames(): string[] {
-        return ASTNode.as(this.name, BindingName).getNames();
+        return AST.as(this.name, BindingName).getNames();
     }
 
     getNamesString(): string {
-        return ASTNode.as(this.name, BindingName).getNamesString();
+        return AST.as(this.name, BindingName).getNamesString();
     }
 
     getType(): string {
         return (
             this.type && (
                 ts.tokenToString(this.type.kind) ||
-                (this.type['typeName'] && ASTNode.as(this.type['typeName'], Identifier).text)
+                (this.type['typeName'] && AST.as(this.type['typeName'], Identifier).text)
             )
         ) || 'any';
     }

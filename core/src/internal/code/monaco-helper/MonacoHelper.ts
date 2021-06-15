@@ -4,7 +4,7 @@
 import { monaco as _monaco } from '@monaco-editor/react';
 import { tsCompilerOptions } from './compilerOptions';
 import { EditorInstance, Monaco, MonacoEditorOnChange, TSWorker, Uri } from 'types/monaco';
-import { ASTNode, ImportDeclaration } from 'ast';
+import { AST, ImportDeclaration } from 'ast';
 import { TSHelper } from 'internal/code/ts-helper';
 import { SeeamessConfig } from 'types';
 import { ContentType } from 'types/ContentType';
@@ -27,7 +27,7 @@ export class MonacoHelper {
             this.core = _monaco;
             this._setTsCompilerOptions();
             const ast = this.tsHelper.getAST();
-            // this._registerTsImports(ast);
+            this._registerTsImports(ast);
             this.editorInstance = this._createEditorInstance(initialValue);
             this.tsWorker = await this._createTsWorkerInstance();
             // this._registerJsxHighlighter();
@@ -45,7 +45,7 @@ export class MonacoHelper {
         this.core.languages.typescript.typescriptDefaults.setCompilerOptions(tsCompilerOptions);
     }
 
-    private _registerTsImports(ast: ASTNode) {
+    private _registerTsImports(ast: AST) {
         const imports = ast.find({}, [ImportDeclaration]);
         const { projectDir } = this.config;
         imports.forEach(_import => {

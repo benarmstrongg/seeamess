@@ -1,7 +1,7 @@
 import ts from "typescript";
-import { ASTNode, Identifier } from "ast";
+import { AST, Identifier } from "ast";
 
-export class TypeAliasDeclaration extends ASTNode implements ts.TypeAliasDeclaration {
+export class TypeAliasDeclaration extends AST implements ts.TypeAliasDeclaration {
     _statementBrand;
     _declarationBrand;
     name: ts.TypeAliasDeclaration['name'];
@@ -16,6 +16,6 @@ export class TypeAliasDeclaration extends ASTNode implements ts.TypeAliasDeclara
     }
 
     getName(): string {
-        return ASTNode.as(this.name, Identifier).text;
+        return AST.as(this.name, Identifier).text;
     }
 }

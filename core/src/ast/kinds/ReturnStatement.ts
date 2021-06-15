@@ -1,7 +1,7 @@
 import ts from "typescript";
-import { ASTNode } from "ast";
+import { AST } from "ast";
 
-export class ReturnStatement extends ASTNode implements ts.ReturnStatement {
+export class ReturnStatement extends AST implements ts.ReturnStatement {
     _statementBrand: ts.ReturnStatement['_statementBrand'];
     expression?: ts.ReturnStatement['expression'];
     kind: ts.ReturnStatement['kind'];
@@ -12,7 +12,7 @@ export class ReturnStatement extends ASTNode implements ts.ReturnStatement {
         this.kind = node.kind;
     }
 
-    getExpression(): ASTNode | undefined {
-        return this.expression && ASTNode.from(this.expression);
+    getExpression(): AST | undefined {
+        return this.expression && AST.from(this.expression);
     }
 }

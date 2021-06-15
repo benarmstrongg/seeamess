@@ -1,7 +1,7 @@
 import ts from "typescript";
-import { ASTNode, PropertyAccessExpression } from "ast";
+import { AST, PropertyAccessExpression } from "ast";
 
-export class CallExpression extends ASTNode implements ts.CallExpression {
+export class CallExpression extends AST implements ts.CallExpression {
     _leftHandSideExpressionBrand;
     _declarationBrand;
     _expressionBrand;
@@ -23,12 +23,12 @@ export class CallExpression extends ASTNode implements ts.CallExpression {
             return this.expression.text;
         }
         if (ts.isPropertyAccessExpression(this.expression)) {
-            return ASTNode.as(this.expression, PropertyAccessExpression).getExpressionText();
+            return AST.as(this.expression, PropertyAccessExpression).getExpressionText();
         }
         return '';
     }
 
-    getArguments(): ASTNode[] {
-        return this.arguments.map(ASTNode.from);
+    getArguments(): AST[] {
+        return this.arguments.map(AST.from);
     }
 }

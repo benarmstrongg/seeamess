@@ -1,7 +1,7 @@
 import ts from "typescript";
-import { ASTNode, ExportClause, Identifier } from "ast";
+import { AST, ExportClause, Identifier } from "ast";
 
-export class ExportDeclaration extends ASTNode implements ts.ExportDeclaration {
+export class ExportDeclaration extends AST implements ts.ExportDeclaration {
     _declarationBrand;
     _statementBrand;
     isTypeOnly: ts.ExportDeclaration['isTypeOnly'];
@@ -20,10 +20,10 @@ export class ExportDeclaration extends ASTNode implements ts.ExportDeclaration {
     }
 
     getExportClause(): ExportClause | undefined {
-        return this.exportClause && ASTNode.as(this.exportClause, ExportClause);
+        return this.exportClause && AST.as(this.exportClause, ExportClause);
     }
 
     getModuleName(): string | undefined {
-        return this.moduleSpecifier && ASTNode.as(this.moduleSpecifier as ts.Identifier, Identifier).text;
+        return this.moduleSpecifier && AST.as(this.moduleSpecifier as ts.Identifier, Identifier).text;
     }
 }

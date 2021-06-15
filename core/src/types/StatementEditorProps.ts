@@ -1,8 +1,8 @@
 // import j from "jscodeshift";
 import { FC } from "react";
-import { ASTNode } from "ast";
+import { AST } from "ast";
 
-type StatementEditorProps<T extends ASTNode, ExtraProps> =
+type StatementEditorProps<T extends AST, ExtraProps> =
     ExtraProps & {
         node: T;
         fieldName?: string;
@@ -11,4 +11,4 @@ type StatementEditorProps<T extends ASTNode, ExtraProps> =
     }
 
 
-export type IStatementEditor<T extends ASTNode, ExtraProps = {}> = FC<StatementEditorProps<T, ExtraProps>>;
+export type IStatementEditor<T extends AST, ExtraProps = {}> = FC<StatementEditorProps<T, ExtraProps>>;

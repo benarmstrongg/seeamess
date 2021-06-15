@@ -1,7 +1,7 @@
 import ts from "typescript";
-import { ASTNode, Identifier } from "ast";
+import { AST, Identifier } from "ast";
 
-export class PropertySignature extends ASTNode implements ts.PropertySignature {
+export class PropertySignature extends AST implements ts.PropertySignature {
     _typeElementBrand;
     _declarationBrand;
     name: ts.PropertySignature['name'];
@@ -17,14 +17,14 @@ export class PropertySignature extends ASTNode implements ts.PropertySignature {
         this.kind = node.kind;
     }
 
-    getTypeMembers(): ASTNode[] {
+    getTypeMembers(): AST[] {
         if (this.type && this.type['members']) {
-            return (this.type['members'] as any[]).map(ASTNode.from)
+            return (this.type['members'] as any[]).map(AST.from)
         }
         return [];
     }
 
     getName(): string {
-        return ASTNode.as(this.name as Identifier, Identifier).text;
+        return AST.as(this.name as Identifier, Identifier).text;
     }
 }

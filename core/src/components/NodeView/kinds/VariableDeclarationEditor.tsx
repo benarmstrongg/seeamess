@@ -1,7 +1,7 @@
 import React from 'react';
 import { IStatementEditor } from 'types/StatementEditorProps';
 import { NodeInput, NodeView, Collapsible, NodeViewHeading } from 'components';
-import { ASTNode } from 'ast/ASTNode';
+import { AST } from 'ast/ASTNode';
 import { VariableDeclaration } from 'ast';
 
 interface VariableDeclarationEditorProps {
@@ -26,7 +26,7 @@ export const VariableDeclarationEditor: IStatementEditor<VariableDeclaration, Va
             {!!node.initializer && (
                 <div>
                     <NodeViewHeading text="Initializer" />
-                    <NodeView node={ASTNode.from(node.initializer)} />
+                    <NodeView node={AST.from(node.initializer)} />
                 </div>
             )}
         </>

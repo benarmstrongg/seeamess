@@ -1,7 +1,7 @@
 import ts from "typescript";
-import { ASTNode } from "ast";
+import { AST } from "ast";
 
-export class NamespaceExport extends ASTNode implements ts.NamespaceExport {
+export class NamespaceExport extends AST implements ts.NamespaceExport {
     _declarationBrand;
     name: ts.NamespaceExport['name'];
     parent: ts.NamespaceExport['parent'];

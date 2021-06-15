@@ -1,7 +1,7 @@
 import ts from "typescript";
-import { ASTNode } from "ast";
+import { AST } from "ast";
 
-export class BinaryExpression extends ASTNode implements ts.BinaryExpression {
+export class BinaryExpression extends AST implements ts.BinaryExpression {
     _expressionBrand;
     _declarationBrand;
     left: ts.BinaryExpression['left'];

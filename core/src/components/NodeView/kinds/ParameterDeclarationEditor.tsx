@@ -1,5 +1,5 @@
 import React from 'react';
-import { ASTNode, ParameterDeclaration } from 'ast';
+import { AST, ParameterDeclaration } from 'ast';
 import { IStatementEditor } from "types/StatementEditorProps";
 import { NodeInput, NodeView, Collapsible, NodeViewHeading } from 'components';
 
@@ -23,7 +23,7 @@ export const ParameterDeclarationEditor: IStatementEditor<ParameterDeclaration> 
                 {!!node.type && (
                     <div>
                         <NodeViewHeading text="Type" />
-                        <NodeInput placeholder="any" node={ASTNode.from(node.type)} value={type} />
+                        <NodeInput placeholder="any" node={AST.from(node.type)} value={type} />
                     </div>
                 )}
                 {!!node.initializer && (

@@ -1,7 +1,7 @@
 import ts from "typescript";
-import { ASTNode, FunctionExpression } from "ast";
+import { AST, FunctionExpression } from "ast";
 
-export class ArrowFunction extends ASTNode implements ts.ArrowFunction {
+export class ArrowFunction extends AST implements ts.ArrowFunction {
     _functionLikeDeclarationBrand;
     _declarationBrand;
     _expressionBrand;
@@ -22,6 +22,6 @@ export class ArrowFunction extends ASTNode implements ts.ArrowFunction {
     }
 
     getExpression(): FunctionExpression {
-        return ASTNode.as(this as any, FunctionExpression);
+        return AST.as(this as any, FunctionExpression);
     }
 }

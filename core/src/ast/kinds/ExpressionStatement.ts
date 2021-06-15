@@ -1,7 +1,7 @@
 import ts from "typescript";
-import { ASTNode } from "ast";
+import { AST } from "ast";
 
-export class ExpressionStatement extends ASTNode implements ts.ExpressionStatement {
+export class ExpressionStatement extends AST implements ts.ExpressionStatement {
     _statementBrand: ts.ExpressionStatement['_statementBrand'];
     expression: ts.ExpressionStatement['expression'];
     kind: ts.ExpressionStatement['kind'];

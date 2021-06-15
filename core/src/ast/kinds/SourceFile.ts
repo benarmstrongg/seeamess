@@ -1,7 +1,7 @@
 import ts from "typescript";
-import { ASTNode } from "ast";
+import { AST } from "ast";
 
-export class SourceFile extends ASTNode implements ts.SourceFile {
+export class SourceFile extends AST implements ts.SourceFile {
     statements: ts.SourceFile['statements'];
     endOfFileToken: ts.SourceFile['endOfFileToken'];
     fileName: ts.SourceFile['fileName'];

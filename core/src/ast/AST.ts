@@ -3,33 +3,33 @@ import { SourceFile } from "ast";
 
 // add this to support ContentType class. If query is passed, kind should be able to be specified
 // export type ASTQuery<T extends typeof ASTNode = typeof ASTNode> = Partial<InstanceType<T> & { nodeKind: T }> | ((node: ts.Node) => boolean)
-export type ASTQuery<T extends typeof ASTNode = typeof ASTNode> = Partial<InstanceType<T>> | ((node: ts.Node) => boolean)
+export type ASTQuery<T extends typeof AST = typeof AST> = Partial<InstanceType<T>> | ((node: ts.Node) => boolean)
 
 export type ConstructorOf<T extends new (...args: any) => any> = new (...args: ConstructorParameters<T>) => InstanceType<T>;
 
-export type TsNodeOf<T extends typeof ASTNode> = ConstructorParameters<ConstructorOf<T>>[0];
+export type TsNodeOf<T extends typeof AST> = ConstructorParameters<ConstructorOf<T>>[0];
 
-export class ASTNode {
+export class AST {
     //#region ts.Node props
-    kind: ts.Node['kind'];
-    flags: ts.Node['flags'];
-    parent: ts.Node['parent'];
-    pos: ts.Node['pos'];
-    end: ts.Node['end'];
-    getSourceFile: ts.Node['getSourceFile'];
-    getChildAt: ts.Node['getChildAt'];
-    getChildCount: ts.Node['getChildCount'];
-    getChildren: ts.Node['getChildren'];
-    getStart: ts.Node['getStart'];
-    getFullStart: ts.Node['getFullStart'];
-    getEnd: ts.Node['getEnd'];
-    getFirstToken: ts.Node['getFirstToken'];
-    getFullText: ts.Node['getFullText'];
-    getWidth: ts.Node['getWidth'];
-    getFullWidth: ts.Node['getFullWidth'];
-    getLeadingTriviaWidth: ts.Node['getLeadingTriviaWidth'];
-    getLastToken: ts.Node['getLastToken'];
-    forEachChild: ts.Node['forEachChild'];
+    kind!: ts.Node['kind'];
+    flags!: ts.Node['flags'];
+    parent!: ts.Node['parent'];
+    pos!: ts.Node['pos'];
+    end!: ts.Node['end'];
+    getSourceFile!: ts.Node['getSourceFile'];
+    getChildAt!: ts.Node['getChildAt'];
+    getChildCount!: ts.Node['getChildCount'];
+    getChildren!: ts.Node['getChildren'];
+    getStart!: ts.Node['getStart'];
+    getFullStart!: ts.Node['getFullStart'];
+    getEnd!: ts.Node['getEnd'];
+    getFirstToken!: ts.Node['getFirstToken'];
+    getFullText!: ts.Node['getFullText'];
+    getWidth!: ts.Node['getWidth'];
+    getFullWidth!: ts.Node['getFullWidth'];
+    getLeadingTriviaWidth!: ts.Node['getLeadingTriviaWidth'];
+    getLastToken!: ts.Node['getLastToken'];
+    forEachChild!: ts.Node['forEachChild'];
     //#endregion
 
     get key(): string {
@@ -39,7 +39,7 @@ export class ASTNode {
         return ts.SyntaxKind[this.kind].toString();
     }
     get sourceFile(): SourceFile {
-        return ASTNode.as(this.getSourceFile(), SourceFile);
+        return AST.as(this.getSourceFile(), SourceFile);
     }
     get containingFilePath(): string {
         return this.sourceFile.fileName;
@@ -80,36 +80,36 @@ export class ASTNode {
         return nodes;
     }
 
-    node<T extends typeof ASTNode>(kind: T): TsNodeOf<T> {
+    node<T extends typeof AST>(kind: T): TsNodeOf<T> {
         return this as TsNodeOf<typeof kind>;
     }
 
-    find<T extends typeof ASTNode>(query: ASTQuery<T>, kind?: T): InstanceType<T> | undefined;
-    find<T extends typeof ASTNode>(query: ASTQuery<T>, kind?: [T] | []): InstanceType<T>[];
-    find<T extends typeof ASTNode>(query: ASTQuery<T>, kind?: T | [T] | []): InstanceType<T> | InstanceType<T>[] | undefined {
+    find<T extends typeof AST>(query: ASTQuery<T>, kind?: T): InstanceType<T> | undefined;
+    find<T extends typeof AST>(query: ASTQuery<T>, kind?: [T] | []): InstanceType<T>[];
+    find<T extends typeof AST>(query: ASTQuery<T>, kind?: T | [T] | []): InstanceType<T> | InstanceType<T>[] | undefined {
         let result: InstanceType<T> | InstanceType<T>[] | undefined = undefined;
         const isMulti = Array.isArray(kind) === true;
         const hasQuery = query !== undefined && (typeof query === 'function' || Object.keys(query).length !== 0);
-        const Kind = (kind !== undefined && (isMulti ? kind[0] : kind)) || ASTNode;
+        const Kind = (kind !== undefined && (isMulti ? kind[0] : kind)) || AST;
 
         const visitNode = (node: ts.Node) => {
             if (!isMulti && result !== undefined) {
                 return;
             }
-            if (ASTNode.is(node, Kind) || Kind === ASTNode) {
+            if (AST.is(node, Kind) || Kind === AST) {
                 let isMatch = true;
                 if (hasQuery === true) {
-                    isMatch = ASTNode.isMatch(node, query);
+                    isMatch = AST.isMatch(node, query);
                 }
                 if (isMatch === true) {
                     if (isMulti === true) {
                         if (!Array.isArray(result)) {
                             result = [];
                         }
-                        result.push(ASTNode.as(node, Kind));
+                        result.push(AST.as(node, Kind));
                     }
                     else {
-                        result = ASTNode.as(node, Kind);
+                        result = AST.as(node, Kind);
                     }
                 }
             }
@@ -142,10 +142,10 @@ export class ASTNode {
         return ts[`is${this.constructor.name}`](node);
     }
 
-    static is<T extends typeof ASTNode>(node: ts.Node, kind: T): node is TsNodeOf<T> {
+    static is<T extends typeof AST>(node: ts.Node, kind: T): node is TsNodeOf<T> {
         let isOfKind = false;
         try {
-            const contentNode = ASTNode.as(node, kind);
+            const contentNode = AST.as(node, kind);
             isOfKind = contentNode.is(node);
         }
         catch {
@@ -154,7 +154,7 @@ export class ASTNode {
         return isOfKind;
     }
 
-    static isMatch<T extends typeof ASTNode>(node: TsNodeOf<T>, query: ASTQuery<T>): boolean {
+    static isMatch<T extends typeof AST>(node: TsNodeOf<T>, query: ASTQuery<T>): boolean {
         if (node === undefined) {
             return false;
         }
@@ -172,12 +172,12 @@ export class ASTNode {
         return isMatch;
     }
 
-    static as<T extends (typeof ASTNode)>(node: TsNodeOf<T>, kind: T): InstanceType<T> {
+    static as<T extends (typeof AST)>(node: TsNodeOf<T>, kind: T): InstanceType<T> {
         return new kind(node) as InstanceType<T>;
     }
 
     static from<T extends ts.Node>(node: T) {
-        return new ASTNode(node);
+        return new AST(node);
     }
 }
 

@@ -1,6 +1,6 @@
 import React from "react";
 import { NodeView, Collapsible, NodeViewHeading } from "components";
-import { ASTNode, FunctionExpression } from "ast";
+import { AST, FunctionExpression } from "ast";
 import { IStatementEditor } from "types/StatementEditorProps";
 
 interface FunctionExpressionEditorProps {
@@ -21,13 +21,13 @@ export const FunctionExpressionEditor: IStatementEditor<FunctionExpression, Func
                 <div>
                     <NodeViewHeading text="Parameters" />
                     {node.getParameters().map(p => (
-                        <NodeView key={p.key} node={ASTNode.from(p)} />
+                        <NodeView key={p.key} node={AST.from(p)} />
                     ))}
                 </div>
                 {!!node.body && (
                     <div>
                         <NodeViewHeading text="Body" />
-                        <NodeView node={ASTNode.from(node.body)} />
+                        <NodeView node={AST.from(node.body)} />
                     </div>
                 )}
             </div>
