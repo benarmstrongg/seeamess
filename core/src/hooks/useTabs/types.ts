@@ -1,9 +1,10 @@
-import { ContentType } from "types/ContentType";
+import { AST } from "ast";
 
 export interface ITabsContext {
-    openTabs: ContentType[];
-    activeTab: number;
-    open(obj: ContentType): void;
+    openTabs: AST[];
+    activeTab: AST;
+    activeIndex: number;
+    open(obj: AST): void;
     close(tabIndex: number): void;
     change(toIndex: number): void;
 }

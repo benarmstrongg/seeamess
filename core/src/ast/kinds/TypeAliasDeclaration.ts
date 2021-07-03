@@ -1,5 +1,6 @@
 import ts from "typescript";
 import { AST, Identifier } from "ast";
+import { ast } from "ast/AST";
 
 export class TypeAliasDeclaration extends AST implements ts.TypeAliasDeclaration {
     _statementBrand;
@@ -16,6 +17,7 @@ export class TypeAliasDeclaration extends AST implements ts.TypeAliasDeclaration
     }
 
     getName(): string {
-        return AST.as(this.name, Identifier).text;
+        const $name = ast(this.name).to(Identifier);
+        return $name.text || $name.escapedText.toString();
     }
 }

@@ -1,9 +1,9 @@
-import React, { FC, useCallback, useState } from "react";
+import React, { FC, useCallback, useEffect, useState } from "react";
 import { TabsContext } from "./TabsContext";
 import { ITabsContext as T } from './types';
 
 export const TabsProvider: FC = ({ children }) => {
-    const [activeTab, setActiveTab] = useState<T['activeTab']>(0);
+    const [activeIndex, setActiveIndex] = useState<T['activeIndex']>(0);
     const [openTabs, setOpenTabs] = useState<T['openTabs']>([]);
 
     const open = useCallback<T['open']>(obj => {
@@ -13,11 +13,11 @@ export const TabsProvider: FC = ({ children }) => {
             tab.containingFilePath === obj.containingFilePath
         );
         if (existingTabIndex !== -1) {
-            setActiveTab(existingTabIndex);
+            setActiveIndex(existingTabIndex);
         }
         else {
             setOpenTabs([...openTabs, obj]);
-            setActiveTab(openTabs.length);
+            setActiveIndex(openTabs.length);
         }
     }, [openTabs]);
 
@@ -27,13 +27,21 @@ export const TabsProvider: FC = ({ children }) => {
     }, [openTabs]);
 
     const change = useCallback<T['change']>(index => {
-        setActiveTab(index);
+        setActiveIndex(index);
     }, []);
+
+    useEffect(() => {
+        const activeTab = openTabs[activeIndex];
+        if (activeTab) {
+            document.title = activeTab.containingFileName;
+        }
+    }, [activeIndex, openTabs])
 
     return (
         <TabsContext.Provider
             value={{
-                activeTab,
+                activeIndex,
+                activeTab: openTabs[activeIndex],
                 openTabs,
                 open,
                 close,

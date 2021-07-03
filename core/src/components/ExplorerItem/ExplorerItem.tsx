@@ -1,10 +1,10 @@
+import { AST } from "ast";
 import React, { FC } from "react";
-import { ContentType } from "types/ContentType";
 import './styles.scss';
 
 interface ExplorerItemProps {
-    obj: ContentType;
-    onClick(obj: ContentType): void;
+    obj: AST;
+    onClick(obj: AST): void;
     icon?: FC;
     indentLevel?: number;
     displayName?: string

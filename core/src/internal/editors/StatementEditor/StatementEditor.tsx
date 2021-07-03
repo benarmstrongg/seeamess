@@ -1,20 +1,22 @@
 import React from "react";
-import { IEditor } from "types/editor";
-import { NodeView } from "components";
+import { ContentEditor } from "types/editor";
+import { NodeForm } from "components";
 import { AiOutlineProfile } from 'react-icons/ai';
-import { AST } from "ast";
-import { useEditor } from "hooks";
+import { AST, ast } from "ast";
+import { useTabs } from "hooks";
 import './styles.scss';
 
-export const StatementEditor: IEditor = () => {
-    const { content } = useEditor();
+export const StatementEditor: ContentEditor = () => {
+    const { activeTab } = useTabs();
     return (
         <div className="StatementEditorView">
-            {content.getChildNodes().map(AST.from).map(s => (
-                <NodeView key={s.key} node={s} />
+            {activeTab.getChildNodes().map(ast).map(s => (
+                <NodeForm key={s.key} node={s} />
             ))}
         </div>
     );
 }
 
 StatementEditor.button = (<><AiOutlineProfile />&nbsp;Statements</>);
+
+StatementEditor.contentTypes = [AST];

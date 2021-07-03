@@ -1,5 +1,5 @@
 import ts from "typescript";
-import { AST, VariableDeclaration } from "ast";
+import { ast, AST, VariableDeclaration } from "ast";
 
 export class VariableDeclarationList extends AST implements ts.VariableDeclarationList {
     declarations: ts.VariableDeclarationList['declarations'];
@@ -14,7 +14,7 @@ export class VariableDeclarationList extends AST implements ts.VariableDeclarati
     }
 
     getDeclarations(): VariableDeclaration[] {
-        return this.declarations.map(d => AST.as(d, VariableDeclaration));
+        return this.declarations.map(d => ast(d).to(VariableDeclaration));
     }
 
     getDeclarationNames(): string[] {

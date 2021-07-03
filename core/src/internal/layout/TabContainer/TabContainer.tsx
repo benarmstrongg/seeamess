@@ -7,9 +7,9 @@ interface TabContainerProps {
 }
 
 export const TabContainer: FC<TabContainerProps> = ({ children, tabIndex }) => {
-    const { activeTab } = useTabs();
+    const { activeIndex } = useTabs();
     return (
-        <div className="TabContainer" hidden={activeTab !== tabIndex}>
+        <div className="TabContainer" hidden={activeIndex !== tabIndex}>
             {children}
         </div>
     );

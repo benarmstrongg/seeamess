@@ -1,5 +1,5 @@
 import ts from "typescript";
-import { AST, BindingName, Identifier } from "ast";
+import { ast, AST, BindingName, Identifier } from "ast";
 
 export class VariableDeclaration extends AST implements ts.VariableDeclaration {
     _declarationBrand: ts.VariableDeclaration['_declarationBrand'];
@@ -19,18 +19,18 @@ export class VariableDeclaration extends AST implements ts.VariableDeclaration {
     }
 
     getNames(): string[] {
-        return AST.as(this.name, BindingName).getNames();
+        return ast(this.name).to(BindingName).getNames();
     }
 
     getNamesString(): string {
-        return AST.as(this.name, BindingName).getNamesString();
+        return ast(this.name).to(BindingName).getNamesString();
     }
 
     getType(): string {
         return (
             this.type && (
                 ts.tokenToString(this.type.kind) ||
-                (this.type['typeName'] && AST.as(this.type['typeName'], Identifier).text)
+                (this.type['typeName'] && ast(this.type['typeName']).to(Identifier).text)
             )
         ) || 'any';
     }

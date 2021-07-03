@@ -1,35 +1,32 @@
 import ts from "typescript";
 import { SourceFile } from "ast";
 
-// add this to support ContentType class. If query is passed, kind should be able to be specified
-// export type ASTQuery<T extends typeof ASTNode = typeof ASTNode> = Partial<InstanceType<T> & { nodeKind: T }> | ((node: ts.Node) => boolean)
-export type ASTQuery<T extends typeof AST = typeof AST> = Partial<InstanceType<T>> | ((node: ts.Node) => boolean)
+export type ASTConstructor<A extends AST> = new (node: any) => A;
+type ASTQuery<A extends AST> = Partial<AST & { type: ASTConstructor<A> }> | ((node: ts.Node) => boolean);
 
-export type ConstructorOf<T extends new (...args: any) => any> = new (...args: ConstructorParameters<T>) => InstanceType<T>;
+export class AST implements ts.Node {
+    static program: ts.Program;
 
-export type TsNodeOf<T extends typeof AST> = ConstructorParameters<ConstructorOf<T>>[0];
-
-export class AST {
     //#region ts.Node props
-    kind!: ts.Node['kind'];
-    flags!: ts.Node['flags'];
-    parent!: ts.Node['parent'];
-    pos!: ts.Node['pos'];
-    end!: ts.Node['end'];
-    getSourceFile!: ts.Node['getSourceFile'];
-    getChildAt!: ts.Node['getChildAt'];
-    getChildCount!: ts.Node['getChildCount'];
-    getChildren!: ts.Node['getChildren'];
-    getStart!: ts.Node['getStart'];
-    getFullStart!: ts.Node['getFullStart'];
-    getEnd!: ts.Node['getEnd'];
-    getFirstToken!: ts.Node['getFirstToken'];
-    getFullText!: ts.Node['getFullText'];
-    getWidth!: ts.Node['getWidth'];
-    getFullWidth!: ts.Node['getFullWidth'];
-    getLeadingTriviaWidth!: ts.Node['getLeadingTriviaWidth'];
-    getLastToken!: ts.Node['getLastToken'];
-    forEachChild!: ts.Node['forEachChild'];
+    kind: ts.Node['kind'];
+    flags: ts.Node['flags'];
+    parent: ts.Node['parent'];
+    pos: ts.Node['pos'];
+    end: ts.Node['end'];
+    getSourceFile: ts.Node['getSourceFile'];
+    getChildAt: ts.Node['getChildAt'];
+    getChildCount: ts.Node['getChildCount'];
+    getChildren: ts.Node['getChildren'];
+    getStart: ts.Node['getStart'];
+    getFullStart: ts.Node['getFullStart'];
+    getEnd: ts.Node['getEnd'];
+    getFirstToken: ts.Node['getFirstToken'];
+    getFullText: ts.Node['getFullText'];
+    getWidth: ts.Node['getWidth'];
+    getFullWidth: ts.Node['getFullWidth'];
+    getLeadingTriviaWidth: ts.Node['getLeadingTriviaWidth'];
+    getLastToken: ts.Node['getLastToken'];
+    forEachChild: ts.Node['forEachChild'];
     //#endregion
 
     get key(): string {
@@ -39,10 +36,30 @@ export class AST {
         return ts.SyntaxKind[this.kind].toString();
     }
     get sourceFile(): SourceFile {
-        return AST.as(this.getSourceFile(), SourceFile);
+        return ast(this.getSourceFile()).to(SourceFile);
     }
     get containingFilePath(): string {
         return this.sourceFile.fileName;
+    }
+    get containingFileName(): string {
+        return this.sourceFile.baseName;
+    }
+    get program(): ts.Program {
+        return AST.program;
+    }
+    private _typeChecker!: ts.TypeChecker;
+    get typeChecker(): ts.TypeChecker {
+        if (!this._typeChecker) {
+            this._typeChecker = this.program.getTypeChecker();
+        }
+        return this._typeChecker;
+    }
+    get $type(): ts.Type | undefined {
+        const symbol = this.typeChecker.getSymbolAtLocation(this);
+        if (symbol) {
+            return this.typeChecker.getTypeOfSymbolAtLocation(symbol, this);
+        }
+        return undefined;
     }
 
     constructor(node: ts.Node) {
@@ -65,7 +82,32 @@ export class AST {
         this.getLeadingTriviaWidth = node.getLeadingTriviaWidth;
         this.getLastToken = node.getLastToken;
         this.forEachChild = node.forEachChild;
+
         Object.assign(this, node);
+    }
+
+    // static si<A extends AST>(this: ASTConstructor<A>, node: AST): node is A { return !!node; }
+    static si(this: ASTConstructor<any>, node: AST): node is any {
+        return node.is(this);
+    }
+
+    is<A extends AST>(nodeType: ASTConstructor<A>): this is A {
+        const defaultConstructor = AST as ASTConstructor<AST>;
+        if (nodeType === defaultConstructor) {
+            return true;
+        }
+        if (!nodeType) {
+            return false;
+        }
+        const kind = nodeType.name;
+        if (!!kind && kind === this.kindString) {
+            return true;
+        }
+        const si = nodeType['si'];
+        if (!!si) {
+            return si(this);
+        }
+        return false;
     }
 
     getText(): string {
@@ -80,104 +122,78 @@ export class AST {
         return nodes;
     }
 
-    node<T extends typeof AST>(kind: T): TsNodeOf<T> {
-        return this as TsNodeOf<typeof kind>;
-    }
-
-    find<T extends typeof AST>(query: ASTQuery<T>, kind?: T): InstanceType<T> | undefined;
-    find<T extends typeof AST>(query: ASTQuery<T>, kind?: [T] | []): InstanceType<T>[];
-    find<T extends typeof AST>(query: ASTQuery<T>, kind?: T | [T] | []): InstanceType<T> | InstanceType<T>[] | undefined {
-        let result: InstanceType<T> | InstanceType<T>[] | undefined = undefined;
-        const isMulti = Array.isArray(kind) === true;
-        const hasQuery = query !== undefined && (typeof query === 'function' || Object.keys(query).length !== 0);
-        const Kind = (kind !== undefined && (isMulti ? kind[0] : kind)) || AST;
-
-        const visitNode = (node: ts.Node) => {
-            if (!isMulti && result !== undefined) {
-                return;
-            }
-            if (AST.is(node, Kind) || Kind === AST) {
-                let isMatch = true;
-                if (hasQuery === true) {
-                    isMatch = AST.isMatch(node, query);
+    find<A extends AST>(type: ASTConstructor<A>): A | undefined;
+    find<A extends AST>(query: ASTQuery<A>): A | undefined;
+    find<A extends AST>(typeOrQuery: ASTConstructor<A> | ASTQuery<A>): A | AST | undefined {
+        let result: A | AST | undefined;
+        function argIsType(a: any): a is ASTConstructor<A> {
+            return !!a['si'];
+        }
+        const match = (node: ts.Node): A | AST | undefined => {
+            if (argIsType(typeOrQuery)) {
+                if (ast(node).is(typeOrQuery)) {
+                    // console.log(typeOrQuery);
+                    return ast(node).to(typeOrQuery);
                 }
-                if (isMatch === true) {
-                    if (isMulti === true) {
-                        if (!Array.isArray(result)) {
-                            result = [];
-                        }
-                        result.push(AST.as(node, Kind));
+            }
+            else if (typeof typeOrQuery === 'function') {
+                if (typeOrQuery(node)) {
+                    return ast(node);
+                }
+            }
+            else {
+                let isMatch = true;
+                for (let p in node) {
+                    if (node[p] !== typeOrQuery[p]) {
+                        isMatch = false;
+                        break;
+                    }
+                }
+                if (isMatch) {
+                    if (typeOrQuery.type) {
+                        return ast(node).to(typeOrQuery.type);
                     }
                     else {
-                        result = AST.as(node, Kind);
+                        return ast(node);
                     }
                 }
             }
-            node.forEachChild(visitNode);
+            return undefined;
         }
-        // const topLevelMatch = isMulti === true ?
-        //     (hasQuery ?
-        //         this.getChildNodes().filter(child => ASTNode.is(child, Kind) && ASTNode.isMatch(child, query)) :
-        //         this.getChildNodes().filter(child => ASTNode.is(child, Kind))
-        //     ).map((n) => ASTNode.as(n, Kind)) :
-        //     (hasQuery ?
-        //         this.getChildNodes().find(child => ASTNode.is(child, Kind) && ASTNode.isMatch(child, query)) :
-        //         this.getChildNodes().find(child => ASTNode.is(child, Kind))
-        //     );
-        // TODO: should this be here?
-        // if (isMulti === true && (topLevelMatch as T[]).length > 0) {
-        //     return topLevelMatch as InstanceType<T>[];
-        // }
-        // if (isMulti === false && topLevelMatch !== undefined) {
-        //     return ASTNode.as(topLevelMatch as ts.Node, Kind);
-        // }
-        this.forEachChild(visitNode);
-        if (result === undefined) {
-            return isMulti ? [] : undefined;
+        const setResult = (node: ts.Node) => {
+            if (!!result) {
+                return;
+            }
+            result = match(node);
         }
+        this.forEachChild(setResult)
+        if (!result) {
+            const scanChildren = (node: ts.Node) => {
+                if (!result) {
+                    node.forEachChild(scanChildren);
+                }
+                setResult(node);
+            }
+            this.forEachChild(scanChildren)
+        }
+
         return result;
     }
 
-    is(node: ts.Node): boolean {
-        return ts[`is${this.constructor.name}`](node);
+    //TODO
+    filter<A extends AST>(type: ASTConstructor<A>): A[];
+    filter<A extends AST>(query: ASTQuery<A>): A[];
+    filter<A extends AST>(typeOrQuery: A | ASTQuery<A>): A[] {
+        const results: A[] = [];
+
+        return results;
     }
 
-    static is<T extends typeof AST>(node: ts.Node, kind: T): node is TsNodeOf<T> {
-        let isOfKind = false;
-        try {
-            const contentNode = AST.as(node, kind);
-            isOfKind = contentNode.is(node);
-        }
-        catch {
-            isOfKind = false;
-        }
-        return isOfKind;
-    }
-
-    static isMatch<T extends typeof AST>(node: TsNodeOf<T>, query: ASTQuery<T>): boolean {
-        if (node === undefined) {
-            return false;
-        }
-        function queryIsFunction(query: ASTQuery<T>): query is ((node: ts.Node) => boolean) {
-            return typeof query === 'function';
-        }
-        if (queryIsFunction(query)) {
-            return query(node);
-        }
-        let isMatch = true;
-        Object.entries(query).forEach(([key, val]) => {
-            if (isMatch === false) return;
-            if (node[key] !== val) isMatch = false;
-        });
-        return isMatch;
-    }
-
-    static as<T extends (typeof AST)>(node: TsNodeOf<T>, kind: T): InstanceType<T> {
-        return new kind(node) as InstanceType<T>;
-    }
-
-    static from<T extends ts.Node>(node: T) {
-        return new AST(node);
+    to<A extends AST>(contentType: ASTConstructor<A>): A {
+        return new contentType(this);
     }
 }
 
+export const ast = (node: ts.Node): AST => {
+    return new AST(node);
+}

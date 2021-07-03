@@ -1,29 +1,25 @@
 import React from 'react';
-import { IEditor } from 'types/editor';
+import { ContentEditor } from 'types/editor';
 import { FaReact } from 'react-icons/fa';
 import { ReactFunctionComponent } from '../../content-types/FC';
 import { EditorArea } from './EditorArea/ComponentEditorArea';
 import { ComponentInfoPanel } from './ComponentInfoPanel/ComponentInfoPanel';
 import { useEditor } from 'hooks';
-import { AST } from 'ast';
-import { JavascriptFile } from 'internal/content-types/JavascriptFile';
 import './styles.scss';
 
-export const ReactComponentEditor: IEditor = () => {
+export const ReactComponentEditor: ContentEditor = () => {
     const { content } = useEditor(ReactFunctionComponent);
-    let component;
 
-    if (AST.is(content, JavascriptFile)) {
-        component = content.find({}, ReactFunctionComponent);
+    if (!content) {
+        return (<>No comp</>);
     }
-    else {
-        component = content;
-    }
+
+    console.log(content);
 
     return (
         <div className="ReactComponentEditor">
-            <ComponentInfoPanel component={component} />
-            <EditorArea component={component} />
+            <ComponentInfoPanel component={content} />
+            <EditorArea component={content} />
         </div>
     );
 }
@@ -35,4 +31,4 @@ ReactComponentEditor.button = (
     </>
 );
 
-ReactComponentEditor.acceptedContentTypes = [ReactFunctionComponent];
+ReactComponentEditor.contentTypes = [ReactFunctionComponent];

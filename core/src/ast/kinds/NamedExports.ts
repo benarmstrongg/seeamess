@@ -1,5 +1,5 @@
 import ts from "typescript";
-import { AST, Identifier } from "ast";
+import { ast, AST, Identifier } from "ast";
 
 export class NamedExports extends AST implements ts.NamedExports {
     elements: ts.NamedExports['elements'];
@@ -14,6 +14,6 @@ export class NamedExports extends AST implements ts.NamedExports {
     }
 
     getElements(): Identifier[] {
-        return this.elements.map(e => AST.as(e.name, Identifier));
+        return this.elements.map(e => ast(e.name).to(Identifier));
     }
 }

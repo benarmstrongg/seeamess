@@ -1,8 +1,6 @@
 
-export * from './useConfig';
-export * from './useContent';
-export * from './useEditor';
-// export * from './useExplorer';
-export * from './useFiles';
+export * from './useEditor/useEditor';
+export * from './useExplorer/useExplorer';
+export * from './useProject';
 export * from './useTabs';
 export * from './useTunnel';

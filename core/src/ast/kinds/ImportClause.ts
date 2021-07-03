@@ -1,5 +1,5 @@
 import ts from "typescript";
-import { AST, NamedImports, NamespaceImport } from "ast";
+import { ast, AST, NamedImports, NamespaceImport } from "ast";
 
 export class ImportClause extends AST implements ts.ImportClause {
     _declarationBrand;
@@ -21,8 +21,8 @@ export class ImportClause extends AST implements ts.ImportClause {
     getNamedBindings(): NamedImports | NamespaceImport | undefined {
         return this.namedBindings && (
             ts.isNamedImports(this.namedBindings) ?
-                AST.as(this.namedBindings, NamedImports) :
-                AST.as(this.namedBindings, NamespaceImport)
+                ast(this.namedBindings).to(NamedImports) :
+                ast(this.namedBindings).to(NamespaceImport)
         );
     }
 }

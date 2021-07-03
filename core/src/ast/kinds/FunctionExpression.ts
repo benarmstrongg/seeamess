@@ -1,5 +1,5 @@
 import ts from "typescript";
-import { AST, Identifier, ParameterDeclaration } from "ast";
+import { ast, AST, Identifier, ParameterDeclaration } from "ast";
 
 export class FunctionExpression extends AST implements ts.FunctionExpression {
     _memberExpressionBrand;
@@ -24,10 +24,10 @@ export class FunctionExpression extends AST implements ts.FunctionExpression {
     }
 
     getParameters(): ParameterDeclaration[] {
-        return this.parameters.map(p => AST.as(p, ParameterDeclaration));
+        return this.parameters.map(p => ast(p).to(ParameterDeclaration));
     }
 
     getName(): string | undefined {
-        return this.name && AST.as(this.name, Identifier).text;
+        return this.name && ast(this.name).to(Identifier).text;
     }
 }

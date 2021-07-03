@@ -13,7 +13,6 @@ interface EditorAreaProps {
 
 export const EditorArea: FC<EditorAreaProps> = ({ component }) => {
     const [viewMode, setViewMode] = useState<'edit' | 'preview'>('edit');
-    const { code, defaultProps } = component.getPreview();
     return (
         <div className="EditorArea">
             <div className="EditorToolbar">
@@ -29,7 +28,9 @@ export const EditorArea: FC<EditorAreaProps> = ({ component }) => {
                 />
             </div>
             {viewMode === 'preview' ? (
-                <LiveProvider code={code} scope={defaultProps} lang="tsx" onErrorCapture={(e) => console.log(1)} >
+                <LiveProvider code={component.getText()} lang="tsx" onErrorCapture={(e) => console.log(1)}
+                // scope={component.props?.array.reduce((o, p) => ({ ...o, [p.getName()]: p.getDefaultValue() }), {})}
+                >
                     <LivePreview />
                     <LiveError onErrorCapture={(e) => console.log(1)} />
                 </LiveProvider>

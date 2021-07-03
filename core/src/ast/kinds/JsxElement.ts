@@ -1,5 +1,5 @@
 import ts from "typescript";
-import { AST, JsxChild, JsxExpression, JsxFragment, JsxSelfClosingElement, JsxOpeningElement, JsxText } from "ast";
+import { AST, JsxChild, JsxExpression, JsxFragment, JsxSelfClosingElement, JsxOpeningElement, JsxText, ast } from "ast";
 
 export class JsxElement extends AST implements ts.JsxElement {
     _expressionBrand;
@@ -22,27 +22,27 @@ export class JsxElement extends AST implements ts.JsxElement {
     }
 
     getOpeningElement(): JsxOpeningElement {
-        return AST.as(this.openingElement, JsxOpeningElement);
+        return ast(this.openingElement).to(JsxOpeningElement);
     }
 
     getChildElements(): JsxChild[] {
         return this.children.map(c => {
             if (ts.isJsxSelfClosingElement(c)) {
-                return AST.as(c, JsxSelfClosingElement);
+                return ast(c).to(JsxSelfClosingElement);
             }
             if (ts.isJsxText(c)) {
-                return AST.as(c, JsxText);
+                return ast(c).to(JsxText);
             }
             if (ts.isJsxElement(c)) {
-                return AST.as(c, JsxElement);
+                return ast(c).to(JsxElement);
             }
             if (ts.isJsxFragment(c)) {
-                return AST.as(c, JsxFragment);
+                return ast(c).to(JsxFragment);
             }
             if (ts.isJsxExpression(c)) {
-                return AST.as(c, JsxExpression);
+                return ast(c).to(JsxExpression);
             }
-            return AST.from(c) as JsxChild;
+            return ast(c) as JsxChild;
         })
     }
 }

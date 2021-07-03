@@ -1,5 +1,6 @@
 import ts from "typescript";
 import { AST } from "ast";
+import { ast } from "ast/AST";
 
 export class ReturnStatement extends AST implements ts.ReturnStatement {
     _statementBrand: ts.ReturnStatement['_statementBrand'];
@@ -13,6 +14,6 @@ export class ReturnStatement extends AST implements ts.ReturnStatement {
     }
 
     getExpression(): AST | undefined {
-        return this.expression && AST.from(this.expression);
+        return this.expression && ast(this.expression);
     }
 }

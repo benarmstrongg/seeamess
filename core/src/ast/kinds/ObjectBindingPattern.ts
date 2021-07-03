@@ -1,5 +1,5 @@
 import ts from "typescript";
-import { AST, BindingElement } from "ast";
+import { ast, AST, BindingElement } from "ast";
 
 export class ObjectBindingPattern extends AST implements ts.ObjectBindingPattern {
     elements: ts.ObjectBindingPattern['elements'];
@@ -14,14 +14,14 @@ export class ObjectBindingPattern extends AST implements ts.ObjectBindingPattern
     }
 
     getElements(): BindingElement[] {
-        return this.elements.map(e => AST.as(e, BindingElement));
+        return this.elements.map(e => ast(e).to(BindingElement));
     }
 
     getNames(): string[] {
-        return this.elements.map(e => AST.as(e, BindingElement).getNames()).flat();
+        return this.elements.map(e => ast(e).to(BindingElement).getNames()).flat();
     }
 
     getNamesString(): string {
-        return this.elements.map(e => AST.as(e, BindingElement).getNamesString()).join(', ');
+        return this.elements.map(e => ast(e).to(BindingElement).getNamesString()).join(', ');
     }
 }

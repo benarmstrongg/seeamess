@@ -5,9 +5,9 @@ import { monaco as _monaco } from '@monaco-editor/react';
 import { tsCompilerOptions } from './compilerOptions';
 import { EditorInstance, Monaco, MonacoEditorOnChange, TSWorker, Uri } from 'types/monaco';
 import { AST, ImportDeclaration } from 'ast';
-import { TSHelper } from 'internal/code/ts-helper';
-import { SeeamessConfig } from 'types';
-import { ContentType } from 'types/ContentType';
+import { IProject } from 'hooks/useProject/types';
+
+type TSHelper = any;
 
 export class MonacoHelper {
     filePath: string;
@@ -18,7 +18,7 @@ export class MonacoHelper {
         return this.core.Uri.file(`file://${this.filePath}`);
     };
 
-    constructor(public tsHelper: TSHelper, public config: SeeamessConfig, public files: { [name: string]: ContentType }) {
+    constructor(public tsHelper: TSHelper, public config: IProject['config'], public files: { [name: string]: AST }) {
         this.filePath = tsHelper.filePath;
     }
 
@@ -46,7 +46,7 @@ export class MonacoHelper {
     }
 
     private _registerTsImports(ast: AST) {
-        const imports = ast.find({}, [ImportDeclaration]);
+        const imports = ast.filter(ImportDeclaration);
         const { projectDir } = this.config;
         imports.forEach(_import => {
             const libraryName = _import.getModuleName();

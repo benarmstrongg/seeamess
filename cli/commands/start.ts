@@ -4,9 +4,18 @@ import * as fileExplorer from '../file-explorer';
 import * as server from '../server';
 import cors from 'cors';
 
+const mockConfig = {
+    projectDir: require('path').join(__dirname, '..', '..', '__demo'),
+    port: 420,
+    editors: ['react', 'code', 'statement'],
+    explorers: ['file'],
+    compilerOptions: {
+        allowJs: true
+    }
+}
+
 export const start = async () => {
-    // const config = fileExplorer.readConfig();
-    const config = { projectDir: require('path').join(__dirname, '..', '..', '__demo'), port: 420 };
+    const config = mockConfig; // await fileExplorer.readConfig();
     const { webServer, socketServer } = server.create(config);
     const projectFiles = await fileExplorer.readProjectFiles(config.projectDir);
 
@@ -15,11 +24,10 @@ export const start = async () => {
     webServer.use(express.static(config.projectDir));
     webServer.use(cors({ allowedHeaders: '*' }));
     webServer.get('/', (_, res) => res.sendFile(uiPath));
-    webServer.get('/config', (_, res) => res.send(config));
     socketServer.on('saveFile', (filePath, fileText) => fileExplorer.saveFile(filePath, fileText));
     socketServer.on('connection', (socket: Socket) => {
         console.log('files sent');
-        socket.emit('setFiles', projectFiles);
+        socket.emit('project.init', config, projectFiles);
     });
 }
 

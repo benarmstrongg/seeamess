@@ -1,5 +1,5 @@
 import React, { FC } from 'react';
-import { Collapsible, NodeView } from 'components';
+import { Collapsible, NodeForm } from 'components';
 import { ReactFunctionComponent } from '../../../content-types/FC';
 import './styles.scss';
 
@@ -10,10 +10,12 @@ interface ComponentInfoPanelProps {
 export const ComponentInfoPanel: FC<ComponentInfoPanelProps> = ({ component }) => {
     return (
         <div className="ComponentInfoPanel">
-            {component.componentName}
-            <Collapsible trigger="Props">
-                {component.props.map(p => <NodeView key={p.propName} node={p.parent} />)}
-            </Collapsible>
+            {component.getName()}
+            {!!component.props && (
+                <Collapsible trigger="Props">
+                    {component.props.array.map(p => <NodeForm key={p.getName()} node={p} />)}
+                </Collapsible>
+            )}
         </div>
     );
 }

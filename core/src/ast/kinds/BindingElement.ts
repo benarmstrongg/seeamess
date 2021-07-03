@@ -1,5 +1,5 @@
 import ts from "typescript";
-import { AST, BindingName } from "ast";
+import { ast, AST, BindingName } from "ast";
 
 export class BindingElement extends AST implements ts.BindingElement {
     _declarationBrand;
@@ -22,10 +22,10 @@ export class BindingElement extends AST implements ts.BindingElement {
     }
 
     getNames(): string[] {
-        return AST.as(this.name, BindingName).getNames();
+        return ast(this.name).to(BindingName).getNames();
     }
 
     getNamesString(): string {
-        return AST.as(this.name, BindingName).getNamesString();
+        return ast(this.name).to(BindingName).getNamesString();
     }
 }

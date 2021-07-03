@@ -1,21 +1,17 @@
 import React, { FC } from "react"
 import { ExplorerSection, EditorSection } from "internal/sections";
-import { ContentProvider, TabsProvider, FilesProvider, TunnelProvider, SeeamessConfigProvider } from "hooks";
+import { TabsProvider, TunnelProvider, ProjectProvider } from "hooks";
 import './styles.scss';
 
 export const AppContainer: FC = () => {
     const AppProvider: FC = ({ children }) => (
-        <SeeamessConfigProvider>
-            <TunnelProvider>
+        <TunnelProvider>
+            <ProjectProvider>
                 <TabsProvider>
-                    <FilesProvider>
-                        <ContentProvider>
-                            {children}
-                        </ContentProvider>
-                    </FilesProvider>
+                    {children}
                 </TabsProvider>
-            </TunnelProvider>
-        </SeeamessConfigProvider>
+            </ProjectProvider>
+        </TunnelProvider>
     );
     return (
         <div className="AppContainer">

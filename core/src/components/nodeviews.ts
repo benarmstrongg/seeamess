@@ -1,1 +1,1 @@
-export * from './NodeView/_kinds'
+export * from './NodeForm/_kinds'

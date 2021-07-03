@@ -1,13 +1,16 @@
-import React, { FC } from "react";
+import React from "react";
 import { createFileTree } from "./util";
 import './styles.scss';
-import { useConfig, useFiles, useTabs } from "hooks";
+import { useExplorer, useProject, useTabs } from "hooks";
 import { ExplorerItem, ExplorerGroup } from "components";
 import { FaFile, FaFolder } from "react-icons/fa";
+import { SourceFile } from "ast";
+import { ContentExplorer } from "types";
 
-export const FileExplorer: FC = () => {
-    const { projectDir } = useConfig();
-    const { files } = useFiles();
+export const FileExplorer: ContentExplorer = () => {
+    const { projectDir } = useProject().config;
+    const { content } = useExplorer();
+    const files = (content.get(SourceFile) || []).map(c => c.to(SourceFile));
     const filePaths = files.map(c => c.containingFilePath);
     const tabs = useTabs();
     const relativePaths = filePaths.map(p => p.replace(projectDir, ''));
@@ -40,3 +43,9 @@ export const FileExplorer: FC = () => {
         </div>
     );
 }
+
+FileExplorer.button = (
+    <span>button</span>
+);
+
+FileExplorer.contentTypes = [SourceFile];

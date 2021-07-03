@@ -1,11 +1,10 @@
 import React, { FC, MouseEvent } from "react";
 import { FaTimes } from "react-icons/fa";
-import { useConfig, useTabs } from "hooks";
+import { useProject, useTabs } from "hooks";
 import './styles.scss';
 
 export const TabBar: FC = () => {
-    const { projectDir } = useConfig();
-    const { openTabs, activeTab, close, change } = useTabs();
+    const { openTabs, activeIndex, close, change } = useTabs();
 
     const handleTabClick = (e: MouseEvent, tabIndex: number) => {
         const clickedElement = e.target as HTMLElement;
@@ -18,14 +17,14 @@ export const TabBar: FC = () => {
     return (
         <div className="TabBar">
             {openTabs.map((tab, index) => {
-                const path = tab.containingFilePath.replace(projectDir, '');
+                const name = tab.containingFileName;
                 return (
                     <div
-                        key={path}
-                        className={activeTab === index ? 'Tab active' : 'Tab'}
+                        key={name}
+                        className={activeIndex === index ? 'Tab active' : 'Tab'}
                         onClick={(e) => handleTabClick(e, index)}
                     >
-                        <span>{path}</span>
+                        <span>{name}</span>
                         <>&nbsp;</>
                         <div>
                             <FaTimes className="close" />

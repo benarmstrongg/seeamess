@@ -1,5 +1,5 @@
 import ts from 'typescript';
-import { AST, Identifier } from 'ast';
+import { ast, AST, Identifier } from 'ast';
 
 export class PropertyAccessExpression extends AST implements ts.PropertyAccessExpression {
     _declarationBrand;
@@ -20,12 +20,12 @@ export class PropertyAccessExpression extends AST implements ts.PropertyAccessEx
     }
 
     getExpressionText(): string {
-        const name = AST.as(this.name as ts.Identifier, Identifier).text;
+        const name = ast(this.name).to(Identifier).text;
         if (ts.isPropertyAccessExpression(this.expression)) {
-            return `${AST.as(this.expression, PropertyAccessExpression).getExpressionText()}.${name}`
+            return `${ast(this.expression).to(PropertyAccessExpression).getExpressionText()}.${name}`
         }
         if (ts.isIdentifier(this.expression)) {
-            return `${AST.as(this.expression, Identifier).text}.${name}`;
+            return `${ast(this.expression).to(Identifier).text}.${name}`;
         }
         return '';
     }

@@ -1,5 +1,5 @@
 import ts from "typescript";
-import { AST, VariableDeclaration } from "ast";
+import { ast, AST, VariableDeclaration } from "ast";
 
 export class ParameterDeclaration extends AST implements ts.ParameterDeclaration {
     _declarationBrand: ts.ParameterDeclaration['_declarationBrand'];
@@ -25,14 +25,14 @@ export class ParameterDeclaration extends AST implements ts.ParameterDeclaration
     }
 
     getNames(): string[] {
-        return AST.as(this as ts.Node as ts.VariableDeclaration, VariableDeclaration).getNames();
+        return ast(this).to(VariableDeclaration).getNames();
     }
 
     getNamesString(): string {
-        return AST.as(this as ts.Node as ts.VariableDeclaration, VariableDeclaration).getNamesString();
+        return ast(this).to(VariableDeclaration).getNamesString();
     }
 
     getType(): string {
-        return AST.as(this as ts.Node as ts.VariableDeclaration, VariableDeclaration).getType();
+        return ast(this).to(VariableDeclaration).getType();
     }
 }

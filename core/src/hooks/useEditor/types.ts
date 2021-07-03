@@ -1,5 +1,5 @@
-import { ContentType } from "types/ContentType";
+import { AST } from "ast";
 
-export interface IEditorContext<T extends ContentType> {
-    content: T
+export interface IEditor<A extends AST = AST> {
+    content: A;
 }

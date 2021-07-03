@@ -1,5 +1,6 @@
 import ts from "typescript";
 import { AST, Identifier } from "ast";
+import { ast } from "ast/AST";
 
 export class PropertySignature extends AST implements ts.PropertySignature {
     _typeElementBrand;
@@ -19,12 +20,12 @@ export class PropertySignature extends AST implements ts.PropertySignature {
 
     getTypeMembers(): AST[] {
         if (this.type && this.type['members']) {
-            return (this.type['members'] as any[]).map(AST.from)
+            return (this.type['members'] as any[]).map(ast)
         }
         return [];
     }
 
     getName(): string {
-        return AST.as(this.name as Identifier, Identifier).text;
+        return ast(this.name).to(Identifier).text;
     }
 }

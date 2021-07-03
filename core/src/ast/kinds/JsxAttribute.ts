@@ -1,5 +1,5 @@
 import ts from "typescript";
-import { AST, Identifier } from "ast";
+import { ast, AST, Identifier } from "ast";
 
 export class JsxAttribute extends AST implements ts.JsxAttribute {
     _declarationBrand;
@@ -18,6 +18,6 @@ export class JsxAttribute extends AST implements ts.JsxAttribute {
     }
 
     getName(): string {
-        return AST.as(this.name, Identifier).text;
+        return ast(this.name).to(Identifier).text;
     }
 }

@@ -15,21 +15,20 @@ export const readConfig = () => {
 }
 
 export const readProjectFiles = async (projectDir: string) => {
-    const projectFiles = {};
     const options = getGlobOptions(projectDir);
     const jsFiles = await findJsAssets(projectDir, options);
-    jsFiles.forEach(filePath => {
-        projectFiles[filePath] = readFile(filePath);
-    });
-    return projectFiles;
+    return jsFiles.reduce((files, filePath) => ({
+        ...files,
+        [filePath]: {
+            path: filePath,
+            name: path.basename(filePath),
+            text: readFile(filePath)
+        }
+    }), {});
 }
 
 const findJsAssets = async (rootDir: string, options: Glob.IOptions) => {
     return (await glob('**/*.{js,ts,jsx,tsx}', options)).map(filePath => path.join(rootDir, filePath));
-}
-
-const findCssAssets = async (rootDir: string, options: Glob.IOptions) => {
-    return (await glob('**/*.{css,scss}', options)).map(filePath => path.join(rootDir, filePath));
 }
 
 const getGlobOptions = (rootDir: string) => {

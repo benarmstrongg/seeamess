@@ -1,5 +1,5 @@
 import ts from "typescript";
-import { AST, ExportClause, Identifier } from "ast";
+import { ast, AST, ExportClause, Identifier } from "ast";
 
 export class ExportDeclaration extends AST implements ts.ExportDeclaration {
     _declarationBrand;
@@ -20,10 +20,10 @@ export class ExportDeclaration extends AST implements ts.ExportDeclaration {
     }
 
     getExportClause(): ExportClause | undefined {
-        return this.exportClause && AST.as(this.exportClause, ExportClause);
+        return this.exportClause && ast(this.exportClause).to(ExportClause);
     }
 
     getModuleName(): string | undefined {
-        return this.moduleSpecifier && AST.as(this.moduleSpecifier as ts.Identifier, Identifier).text;
+        return this.moduleSpecifier && ast(this.moduleSpecifier).to(Identifier).text;
     }
 }

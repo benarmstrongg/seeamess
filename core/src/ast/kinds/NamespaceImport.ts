@@ -1,5 +1,5 @@
 import ts from "typescript";
-import { AST, Identifier } from "ast";
+import { ast, AST, Identifier } from "ast";
 
 export class NamespaceImport extends AST implements ts.NamespaceImport {
     _declarationBrand;
@@ -15,6 +15,6 @@ export class NamespaceImport extends AST implements ts.NamespaceImport {
     }
 
     getElements(): Identifier[] {
-        return [AST.as(this.name, Identifier)];
+        return [ast(this.name).to(Identifier)];
     }
 }

@@ -1,25 +1,18 @@
 import { FC, ReactElement } from "react";
-import { MonacoHelper } from "internal/code/monaco-helper";
-import { TSHelper } from "internal/code/ts-helper";
-import { ContentType } from "./ContentType";
-
-// type ContentTypeOrASTNode<T> = (
-//     T extends ContentType ? T : (
-//         T extends ASTNode ? T : ASTNode
-//     )
-// );
+// import { MonacoHelper } from "internal/code/monaco-helper";
+// import { TSHelper } from "internal/code/ts-helper";
+import { ASTConstructor } from "ast";
 
 
-
-export interface IEditor extends FC {
+export interface ContentEditor extends FC {
     button: ReactElement;
-    acceptedContentTypes?: typeof ContentType[]
+    contentTypes: ASTConstructor<any>[];
+    ignoreSourceFiles?: boolean;
 }
 
-
-export interface EditorState {
-    initialValue: string;
-    monaco: MonacoHelper;
-    filePath: string;
-    tsHelper: TSHelper;
-}
+// export interface IEditorState {
+//     initialValue: string;
+//     monaco: MonacoHelper;
+//     filePath: string;
+//     tsHelper: TSHelper;
+// }
