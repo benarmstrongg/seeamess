@@ -2,7 +2,9 @@ import ts from "typescript";
 import { SourceFile } from "ast";
 
 export type ASTConstructor<A extends AST> = new (node: any) => A;
-type ASTQuery<A extends AST> = Partial<AST & { type: ASTConstructor<A> }> | ((node: ts.Node) => boolean);
+type ASTQuery<A extends AST> = Partial<AST & { type: ASTConstructor<A> }> | ((node: AST) => boolean);
+
+type TypeOrQuery<A extends AST> = ASTConstructor<A> | ASTQuery<A>;
 
 export class AST implements ts.Node {
     static program: ts.Program;
@@ -87,7 +89,7 @@ export class AST implements ts.Node {
     }
 
     // static si<A extends AST>(this: ASTConstructor<A>, node: AST): node is A { return !!node; }
-    static si(this: ASTConstructor<any>, node: AST): node is any {
+    static si(this: ASTConstructor<any>, node: AST): node is AST {
         return node.is(this);
     }
 
@@ -124,47 +126,13 @@ export class AST implements ts.Node {
 
     find<A extends AST>(type: ASTConstructor<A>): A | undefined;
     find<A extends AST>(query: ASTQuery<A>): A | undefined;
-    find<A extends AST>(typeOrQuery: ASTConstructor<A> | ASTQuery<A>): A | AST | undefined {
+    find<A extends AST>(typeOrQuery: TypeOrQuery<A>): A | AST | undefined {
         let result: A | AST | undefined;
-        function argIsType(a: any): a is ASTConstructor<A> {
-            return !!a['si'];
-        }
-        const match = (node: ts.Node): A | AST | undefined => {
-            if (argIsType(typeOrQuery)) {
-                if (ast(node).is(typeOrQuery)) {
-                    // console.log(typeOrQuery);
-                    return ast(node).to(typeOrQuery);
-                }
-            }
-            else if (typeof typeOrQuery === 'function') {
-                if (typeOrQuery(node)) {
-                    return ast(node);
-                }
-            }
-            else {
-                let isMatch = true;
-                for (let p in node) {
-                    if (node[p] !== typeOrQuery[p]) {
-                        isMatch = false;
-                        break;
-                    }
-                }
-                if (isMatch) {
-                    if (typeOrQuery.type) {
-                        return ast(node).to(typeOrQuery.type);
-                    }
-                    else {
-                        return ast(node);
-                    }
-                }
-            }
-            return undefined;
-        }
         const setResult = (node: ts.Node) => {
             if (!!result) {
                 return;
             }
-            result = match(node);
+            result = this.match(node, typeOrQuery);
         }
         this.forEachChild(setResult)
         if (!result) {
@@ -176,17 +144,57 @@ export class AST implements ts.Node {
             }
             this.forEachChild(scanChildren)
         }
-
         return result;
     }
 
-    //TODO
     filter<A extends AST>(type: ASTConstructor<A>): A[];
     filter<A extends AST>(query: ASTQuery<A>): A[];
-    filter<A extends AST>(typeOrQuery: A | ASTQuery<A>): A[] {
+    filter<A extends AST>(typeOrQuery: TypeOrQuery<A>): A[] {
         const results: A[] = [];
-
+        const setResult = (node: ts.Node) => {
+            const result = this.match(node, typeOrQuery);
+            if (result) {
+                results.push(result as A);
+            }
+            node.forEachChild(setResult);
+        }
+        this.forEachChild(setResult)
         return results;
+    }
+
+    private match<A extends AST>(node: ts.Node, typeOrQuery: TypeOrQuery<A>): A | AST | undefined {
+        const $node = ast(node);
+        function isASTConstructor(a: any): a is ASTConstructor<A> {
+            return !!a['si'];
+        }
+        if (isASTConstructor(typeOrQuery)) {
+            if ($node.is(typeOrQuery)) {
+                return $node.to(typeOrQuery);
+            }
+        }
+        else if (typeof typeOrQuery === 'function') {
+            if (typeOrQuery($node)) {
+                return $node;
+            }
+        }
+        else {
+            let isMatch = true;
+            for (let p in node) {
+                if (node[p] !== typeOrQuery[p]) {
+                    isMatch = false;
+                    break;
+                }
+            }
+            if (isMatch) {
+                if (typeOrQuery.type) {
+                    return $node.to(typeOrQuery.type);
+                }
+                else {
+                    return $node;
+                }
+            }
+        }
+        return undefined;
     }
 
     to<A extends AST>(contentType: ASTConstructor<A>): A {
