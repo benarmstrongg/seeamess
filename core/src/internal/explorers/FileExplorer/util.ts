@@ -1,32 +1,36 @@
-export const createFileTree: (paths: string[]) => any = (paths) => {
+import { SourceFile } from "ast";
+
+export type FileEntry = { [name: string]: SourceFile | FileEntry };
+
+export const createFileTree = (files: SourceFile[]): { [name: string]: SourceFile | FileEntry } => {
     let fileTree: any = {};
 
-    function mergePathsIntoFileTree(prevDir: any, currDir: string, i: number, filePath: string[]) {
+    function mergePathsIntoFileTree(currentDir: any, currDir: string, i: number, filePath: string[]) {
         const path = filePath.join('/');
 
         if (i === filePath.length - 1) {
-            prevDir[currDir] = path;
+            const file = files.find(f => f.baseName === path);
+            currentDir[currDir] = file;
         }
 
-        if (!prevDir.hasOwnProperty(currDir)) {
-            prevDir[currDir] = {};
+        if (!currentDir.hasOwnProperty(currDir)) {
+            currentDir[currDir] = {};
         }
 
-
-        return prevDir[currDir];
+        return currentDir[currDir];
     }
 
-    function parseFilePath(filePath: string) {
-        var fileLocation = filePath.split('/');
+    function parseFilePath(file: SourceFile) {
+        var pathParts = file.baseName.split('/');
 
-        if (fileLocation.length === 1) {
-            return (fileTree[fileLocation[0]] = 'file');
+        if (pathParts.length === 1) {
+            return (fileTree[pathParts[0]] = file);
         }
 
-        fileLocation.reduce(mergePathsIntoFileTree, fileTree);
+        pathParts.reduce(mergePathsIntoFileTree, fileTree);
     }
 
-    paths.forEach(parseFilePath);
+    files.forEach(parseFilePath);
 
-    return fileTree;
+    return { '': fileTree };
 }

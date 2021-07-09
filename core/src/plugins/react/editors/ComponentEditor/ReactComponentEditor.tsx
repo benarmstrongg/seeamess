@@ -14,7 +14,7 @@ export const ReactComponentEditor: ContentEditor = () => {
         return (<>No comp</>);
     }
 
-    console.log(content);
+    // console.log(content);
 
     return (
         <div className="ReactComponentEditor">

@@ -29,6 +29,10 @@ export class SourceFile extends AST implements ts.SourceFile {
         return this.fileName.replace(this.program.getCurrentDirectory() + '/', '');
     }
 
+    get filePath(): string {
+        return this.fileName;
+    }
+
     constructor(node: ts.SourceFile) {
         super(node);
         this.statements = node.statements;
