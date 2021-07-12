@@ -1,3 +1,4 @@
+import { Monaco } from "types/monaco";
 import ts from "typescript";
 
 export interface IFile {
@@ -18,4 +19,5 @@ export interface IProject {
     config: IConfig;
     files: Map<string, IFile>;
     program: ts.Program;
+    monaco: Monaco;
 }

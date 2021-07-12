@@ -9,7 +9,7 @@ export const EditorSection: FC = () => {
     const { openTabs } = useTabs();
 
     return (
-        <Container>
+        <Container className="editor-section">
             <TabBar />
             {openTabs.map((obj, index) =>
                 <TabContainer tabIndex={index} key={`${obj.containingFilePath}-${obj.kindString}-${obj.pos}`}>
@@ -23,4 +23,5 @@ export const EditorSection: FC = () => {
 const Container = styled.div`
     width: 85%;
     height: 100%;
+    overflow-y: hidden;
 `;

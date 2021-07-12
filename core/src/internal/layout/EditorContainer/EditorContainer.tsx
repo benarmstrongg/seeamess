@@ -42,17 +42,19 @@ export const EditorContainer: FC<EditorContainerProps> = ({ obj }) => {
                     </EditorButton>
                 ))}
             </div>
-            {editors.map((Editor, i) => (
-                <EditorProvider
-                    key={Editor.name}
-                    contentEditor={Editor}
-                    obj={obj}
-                >
-                    <div className="editor" hidden={activeIndex !== i}>
-                        <Editor />
-                    </div>
-                </EditorProvider>
-            ))}
+            <div className="editor-area">
+                {editors.map((Editor, i) => (
+                    <EditorProvider
+                        key={Editor.name}
+                        contentEditor={Editor}
+                        obj={obj}
+                    >
+                        <div className="editor" hidden={activeIndex !== i}>
+                            <Editor />
+                        </div>
+                    </EditorProvider>
+                ))}
+            </div>
         </Container>
     )
 }
@@ -60,4 +62,13 @@ export const EditorContainer: FC<EditorContainerProps> = ({ obj }) => {
 const Container = styled.div`
     position: relative;
     height: 100%;
+
+    .editor-area {
+        height: inherit;
+        overflow-y: scroll;
+    }
+
+    .buttons {
+        display: flex;
+    }
 `;

@@ -1,15 +1,27 @@
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import { RiCodeSSlashLine } from 'react-icons/ri';
-import { useTabs } from 'hooks';
+import { useEditor } from 'hooks';
 import { ContentEditor } from 'types/editor';
 import { AST } from 'ast';
 
 
 export const CodeEditor: ContentEditor = () => {
-    const { activeTab } = useTabs();
-    const filePath = activeTab.sourceFile.fileName;
+    const elemRef = useRef<HTMLDivElement>(null);
+    const { editor } = useEditor();
+
+    useEffect(() => {
+        if (elemRef.current) {
+            const container = editor.getContainerDomNode();
+            elemRef.current.replaceWith(container);
+            const editorSection = document.querySelector('.editor-section');
+            if (editorSection) {
+                editor.layout(editorSection.getBoundingClientRect());
+            }
+        }
+    }, [elemRef, editor]);
+
     return (
-        <div data-filepath={filePath} style={{ height: '90vh' }}></div>
+        <div ref={elemRef} />
     )
 }
 

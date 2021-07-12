@@ -3,6 +3,8 @@ import { EditorContext } from "./EditorContext";
 import { ContentEditor } from "types";
 import { AST, SourceFile } from "ast";
 import { IEditor } from "./types";
+import { useProject } from "hooks";
+import { createEditorInstance, createLanguageService } from "./util";
 
 interface EditorProviderProps {
     contentEditor: ContentEditor;
@@ -10,8 +12,18 @@ interface EditorProviderProps {
 }
 
 export const EditorProvider: FC<EditorProviderProps> = ({ children, contentEditor, obj }) => {
+    const { monaco, files } = useProject();
+    const [editor, setEditor] = useState<IEditor['editor']>();
     const [content, setContent] = useState<IEditor['content']>();
+    const [languageService, setLanguageSerrvice] = useState<IEditor['languageService']>();
     const { contentTypes, ignoreSourceFiles } = contentEditor;
+
+    useEffect(() => {
+        const editor = createEditorInstance(monaco, obj);
+        setEditor(editor);
+        createLanguageService(monaco, files).then(setLanguageSerrvice);
+        return editor.dispose;
+    }, [monaco, obj, files]);
 
     useEffect(() => {
         for (const contentType of contentTypes) {
@@ -28,14 +40,12 @@ export const EditorProvider: FC<EditorProviderProps> = ({ children, contentEdito
         }
     }, [contentTypes, ignoreSourceFiles, obj]);
 
-    if (!content) {
+    if (!content || !editor || !languageService) {
         return null;
     }
 
     return (
-        <EditorContext.Provider value={{
-            content
-        }}>
+        <EditorContext.Provider value={{ content, editor, languageService }}>
             {children}
         </EditorContext.Provider>
     );

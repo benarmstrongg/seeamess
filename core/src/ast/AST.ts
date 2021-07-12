@@ -32,7 +32,7 @@ export class AST implements ts.Node {
     //#endregion
 
     get key(): string {
-        return `${this.kindString}${this.pos}`;
+        return `${this.containingFileName}-${this.kindString}-${this.pos}`;
     }
     get kindString(): string {
         return ts.SyntaxKind[this.kind].toString();
