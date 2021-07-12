@@ -5,6 +5,7 @@ import { AST, SourceFile } from "ast";
 import { IEditor } from "./types";
 import { useProject } from "hooks";
 import { createEditorInstance, createLanguageService } from "./util";
+import { Spinner } from "components";
 
 interface EditorProviderProps {
     contentEditor: ContentEditor;
@@ -41,7 +42,7 @@ export const EditorProvider: FC<EditorProviderProps> = ({ children, contentEdito
     }, [contentTypes, ignoreSourceFiles, obj]);
 
     if (!content || !editor || !languageService) {
-        return null;
+        return <Spinner />;
     }
 
     return (

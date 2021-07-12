@@ -37,4 +37,8 @@ const Container = styled.div`
             background-color: lightgray;
         }
     }
+    
+    :not(.Header):not(:nth-child(1)) {
+        padding-left: 10px;
+    }
 `;

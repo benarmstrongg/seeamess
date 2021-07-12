@@ -26,6 +26,10 @@ const Container = styled.div`
     position: relative;
     padding-left: 10px;
     user-select: none;
+    width: 100%;
+    overflow-x: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
 
     &:hover {
         background-color: lightgray;
