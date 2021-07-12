@@ -1,7 +1,7 @@
 import React, { FC } from 'react';
+import styled from 'styled-components';
 import { Collapsible, NodeForm } from 'components';
 import { ReactFunctionComponent } from '../../../content-types/FC';
-import './styles.scss';
 
 interface ComponentInfoPanelProps {
     component: ReactFunctionComponent;
@@ -9,13 +9,22 @@ interface ComponentInfoPanelProps {
 
 export const ComponentInfoPanel: FC<ComponentInfoPanelProps> = ({ component }) => {
     return (
-        <div className="ComponentInfoPanel">
+        <Container>
             {component.getName()}
             {!!component.props && (
                 <Collapsible trigger="Props">
                     {component.props.array.map(p => <NodeForm key={p.getName()} node={p} />)}
                 </Collapsible>
             )}
-        </div>
+        </Container>
     );
 }
+
+const Container = styled.div`
+    border-right: 1px solid lightgray;
+    height: 100%;
+    max-height: 100%;
+    overflow-y: scroll;
+    width: 20%;
+    padding: 5px;
+`;

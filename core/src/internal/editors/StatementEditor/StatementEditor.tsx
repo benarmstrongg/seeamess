@@ -4,16 +4,16 @@ import { NodeForm } from "components";
 import { AiOutlineProfile } from 'react-icons/ai';
 import { AST, ast } from "ast";
 import { useTabs } from "hooks";
-import './styles.scss';
+import Container from './styles';
 
 export const StatementEditor: ContentEditor = () => {
     const { activeTab } = useTabs();
     return (
-        <div className="StatementEditorView">
+        <Container>
             {activeTab.getChildNodes().map(ast).map(s => (
                 <NodeForm key={s.key} node={s} />
             ))}
-        </div>
+        </Container>
     );
 }
 

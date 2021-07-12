@@ -1,6 +1,6 @@
 import React, { FC, useState } from "react";
 import { FaCaretDown, FaCaretUp } from "react-icons/fa";
-import './styles.scss';
+import styled from 'styled-components';
 
 interface ExplorerSectionProps {
     displayName: string;
@@ -13,8 +13,8 @@ export const ExplorerGroup: FC<ExplorerSectionProps> = ({ children, displayName,
     const Icon = icon;
 
     return (
-        <div className="ExplorerGroup">
-            <div className="ExplorerGroupHeader" onClick={() => setExpanded(!expanded)}>
+        <Container>
+            <div className="Header" onClick={() => setExpanded(!expanded)}>
                 <>
                     {expanded === true ? <FaCaretDown /> : <FaCaretUp />}
                     {!!Icon ? <Icon /> : null}
@@ -23,6 +23,18 @@ export const ExplorerGroup: FC<ExplorerSectionProps> = ({ children, displayName,
                 <span>{displayName}</span>
             </div>
             {expanded === true ? children : null}
-        </div>
+        </Container>
     );
 }
+
+const Container = styled.div`
+    .Header {
+        cursor: pointer;
+        position: relative;
+        user-select: none;
+
+        &:hover {
+            background-color: lightgray;
+        }
+    }
+`;

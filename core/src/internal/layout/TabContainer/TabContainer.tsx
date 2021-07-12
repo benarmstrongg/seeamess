@@ -1,6 +1,6 @@
 import React, { FC } from "react";
 import { useTabs } from "hooks";
-import './styles.scss';
+import styled from 'styled-components';
 
 interface TabContainerProps {
     tabIndex: number;
@@ -9,8 +9,13 @@ interface TabContainerProps {
 export const TabContainer: FC<TabContainerProps> = ({ children, tabIndex }) => {
     const { activeIndex } = useTabs();
     return (
-        <div className="TabContainer" hidden={activeIndex !== tabIndex}>
+        <Container hidden={activeIndex !== tabIndex}>
             {children}
-        </div>
+        </Container>
     );
 }
+
+const Container = styled.div`
+    width: 100%;
+    height: 100%;
+`;

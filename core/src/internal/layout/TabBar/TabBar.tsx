@@ -1,7 +1,8 @@
 import React, { FC, MouseEvent } from "react";
 import { FaTimes } from "react-icons/fa";
 import { useTabs } from "hooks";
-import './styles.scss';
+import Container from './styles';
+import classNames from "classnames";
 
 export const TabBar: FC = () => {
     const { openTabs, activeIndex, close, change } = useTabs();
@@ -15,13 +16,16 @@ export const TabBar: FC = () => {
     }
 
     return (
-        <div className="TabBar">
+        <Container>
             {openTabs.map((tab, index) => {
                 const name = tab.containingFileName;
                 return (
                     <div
                         key={name}
-                        className={activeIndex === index ? 'Tab active' : 'Tab'}
+                        className={classNames({
+                            'Tab': true,
+                            'active': activeIndex === index
+                        })}
                         onClick={(e) => handleTabClick(e, index)}
                     >
                         <span>{name}</span>
@@ -32,6 +36,6 @@ export const TabBar: FC = () => {
                     </div>
                 );
             })}
-        </div>
+        </Container>
     );
 }

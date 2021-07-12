@@ -1,6 +1,6 @@
 import React, { FC, ReactElement } from "react";
 import { EditorButton } from "components";
-import './styles.scss';
+import styled from 'styled-components';
 
 interface EditorToolBarProps {
     buttons: ReactElement[];
@@ -10,7 +10,7 @@ interface EditorToolBarProps {
 
 export const EditorToolbar: FC<EditorToolBarProps> = ({ buttons, setActiveEditor, activeEditor }) => {
     return (
-        <div className="EditorToolbar">
+        <Container>
             {buttons.map((button, i) => (
                 <EditorButton
                     key={'button' + i}
@@ -20,6 +20,12 @@ export const EditorToolbar: FC<EditorToolBarProps> = ({ buttons, setActiveEditor
                     {button}
                 </EditorButton>
             ))}
-        </div>
+        </Container>
     );
 }
+
+const Container = styled.div`
+    display: flex;
+    align-items: center;
+    margin: 10px 5px;
+`;

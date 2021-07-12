@@ -1,7 +1,7 @@
 import React, { FC, useState } from "react";
 import { ContentEditor } from "types/editor";
 import { EditorButton } from "components";
-import './styles.scss';
+import styled from 'styled-components';
 import { AST, SourceFile } from "ast";
 import { useProject } from "hooks";
 import mockEditors from '__tmp/mock-editors';
@@ -37,7 +37,7 @@ export const EditorContainer: FC<EditorContainerProps> = ({ obj }) => {
 
 
     return (
-        <div className="EditorContainer">
+        <Container>
             <div className="buttons">
                 {editors.map((Editor, i) => (
                     <EditorButton
@@ -60,14 +60,11 @@ export const EditorContainer: FC<EditorContainerProps> = ({ obj }) => {
                     </div>
                 </EditorProvider>
             ))}
-        </div>
+        </Container>
     )
 }
 
-
-
-// .EditorToolbar {
-//     display: flex;
-//     align-items: center;
-//     margin: 10px 5px;
-//}
+const Container = styled.div`
+    position: relative;
+    height: 100%;
+`;

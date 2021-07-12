@@ -5,7 +5,7 @@ import { ReactFunctionComponent } from '../../content-types/FC';
 import { EditorArea } from './EditorArea/ComponentEditorArea';
 import { ComponentInfoPanel } from './ComponentInfoPanel/ComponentInfoPanel';
 import { useEditor } from 'hooks';
-import './styles.scss';
+import styled from 'styled-components';
 
 export const ReactComponentEditor: ContentEditor = () => {
     const { content } = useEditor(ReactFunctionComponent);
@@ -17,10 +17,10 @@ export const ReactComponentEditor: ContentEditor = () => {
     // console.log(content);
 
     return (
-        <div className="ReactComponentEditor">
+        <Container>
             <ComponentInfoPanel component={content} />
             <EditorArea component={content} />
-        </div>
+        </Container>
     );
 }
 
@@ -32,3 +32,10 @@ ReactComponentEditor.button = (
 );
 
 ReactComponentEditor.contentTypes = [ReactFunctionComponent];
+
+const Container = styled.div`
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    height: 100%;  
+`;

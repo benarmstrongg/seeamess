@@ -2,7 +2,7 @@ import React, { FC, useState } from "react";
 import { LiveError, LivePreview, LiveProvider } from "react-live";
 import { EditorButton } from "components";
 import { ReactFunctionComponent } from "../../../content-types/FC";
-import './styles.scss';
+import styled from 'styled-components';
 import { UIView } from "./UIView";
 
 interface EditorAreaProps {
@@ -14,7 +14,7 @@ interface EditorAreaProps {
 export const EditorArea: FC<EditorAreaProps> = ({ component }) => {
     const [viewMode, setViewMode] = useState<'edit' | 'preview'>('edit');
     return (
-        <div className="EditorArea">
+        <Container>
             <div className="EditorToolbar">
                 <EditorButton
                     text="Edit"
@@ -37,6 +37,10 @@ export const EditorArea: FC<EditorAreaProps> = ({ component }) => {
             ) : (
                 <UIView />
             )}
-        </div>
+        </Container>
     );
 }
+
+const Container = styled.div`
+    padding: 5px;
+`;

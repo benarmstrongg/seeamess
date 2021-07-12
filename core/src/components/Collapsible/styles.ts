@@ -1,5 +1,7 @@
+import styled from 'styled-components';
 
-  // The main container element
+export default styled.div`
+    // The main container element
   .Collapsible {
     // background-color: ;
     margin: 10px 0;
@@ -50,3 +52,4 @@
       border-bottom-right-radius: 0;
     }
   }
+`;

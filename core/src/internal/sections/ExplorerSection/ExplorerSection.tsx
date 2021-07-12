@@ -1,5 +1,5 @@
 import React, { FC } from "react";
-import './styles.scss';
+import styled from 'styled-components';
 import { useProject } from "hooks";
 import mockExplorers from '__tmp/mock-explorers';
 import { ContentExplorer } from "types";
@@ -11,12 +11,17 @@ export const ExplorerSection: FC = () => {
     const explorers: ContentExplorer[] = config.explorers.map(e => mockExplorers[e]);
 
     return (
-        <div className="ExplorerSection">
+        <Container>
             {explorers.map(Explorer => (
                 <ExplorerProvider contentExplorer={Explorer} key={Explorer.name}>
                     <Explorer />
                 </ExplorerProvider>
             ))}
-        </div>
+        </Container>
     );
 }
+
+const Container = styled.div`
+    height: 100%;
+    width: 15%;
+`;

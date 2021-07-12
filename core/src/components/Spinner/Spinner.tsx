@@ -1,10 +1,10 @@
 import React, { FC } from "react";
-import './styles.scss';
+import Container from './styles';
 
 export const Spinner: FC = () => (
-    <div className="Spinner">
+    <Container>
         <div className="cube1"></div>
         <div className="cube2"></div>
         <div className="overlay"></div>
-    </div>
+    </Container>
 )

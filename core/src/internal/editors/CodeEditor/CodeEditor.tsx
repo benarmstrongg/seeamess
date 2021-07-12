@@ -2,7 +2,6 @@ import React from 'react';
 import { RiCodeSSlashLine } from 'react-icons/ri';
 import { useTabs } from 'hooks';
 import { ContentEditor } from 'types/editor';
-import './styles.scss';
 import { AST } from 'ast';
 
 

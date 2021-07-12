@@ -1,7 +1,7 @@
 import { AST } from "ast";
 import { useTabs } from "hooks";
 import React, { FC } from "react";
-import './styles.scss';
+import styled from 'styled-components';
 
 interface ExplorerItemProps {
     obj: AST;
@@ -13,10 +13,21 @@ export const ExplorerItem: FC<ExplorerItemProps> = ({ obj, icon, displayName }) 
     const tabs = useTabs();
     const Icon = icon;
     return (
-        <div className="ExplorerItem" onClick={() => tabs.open(obj)}>
+        <Container onClick={() => tabs.open(obj)}>
             {!!Icon ? <Icon /> : null}
             <>&nbsp;</>
             <span>{displayName || obj.constructor.name}</span>
-        </div>
+        </Container>
     );
 }
+
+const Container = styled.div`
+    cursor: pointer;
+    position: relative;
+    padding-left: 10px;
+    user-select: none;
+
+    &:hover {
+        background-color: lightgray;
+    }
+`;
