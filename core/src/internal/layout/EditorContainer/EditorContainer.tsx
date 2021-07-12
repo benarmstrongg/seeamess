@@ -15,13 +15,6 @@ export const EditorContainer: FC<EditorContainerProps> = ({ obj }) => {
     const { config } = useProject();
     const [activeIndex, setActiveIndex] = useState(0);
     const editors: ContentEditor[] = config.editors
-        .reduce<string[]>((_editors, editor) => {
-            const coreEditors = ['code', 'statement'];
-            if (coreEditors.includes(editor)) {
-                return [..._editors, editor];
-            }
-            return [editor, ..._editors];
-        }, [])
         .map(e => mockEditors[e])
         .filter((e: ContentEditor) => {
             for (const contentType of e.contentTypes) {

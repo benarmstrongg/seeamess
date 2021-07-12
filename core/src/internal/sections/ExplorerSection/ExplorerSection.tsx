@@ -12,16 +12,25 @@ export const ExplorerSection: FC = () => {
 
     return (
         <Container>
-            {explorers.map(Explorer => (
-                <ExplorerProvider contentExplorer={Explorer} key={Explorer.name}>
-                    <Explorer />
-                </ExplorerProvider>
-            ))}
+            <div>
+                {explorers.map(Explorer => (
+                    <ExplorerProvider contentExplorer={Explorer} key={Explorer.name}>
+                        <Explorer />
+                    </ExplorerProvider>
+                ))}
+            </div>
         </Container>
     );
 }
 
+const width = '15%';
+
 const Container = styled.div`
     height: 100%;
-    width: 15%;
+    width: ${width};
+
+    > div {
+        position: fixed;
+        width: ${width};
+    }
 `;

@@ -1,6 +1,5 @@
 import React from "react";
 import { createFileTree, FileEntry } from "./util";
-import Container from './styles';
 import { useExplorer } from "hooks";
 import { ExplorerItem, ExplorerGroup } from "components";
 import { FaFile, FaFolder } from "react-icons/fa";
@@ -26,13 +25,7 @@ export const FileExplorer: ContentExplorer = () => {
         }
     }
 
-    return (
-        <Container>
-            <div className="files">
-                {Object.entries(tree).map(treeItemToComponent)}
-            </div>
-        </Container>
-    );
+    return (<>{Object.entries(tree).map(treeItemToComponent)}</>);
 }
 
 FileExplorer.button = (
