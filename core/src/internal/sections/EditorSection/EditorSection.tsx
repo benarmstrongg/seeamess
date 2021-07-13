@@ -1,9 +1,9 @@
 import React, { FC } from "react";
-import { TabBar } from "internal/layout/TabBar";
 import styled from 'styled-components';
-import { TabContainer } from "internal/layout/TabContainer";
 import { useTabs } from "hooks";
-import { EditorContainer } from "internal/layout/EditorContainer";
+import { TabContainer } from "./TabContainer/TabContainer";
+import { TabBar } from "./TabBar/TabBar";
+import { EditorContainer } from "./EditorContainer/EditorContainer";
 
 export const EditorSection: FC = () => {
     const { openTabs } = useTabs();
