@@ -1,10 +1,33 @@
 import React, { FC } from 'react';
-import { AppContainer } from 'internal/layout/AppContainer';
+import { TunnelProvider, ProjectProvider, TabsProvider } from 'hooks';
+import { ExplorerSection, EditorSection } from 'internal/sections';
+import styled from 'styled-components';
 
 const App: FC = () => (
-    <div className="App">
-        <AppContainer />
-    </div>
+    <Container>
+        <AppProvider>
+            <ExplorerSection />
+            <EditorSection />
+        </AppProvider>
+    </Container>
+);
+
+const Container = styled.div`
+    width: 98vw;
+    height: 98vh;
+    display: flex;
+    flex-direction: row;
+    font-family: Tahoma, sans-serif;
+`;
+
+const AppProvider: FC = ({ children }) => (
+    <TunnelProvider>
+        <ProjectProvider>
+            <TabsProvider>
+                {children}
+            </TabsProvider>
+        </ProjectProvider>
+    </TunnelProvider>
 );
 
 export default App;
