@@ -13,12 +13,12 @@ export const FileExplorer: ContentExplorer = () => {
     const treeItemToComponent = (t: [fileName: string, file: SourceFile | FileEntry]) => {
         const [fileName, file] = t;
         if (file instanceof SourceFile) {
-            return (<ExplorerItem key={file.filePath} obj={file} displayName={fileName} icon={FaFile} />)
+            return (<ExplorerItem key={file.filePath} obj={file} displayName={fileName} icon={<FaFile />} />)
         }
         else {
             const displayName = `/${fileName}`;
             return (
-                <ExplorerGroup key={displayName} displayName={displayName} icon={FaFolder}>
+                <ExplorerGroup key={displayName} displayName={displayName} icon={<FaFolder />}>
                     {Object.entries(file).map(treeItemToComponent)}
                 </ExplorerGroup>
             );

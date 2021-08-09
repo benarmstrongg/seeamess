@@ -1,20 +1,20 @@
 import { AST } from "ast";
 import { useTabs } from "hooks";
-import React, { FC } from "react";
+import React, { FC, ReactElement } from "react";
 import styled from 'styled-components';
 
 interface ExplorerItemProps {
     obj: AST;
-    icon?: FC;
+    icon?: ReactElement;
     displayName?: string
 }
 
 export const ExplorerItem: FC<ExplorerItemProps> = ({ obj, icon, displayName }) => {
-    const tabs = useTabs();
-    const Icon = icon;
+    const { open } = useTabs();
+    const name = displayName || obj.containingFileName;
     return (
-        <Container onClick={() => tabs.open(obj)}>
-            {!!Icon ? <Icon /> : null}
+        <Container onClick={() => open({ obj, name, icon })}>
+            {!!icon && icon}
             <>&nbsp;</>
             <span>{displayName || obj.constructor.name}</span>
         </Container>
@@ -22,15 +22,13 @@ export const ExplorerItem: FC<ExplorerItemProps> = ({ obj, icon, displayName }) 
 }
 
 const Container = styled.div`
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
     cursor: pointer;
-    position: relative;
-    padding-left: 10px;
-    user-select: none;
-    width: 100%;
-    overflow-x: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-
+    padding: 2px;
+    border-radius: 3px;
+    
     &:hover {
         background-color: lightgray;
     }

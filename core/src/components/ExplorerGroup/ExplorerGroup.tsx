@@ -1,23 +1,21 @@
-import React, { FC, useState } from "react";
+import React, { FC, ReactElement, useState } from "react";
 import { FaCaretDown, FaCaretUp } from "react-icons/fa";
 import styled from 'styled-components';
 
 interface ExplorerSectionProps {
     displayName: string;
-    icon?: FC;
+    icon?: ReactElement;
     indentLevel?: number;
 }
 
-export const ExplorerGroup: FC<ExplorerSectionProps> = ({ children, displayName, icon, indentLevel = 0 }) => {
+export const ExplorerGroup: FC<ExplorerSectionProps> = ({ children, displayName, icon }) => {
     const [expanded, setExpanded] = useState(false);
-    const Icon = icon;
-
     return (
         <Container>
             <div className="Header" onClick={() => setExpanded(!expanded)}>
                 <>
                     {expanded === true ? <FaCaretDown /> : <FaCaretUp />}
-                    {!!Icon ? <Icon /> : null}
+                    {!!icon && icon}
                 </>
                 <>&nbsp;</>
                 <span>{displayName}</span>
@@ -36,13 +34,14 @@ const Container = styled.div`
         user-select: none;
         width: 100%;
         border-radius: 3px;
+        padding: 2px;
 
         &:hover {
             background-color: lightgray;
         }
     }
     
-    :not(.Header):not(:nth-child(1)) {
+    :not(.Header):not(:nth-child(1)) div:not(.Header) {
         padding-left: 10px;
     }
 `;

@@ -10,7 +10,7 @@ export const ReactComponentExplorer: ContentExplorer = () => {
     return (
         <ExplorerGroup displayName="Components">
             {components.map(c => (
-                <ExplorerItem key={c.key} obj={c} displayName={c.getName()} icon={() => ReactComponentExplorer.icon} />
+                <ExplorerItem key={c.key} obj={c} displayName={c.getName()} icon={ReactComponentExplorer.icon} />
             ))}
         </ExplorerGroup>
     );

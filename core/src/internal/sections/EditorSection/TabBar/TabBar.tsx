@@ -1,7 +1,7 @@
 import React, { FC, MouseEvent } from "react";
 import { FaTimes } from "react-icons/fa";
 import { useTabs } from "hooks";
-import Container from './styles';
+import Containers from './styles';
 import classNames from "classnames";
 
 export const TabBar: FC = () => {
@@ -16,26 +16,26 @@ export const TabBar: FC = () => {
     }
 
     return (
-        <Container>
+        <Containers.Main>
             {openTabs.map((tab, index) => {
-                const name = tab.containingFileName;
                 return (
-                    <div
-                        key={name}
+                    <Containers.Tab
+                        key={tab.obj.key}
                         className={classNames({
-                            'Tab': true,
                             'active': activeIndex === index
                         })}
                         onClick={(e) => handleTabClick(e, index)}
                     >
-                        <span>{name}</span>
-                        <>&nbsp;</>
-                        <div>
+                        <Containers.Info>
+                            {!!tab.icon && tab.icon}
+                            <span>{tab.name}</span>
+                        </Containers.Info>
+                        <Containers.Close>
                             <FaTimes className="close" />
-                        </div>
-                    </div>
+                        </Containers.Close>
+                    </Containers.Tab>
                 );
             })}
-        </Container>
+        </Containers.Main>
     );
 }

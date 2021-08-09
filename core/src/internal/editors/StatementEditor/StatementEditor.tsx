@@ -10,7 +10,7 @@ export const StatementEditor: ContentEditor = () => {
     const { activeTab } = useTabs();
     return (
         <Container>
-            {activeTab.getChildNodes().map(ast).map(s => (
+            {activeTab.obj.getChildNodes().map(ast).map(s => (
                 <NodeForm key={s.key} node={s} />
             ))}
         </Container>

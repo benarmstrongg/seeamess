@@ -23,8 +23,9 @@ export const ExplorerSection: FC = () => {
 }
 
 const Container = styled.div`
-    width: 20%;
+    width: 22%;
     height: 100%;
+    border-right: 1px solid #f1f1f1;
 
     .fixed-wrapper {
         display: flex;

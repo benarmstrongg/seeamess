@@ -6,17 +6,18 @@ export const TabsProvider: FC = ({ children }) => {
     const [activeIndex, setActiveIndex] = useState<T['activeIndex']>(0);
     const [openTabs, setOpenTabs] = useState<T['openTabs']>([]);
 
-    const open = useCallback<T['open']>(obj => {
-        const existingTabIndex = openTabs.findIndex(tab =>
-            tab.constructor.name === obj.constructor.name &&
-            tab.pos === obj.pos &&
-            tab.containingFilePath === obj.containingFilePath
+    const open = useCallback<T['open']>(tab => {
+        const existingTabIndex = openTabs.findIndex(_tab =>
+            _tab.name === tab.name &&
+            _tab.constructor.name === tab.constructor.name &&
+            _tab.obj.pos === tab.obj.pos &&
+            _tab.obj.containingFilePath === tab.obj.containingFilePath
         );
         if (existingTabIndex !== -1) {
             setActiveIndex(existingTabIndex);
         }
         else {
-            setOpenTabs([...openTabs, obj]);
+            setOpenTabs([...openTabs, tab]);
             setActiveIndex(openTabs.length);
         }
     }, [openTabs]);
@@ -33,7 +34,7 @@ export const TabsProvider: FC = ({ children }) => {
     useEffect(() => {
         const activeTab = openTabs[activeIndex];
         if (activeTab) {
-            document.title = activeTab.containingFileName;
+            document.title = activeTab.name;
         }
     }, [activeIndex, openTabs])
 
