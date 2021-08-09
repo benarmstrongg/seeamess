@@ -23,7 +23,7 @@ export const EditorProvider: FC<EditorProviderProps> = ({ children, contentEdito
         const editor = createEditorInstance(monaco, obj);
         setEditor(editor);
         createLanguageService(monaco, files).then(setLanguageSerrvice);
-        return editor.dispose;
+        return () => editor.dispose();
     }, [monaco, obj, files]);
 
     useEffect(() => {

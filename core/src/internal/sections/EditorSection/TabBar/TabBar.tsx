@@ -9,10 +9,13 @@ export const TabBar: FC = () => {
 
     const handleTabClick = (e: MouseEvent, tabIndex: number) => {
         const clickedElement = e.target as HTMLElement;
-        if (clickedElement.classList.contains('close')) {
-            return close(tabIndex);
+        if (!clickedElement.classList.contains('close')) {
+            change(tabIndex);
         }
-        change(tabIndex);
+    }
+
+    const handleCloseClick = (tabIndex: number) => {
+        close(tabIndex);
     }
 
     return (
@@ -30,7 +33,7 @@ export const TabBar: FC = () => {
                             {!!tab.icon && tab.icon}
                             <span>{tab.name}</span>
                         </Containers.Info>
-                        <Containers.Close>
+                        <Containers.Close onClick={() => handleCloseClick(index)}>
                             <FaTimes className="close" />
                         </Containers.Close>
                     </Containers.Tab>

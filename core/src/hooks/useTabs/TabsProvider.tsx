@@ -23,8 +23,7 @@ export const TabsProvider: FC = ({ children }) => {
     }, [openTabs]);
 
     const close = useCallback<T['close']>(index => {
-        openTabs.splice(index, 1);
-        setOpenTabs(openTabs);
+        setOpenTabs(openTabs.filter((_, i) => i !== index));
     }, [openTabs]);
 
     const change = useCallback<T['change']>(index => {
