@@ -25,6 +25,6 @@ export const CodeEditor: ContentEditor = () => {
     )
 }
 
-CodeEditor.button = (<RiCodeSSlashLine />);
+CodeEditor.icon = <RiCodeSSlashLine />;
 
 CodeEditor.contentTypes = [AST];

@@ -17,6 +17,6 @@ export const StatementEditor: ContentEditor = () => {
     );
 }
 
-StatementEditor.button = (<AiOutlineProfile />);
+StatementEditor.icon = <AiOutlineProfile />;
 
 StatementEditor.contentTypes = [AST];

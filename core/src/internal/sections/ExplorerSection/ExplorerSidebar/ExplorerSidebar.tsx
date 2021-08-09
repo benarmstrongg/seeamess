@@ -17,7 +17,7 @@ export const ExplorerSidebar: FC<ExplorerSidebarProps> = ({ explorers, activeInd
                 active={activeIndex === i}
                 onClick={() => setActiveIndex(i)}
             >
-                {Explorer.button}
+                {Explorer.icon}
             </EditorButton>
         ))}
     </Container>

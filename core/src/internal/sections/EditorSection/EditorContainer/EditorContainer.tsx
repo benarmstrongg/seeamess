@@ -38,7 +38,7 @@ export const EditorContainer: FC<EditorContainerProps> = ({ obj }) => {
                         active={activeIndex === i}
                         onClick={() => setActiveIndex(i)}
                     >
-                        {Editor.button}
+                        {Editor.icon}
                     </EditorButton>
                 ))}
             </div>

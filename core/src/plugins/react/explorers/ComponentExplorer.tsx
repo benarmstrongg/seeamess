@@ -10,12 +10,12 @@ export const ReactComponentExplorer: ContentExplorer = () => {
     return (
         <ExplorerGroup displayName="Components">
             {components.map(c => (
-                <ExplorerItem key={c.key} obj={c} displayName={c.getName()} />
+                <ExplorerItem key={c.key} obj={c} displayName={c.getName()} icon={() => ReactComponentExplorer.icon} />
             ))}
         </ExplorerGroup>
     );
 }
 
-ReactComponentExplorer.button = (<FaReact />);
+ReactComponentExplorer.icon = <FaReact />;
 
 ReactComponentExplorer.contentTypes = [ReactFunctionComponent];

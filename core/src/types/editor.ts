@@ -5,7 +5,7 @@ import { ASTConstructor } from "ast";
 
 
 export interface ContentEditor extends FC {
-    button: ReactElement;
+    icon: ReactElement;
     contentTypes: ASTConstructor<any>[];
     ignoreSourceFiles?: boolean;
 }
