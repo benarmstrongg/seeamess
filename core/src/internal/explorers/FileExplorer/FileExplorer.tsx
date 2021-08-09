@@ -28,8 +28,6 @@ export const FileExplorer: ContentExplorer = () => {
     return (<>{Object.entries(tree).map(treeItemToComponent)}</>);
 }
 
-FileExplorer.button = (
-    <span>button</span>
-);
+FileExplorer.button = (<FaFolder />);
 
 FileExplorer.contentTypes = [SourceFile];

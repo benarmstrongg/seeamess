@@ -24,12 +24,7 @@ export const ReactComponentEditor: ContentEditor = () => {
     );
 }
 
-ReactComponentEditor.button = (
-    <>
-        <FaReact />
-        <>&nbsp;React</>
-    </>
-);
+ReactComponentEditor.button = (<FaReact />);
 
 ReactComponentEditor.contentTypes = [ReactFunctionComponent];
 

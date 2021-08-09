@@ -8,7 +8,7 @@ const mockConfig = {
     projectDir: require('path').join(__dirname, '..', '..', '__demo'),
     port: 420,
     editors: ['react', 'code', 'statement'],
-    explorers: ['file'],
+    explorers: ['file', 'react'],
     compilerOptions: {
         allowJs: true
     }

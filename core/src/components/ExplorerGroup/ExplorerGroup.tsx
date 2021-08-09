@@ -28,10 +28,14 @@ export const ExplorerGroup: FC<ExplorerSectionProps> = ({ children, displayName,
 }
 
 const Container = styled.div`
+    width: 100%;
+
     .Header {
         cursor: pointer;
         position: relative;
         user-select: none;
+        width: 100%;
+        border-radius: 3px;
 
         &:hover {
             background-color: lightgray;
