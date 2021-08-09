@@ -158,7 +158,7 @@ export class AST implements ts.Node {
             }
             node.forEachChild(setResult);
         }
-        this.forEachChild(setResult)
+        this.forEachChild(setResult);
         return results;
     }
 

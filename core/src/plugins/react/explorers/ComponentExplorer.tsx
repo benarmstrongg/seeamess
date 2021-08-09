@@ -7,11 +7,10 @@ import { FaReact } from "react-icons/fa";
 
 export const ReactComponentExplorer: ContentExplorer = () => {
     const components = useExplorer(ReactFunctionComponent);
-    console.log(components);
     return (
         <ExplorerGroup displayName="Components">
             {components.map(c => (
-                <ExplorerItem obj={c} />
+                <ExplorerItem key={c.key} obj={c} displayName={c.getName()} />
             ))}
         </ExplorerGroup>
     );

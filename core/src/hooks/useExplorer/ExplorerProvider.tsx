@@ -26,7 +26,7 @@ export const ExplorerProvider: FC<ExplorerProviderProps> = ({ children, contentE
                         _content.push($sourceFile);
                     }
                     else {
-                        _content.concat($sourceFile.filter(contentType));
+                        _content.push(...$sourceFile.filter(contentType));
                     }
                 }
             });
