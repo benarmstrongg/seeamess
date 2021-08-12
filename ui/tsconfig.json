@@ -22,7 +22,5 @@
     "noImplicitAny": false,
     "baseUrl": "./src"
   },
-  "include": [
-    "src"
-  ]
+  "include": ["src"]
 }

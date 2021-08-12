@@ -1,8 +1,7 @@
 import { AST } from "ast";
-import { Monaco, TSCompilerOptions } from "types/monaco";
+import { Monaco, TSCompilerOptions, IProject } from "types";
 import ts from "typescript";
-import { IProject } from "./types";
-import { monaco as _monaco } from '@monaco-editor/react';
+import { loader as _monaco } from '@monaco-editor/react';
 
 const createCompilerHost = (sourceFiles: ts.SourceFile[], config: IProject['config']): ts.CompilerHost => {
     return {
@@ -38,7 +37,7 @@ export const createMonaco = async (): Promise<Monaco> => {
 
 // TODO: replace with compilerOptions from config????
 export const tsCompilerOptions: TSCompilerOptions = {
-    target: ts.ScriptTarget.ES2016,
+    target: ts.ScriptTarget.ES2016 as TSCompilerOptions['target'],
     allowNonTsExtensions: true,
     moduleResolution: ts.ModuleResolutionKind.NodeJs,
     module: ts.ModuleKind.ES2015 as any,

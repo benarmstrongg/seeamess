@@ -1,6 +1,6 @@
 import React, { FC, useState } from "react";
 import { useTunnel } from "hooks";
-import { IFile, IProject } from "./types";
+import { IFile, IProject } from "types";
 import { ProjectContext } from "./ProjectContext";
 import { createMonaco, createProgram } from './util';
 

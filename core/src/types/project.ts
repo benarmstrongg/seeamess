@@ -1,4 +1,4 @@
-import { Monaco } from "types/monaco";
+import { Monaco } from "types";
 import ts from "typescript";
 
 export interface IFile {
