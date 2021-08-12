@@ -26,7 +26,7 @@ export class ReactFunctionComponent extends FunctionDeclaration {
     constructor(node: AST) {
         const fn = node.to(FunctionDeclaration);
         super(fn);
-        if (!!fn.parameters) {
+        if (!!fn.parameters && fn.parameters[0]) {
             this.props = new Props(fn.parameters[0]);
         }
     }
