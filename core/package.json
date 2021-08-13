@@ -8,7 +8,8 @@
     "compile": "tsc",
     "compile:watch": "npm run compile -- -w",
     "start": "npm run compile:watch",
-    "reinstall": "rm -rf node_modules  && npm i"
+    "reinstall": "rm -rf node_modules  && npm i",
+    "postcompile": "mkdir -p ../ui/node_modules/@seeamess/core && cp -r dist ../ui/node_modules/@seeamess/core"
   },
   "author": "",
   "license": "ISC",
