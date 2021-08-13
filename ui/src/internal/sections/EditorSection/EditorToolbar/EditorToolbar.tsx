@@ -1,5 +1,5 @@
 import React, { FC, ReactElement } from "react";
-import { EditorButton } from "components";
+import { EditorButton } from "@seeamess/core";
 import styled from 'styled-components';
 
 interface EditorToolBarProps {

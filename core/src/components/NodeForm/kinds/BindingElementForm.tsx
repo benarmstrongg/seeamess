@@ -1,7 +1,7 @@
 import React from "react";
-import { BindingElement } from "ast";
+import { BindingElement } from "../../../ast";
 import { NodeFormComponent } from "../types";
-import { Collapsible, NodeForm, NodeFormHeading } from "components";
+import { Collapsible, NodeForm, NodeFormHeading } from "../../../components";
 
 
 export const BindingElementForm: NodeFormComponent<BindingElement> = ({ node }) => {

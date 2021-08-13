@@ -1,4 +1,4 @@
-import { SourceFile } from "ast";
+import { SourceFile } from "@seeamess/core";
 
 export type FileEntry = { [name: string]: SourceFile | FileEntry };
 

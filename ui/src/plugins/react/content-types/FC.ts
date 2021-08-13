@@ -1,4 +1,4 @@
-import { ast, AST, JsxOpeningElement, JsxElement, FunctionDeclaration, ParameterDeclaration, ObjectBindingPattern, Identifier, BindingElement } from "ast";
+import { ast, AST, JsxOpeningElement, JsxElement, FunctionDeclaration, ParameterDeclaration, ObjectBindingPattern, Identifier, BindingElement } from "@seeamess/core";
 import ts from "typescript";
 
 export class ReactFunctionComponent extends FunctionDeclaration {
@@ -29,6 +29,10 @@ export class ReactFunctionComponent extends FunctionDeclaration {
         if (!!fn.parameters && fn.parameters[0]) {
             this.props = new Props(fn.parameters[0]);
         }
+    }
+
+    getText(): string {
+        return this.sourceFile.text;
     }
 }
 

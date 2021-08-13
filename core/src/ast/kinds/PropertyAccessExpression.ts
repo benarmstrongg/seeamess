@@ -1,5 +1,5 @@
 import ts from 'typescript';
-import { ast, AST, Identifier } from 'ast';
+import { ast, AST, Identifier } from '../../ast';
 
 export class PropertyAccessExpression extends AST implements ts.PropertyAccessExpression {
     _declarationBrand;

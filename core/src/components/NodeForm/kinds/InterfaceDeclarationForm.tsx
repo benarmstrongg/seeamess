@@ -1,7 +1,7 @@
 import { NodeFormComponent } from '../types'
 import React from "react";
-import { NodeForm, Collapsible, NodeFormHeading } from "components";
-import { InterfaceDeclaration } from 'ast';
+import { NodeForm, Collapsible, NodeFormHeading } from "../../";
+import { InterfaceDeclaration } from '../../../ast';
 
 export const InterfaceDeclarationForm: NodeFormComponent<InterfaceDeclaration> = ({ node }) => {
     const name = node.getName();

@@ -1,7 +1,6 @@
-import { ExplorerProvider } from "hooks/useExplorer";
 import React, { FC } from "react";
 import styled from "styled-components";
-import { ContentExplorer } from "types";
+import { ContentExplorer, ExplorerProvider } from "@seeamess/core";
 
 interface ExplorerContainerProps {
     explorers: ContentExplorer[];

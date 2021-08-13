@@ -1,5 +1,5 @@
 import ts from "typescript";
-import { AST } from "ast";
+import { AST } from "../../ast";
 
 export class JsxText extends AST implements ts.JsxText {
     containsOnlyTriviaWhiteSpaces: ts.JsxText['containsOnlyTriviaWhiteSpaces'];

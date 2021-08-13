@@ -1,3 +1,3 @@
-import { IProject } from "types";
+import { IProject } from ".";
 
 export type SeeamessConfig = IProject['config'];

@@ -1,5 +1,5 @@
-import { AST } from "ast";
-import { EditorInstance, Monaco, TSWorker, IProject } from "types";
+import { AST } from "../../ast";
+import { EditorInstance, Monaco, TSWorker, IProject } from "../../types";
 
 export const createEditorInstance = (monaco: Monaco, content: AST): EditorInstance => {
     const elem = document.createElement('div');

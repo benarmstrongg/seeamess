@@ -1,5 +1,5 @@
 import ts from "typescript";
-import { ast, AST, VariableDeclaration } from "ast";
+import { ast, AST, VariableDeclaration } from "../../ast";
 
 export class ParameterDeclaration extends AST implements ts.ParameterDeclaration {
     _declarationBrand: ts.ParameterDeclaration['_declarationBrand'];

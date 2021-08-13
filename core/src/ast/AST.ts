@@ -1,5 +1,5 @@
 import ts from "typescript";
-import { SourceFile } from "ast";
+import { SourceFile } from ".";
 
 export type ASTConstructor<A extends AST> = new (node: any) => A;
 type ASTQuery<A extends AST> = Partial<AST & { type: ASTConstructor<A> }> | ((node: AST) => boolean);

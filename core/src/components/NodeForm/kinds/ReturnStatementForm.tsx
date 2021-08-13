@@ -1,6 +1,6 @@
 import React from "react";
-import { NodeForm, Collapsible, NodeFormHeading } from "components";
-import { ReturnStatement } from "ast";
+import { NodeForm, Collapsible, NodeFormHeading } from "../../";
+import { ReturnStatement } from "../../../ast";
 import { NodeFormComponent } from "../types";
 
 export const ReturnStatementForm: NodeFormComponent<ReturnStatement> = ({ node }) => {

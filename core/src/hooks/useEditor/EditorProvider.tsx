@@ -1,11 +1,11 @@
 import React, { FC, useEffect, useState } from "react";
 import { EditorContext } from "./EditorContext";
-import { ContentEditor } from "types";
-import { AST, SourceFile } from "ast";
+import { ContentEditor } from "../../types";
+import { AST, SourceFile } from "../../ast";
 import { IEditor } from "./types";
-import { useProject } from "hooks";
+import { useProject } from "../../hooks";
 import { createEditorInstance, createLanguageService } from "./util";
-import { Spinner } from "components";
+import { Spinner } from "../../components";
 
 interface EditorProviderProps {
     contentEditor: ContentEditor;

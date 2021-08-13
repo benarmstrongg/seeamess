@@ -1,9 +1,9 @@
 {
-  "name": "@seeamess/editor",
+  "name": "@seeamess/ui",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@monaco-editor/react": "^3.7.5",
+    "@monaco-editor/react": "^4.2.2",
     "@testing-library/jest-dom": "^5.11.4",
     "@testing-library/react": "^11.1.0",
     "@testing-library/user-event": "^12.1.10",
@@ -13,7 +13,7 @@
     "@types/react-dom": "^16.9.8",
     "beautiful-react-hooks": "^0.31.0",
     "classnames": "^2.3.1",
-    "monaco-editor": "^0.21.2",
+    "monaco-editor": "^0.26.1",
     "monaco-jsx-highlighter": "0.0.15",
     "react": "^17.0.1",
     "react-collapsible": "^2.8.1",
@@ -25,13 +25,16 @@
     "sass": "^1.29.0",
     "socket.io-client": "^3.0.5",
     "styled-components": "^5.3.0",
+    "typescript": "4.0.5",
     "web-vitals": "^0.2.4"
   },
   "scripts": {
+    "postinstall": "cd ../core && npm run compile && mkdir -p ../ui/node_modules/@seeamess/core && cp -r dist ../ui/node_modules/@seeamess/core && cp package.json ../ui/node_modules/@seeamess/core",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "reinstall": "rm -rf node_modules && npm i"
   },
   "eslintConfig": {
     "extends": [
@@ -55,6 +58,6 @@
     "@types/lodash": "^4.14.165",
     "@types/styled-components": "^5.1.11",
     "ast-types": "^0.14.2",
-    "typescript": "^4.0.5"
+    "npm-link-shared": "^0.5.6"
   }
 }

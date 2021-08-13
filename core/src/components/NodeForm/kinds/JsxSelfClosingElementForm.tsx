@@ -1,8 +1,8 @@
 import React from "react";
-import { JsxSelfClosingElement } from "ast";
+import { JsxSelfClosingElement } from "../../../ast";
 import { NodeFormComponent } from "../types";
-import { Collapsible, NodeFormHeading } from "components";
-import { JsxOpeningElementForm } from "components/nodeviews";
+import { Collapsible, NodeFormHeading } from "../../";
+import { JsxOpeningElementForm } from "../../nodeviews";
 
 export const JsxSelfClosingElementForm: NodeFormComponent<JsxSelfClosingElement> = ({ node }) => {
     const openingElement = node.getOpeningElement();

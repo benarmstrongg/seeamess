@@ -1,9 +1,6 @@
 import React, { useEffect, useRef } from 'react';
 import { RiCodeSSlashLine } from 'react-icons/ri';
-import { useEditor } from 'hooks';
-import { ContentEditor } from 'types/editor';
-import { AST } from 'ast';
-
+import { useEditor, ContentEditor, AST } from '@seeamess/core';
 
 export const CodeEditor: ContentEditor = () => {
     const elemRef = useRef<HTMLDivElement>(null);

@@ -1,5 +1,5 @@
 import React, { FC } from 'react';
-import { TunnelProvider, ProjectProvider, TabsProvider } from 'hooks';
+import { TunnelProvider, ProjectProvider, TabsProvider } from '@seeamess/core';
 import { ExplorerSection, EditorSection } from 'internal/sections';
 import styled from 'styled-components';
 

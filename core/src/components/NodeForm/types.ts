@@ -1,5 +1,5 @@
 import { FC } from "react";
-import { AST } from "ast";
+import { AST } from "../../ast";
 
 type NodeFormProps<T extends AST, ExtraProps> =
     ExtraProps & {

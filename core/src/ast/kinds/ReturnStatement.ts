@@ -1,6 +1,5 @@
 import ts from "typescript";
-import { AST } from "ast";
-import { ast } from "ast/AST";
+import { AST, ast } from "../../ast";
 
 export class ReturnStatement extends AST implements ts.ReturnStatement {
     _statementBrand: ts.ReturnStatement['_statementBrand'];

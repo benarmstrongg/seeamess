@@ -1,6 +1,6 @@
 import React from "react";
-import { NodeForm, Collapsible, NodeFormHeading } from "components";
-import { JsxElement } from "ast";
+import { NodeForm, Collapsible, NodeFormHeading } from "../../";
+import { JsxElement } from "../../../ast";
 import { NodeFormComponent } from "../types";
 
 export const JsxElementForm: NodeFormComponent<JsxElement> = ({ node }) => {

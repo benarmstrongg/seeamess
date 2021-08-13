@@ -1,6 +1,6 @@
 import React, { FC } from 'react';
 import styled from 'styled-components';
-import { Collapsible, NodeForm } from 'components';
+import { Collapsible, NodeForm } from '@seeamess/core';
 import { ReactFunctionComponent } from '../../../content-types/FC';
 
 interface ComponentInfoPanelProps {

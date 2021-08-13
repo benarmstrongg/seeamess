@@ -1,6 +1,6 @@
 import React, { FC } from "react";
 import styled from 'styled-components';
-import { useTabs } from "hooks";
+import { useTabs } from "@seeamess/core";
 import { TabContainer } from "./TabContainer/TabContainer";
 import { TabBar } from "./TabBar/TabBar";
 import { EditorContainer } from "./EditorContainer/EditorContainer";

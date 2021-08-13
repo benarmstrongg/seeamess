@@ -1,8 +1,7 @@
 import React, { FC, useState } from "react";
 import styled from 'styled-components';
-import { useProject } from "hooks";
+import { useProject, ContentExplorer } from "@seeamess/core";
 import mockExplorers from '__tmp/mock-explorers';
-import { ContentExplorer } from "types";
 import { ExplorerSidebar } from "./ExplorerSidebar/ExplorerSidebar";
 import { ExplorerContainer } from "./ExplorerContainer/ExplorerContainer";
 

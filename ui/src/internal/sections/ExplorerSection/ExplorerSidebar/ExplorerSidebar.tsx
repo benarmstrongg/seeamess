@@ -1,7 +1,6 @@
-import { EditorButton } from "components";
 import React, { FC } from "react";
 import styled from "styled-components";
-import { ContentExplorer } from "types";
+import { ContentExplorer, EditorButton } from '@seeamess/core';
 
 interface ExplorerSidebarProps {
     explorers: ContentExplorer[];

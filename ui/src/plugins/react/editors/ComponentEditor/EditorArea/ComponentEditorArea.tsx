@@ -1,6 +1,6 @@
 import React, { FC, useState } from "react";
 import { LiveError, LivePreview, LiveProvider } from "react-live";
-import { EditorButton } from "components";
+import { EditorButton } from "@seeamess/core";
 import { ReactFunctionComponent } from "../../../content-types/FC";
 import styled from 'styled-components';
 import { UIView } from "./UIView";

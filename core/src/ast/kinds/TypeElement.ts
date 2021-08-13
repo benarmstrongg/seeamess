@@ -1,5 +1,5 @@
 import ts from "typescript";
-import { AST } from "ast";
+import { AST } from "..";
 
 export class TypeElement extends AST implements ts.TypeElement {
     _declarationBrand;

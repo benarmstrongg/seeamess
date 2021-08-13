@@ -1,8 +1,8 @@
 import React from "react";
 import { NodeFormComponent } from "../types";
-import { VariableDeclarationForm } from "components/nodeviews";
-import { Collapsible, NodeFormHeading } from "components";
-import { VariableDeclarationList } from "ast";
+import { VariableDeclarationForm } from "../..//nodeviews";
+import { Collapsible, NodeFormHeading } from "../../";
+import { VariableDeclarationList } from "../../../ast";
 
 export const VariableDeclarationListForm: NodeFormComponent<VariableDeclarationList> = ({ node }) => {
     const declarations = node.getDeclarations();

@@ -963,7 +963,7 @@
     "core-js-pure" "^3.0.0"
     "regenerator-runtime" "^0.13.4"
 
-"@babel/runtime@^7.10.2", "@babel/runtime@^7.10.3", "@babel/runtime@^7.11.0", "@babel/runtime@^7.11.2", "@babel/runtime@^7.5.5", "@babel/runtime@^7.7.2", "@babel/runtime@^7.8.4", "@babel/runtime@^7.9.2", "@babel/runtime@7.12.1":
+"@babel/runtime@^7.10.2", "@babel/runtime@^7.10.3", "@babel/runtime@^7.11.2", "@babel/runtime@^7.5.5", "@babel/runtime@^7.7.2", "@babel/runtime@^7.8.4", "@babel/runtime@^7.9.2", "@babel/runtime@7.12.1":
   "integrity" "sha512-J5AIf3vPj3UwXaAzb5j1xM4WAQDX3EMgemF8rjCP3SoW09LfRKAXQKt6CoVYl230P6iWdRcBbnLDDdnqWxZSCA=="
   "resolved" "https://registry.npmjs.org/@babel/runtime/-/runtime-7.12.1.tgz"
   "version" "7.12.1"
@@ -1283,13 +1283,20 @@
     "@types/yargs" "^15.0.0"
     "chalk" "^4.0.0"
 
-"@monaco-editor/react@^3.7.5":
-  "integrity" "sha512-rD6uK7zPuJq/xLv6QN+Qdk51wywXWSKhYeGjObultnsCsnp3FKaHY3O4pqjsss46SDZDG9IB/V3nymdMz1lFSg=="
-  "resolved" "https://registry.npmjs.org/@monaco-editor/react/-/react-3.7.5.tgz"
-  "version" "3.7.5"
+"@monaco-editor/loader@^1.1.1":
+  "integrity" "sha512-mkT4r4xDjIyOG9o9M6rJDSzEIeonwF80sYErxEvAAL4LncFVdcbNli8Qv6NDqF6nyv6sunuKkDzo4iFjxPL+uQ=="
+  "resolved" "https://registry.npmjs.org/@monaco-editor/loader/-/loader-1.1.1.tgz"
+  "version" "1.1.1"
   dependencies:
-    "@babel/runtime" "^7.11.0"
-    "state-local" "^1.0.1"
+    "state-local" "^1.0.6"
+
+"@monaco-editor/react@^4.2.2":
+  "integrity" "sha512-yDDct+f/mZ946tJEXudvmMC8zXDygkELNujpJGjqJ0gS3WePZmS/IwBBsuJ8JyKQQC3Dy/+Ivg1sSpW+UvCv9g=="
+  "resolved" "https://registry.npmjs.org/@monaco-editor/react/-/react-4.2.2.tgz"
+  "version" "4.2.2"
+  dependencies:
+    "@monaco-editor/loader" "^1.1.1"
+    "prop-types" "^15.7.2"
 
 "@nodelib/fs.scandir@2.1.3":
   "integrity" "sha512-eGmwYQn3gxo4r7jdQnkrrN6bY478C3P+a/y72IJukF8LjB6ZHeB3c+Ehacj3sYeSmUXGlnA67/PmbM9CVwL7Dw=="
@@ -3110,6 +3117,15 @@
   "version" "0.12.0"
 
 "chalk@^2.0.0":
+  "integrity" "sha512-Mti+f9lpJNcwF4tWV8/OrTTtF1gZi+f8FqlyAdouralcFWFQWF2+NgCHShjkCb+IFBLq9buZwE1xckQU4peSuQ=="
+  "resolved" "https://registry.npmjs.org/chalk/-/chalk-2.4.2.tgz"
+  "version" "2.4.2"
+  dependencies:
+    "ansi-styles" "^3.2.1"
+    "escape-string-regexp" "^1.0.5"
+    "supports-color" "^5.3.0"
+
+"chalk@^2.1.0":
   "integrity" "sha512-Mti+f9lpJNcwF4tWV8/OrTTtF1gZi+f8FqlyAdouralcFWFQWF2+NgCHShjkCb+IFBLq9buZwE1xckQU4peSuQ=="
   "resolved" "https://registry.npmjs.org/chalk/-/chalk-2.4.2.tgz"
   "version" "2.4.2"
@@ -7537,10 +7553,10 @@
   "resolved" "https://registry.npmjs.org/mkdirp/-/mkdirp-1.0.4.tgz"
   "version" "1.0.4"
 
-"monaco-editor@^0.21.2":
-  "integrity" "sha512-jS51RLuzMaoJpYbu7F6TPuWpnWTLD4kjRW0+AZzcryvbxrTwhNy1KC9yboyKpgMTahpUbDUsuQULoo0GV1EPqg=="
-  "resolved" "https://registry.npmjs.org/monaco-editor/-/monaco-editor-0.21.2.tgz"
-  "version" "0.21.2"
+"monaco-editor@^0.26.1", "monaco-editor@>= 0.21.0 < 1", "monaco-editor@>= 0.25.0 < 1":
+  "integrity" "sha512-mm45nUrBDk0DgZKgbD7+bhDOtcAFNGPJJRAdS6Su1kTGl6XEgC7U3xOmDUW/0RrLf+jlvCGaqLvD4p2VjwuwwQ=="
+  "resolved" "https://registry.npmjs.org/monaco-editor/-/monaco-editor-0.26.1.tgz"
+  "version" "0.26.1"
 
 "monaco-jsx-highlighter@0.0.15":
   "integrity" "sha512-hu2T32F/y2RiwB4LJqrbdQLu7/9eeXrGLVl+7tbDBNhSJfiwkqkV27QOn7SpsNs/nsvvUMrvH7/QpGGhYuX8HA=="
@@ -7756,6 +7772,14 @@
     "prepend-http" "^1.0.0"
     "query-string" "^4.1.0"
     "sort-keys" "^1.0.0"
+
+"npm-link-shared@^0.5.6":
+  "integrity" "sha512-GxC0BAvFSnkg/Oqjf6t4/4cKPkgWus61xU+V6vuL+iVY1es73DV2+Hvu3vpwu5K+ahdWiI1U/TO1ix6LtXTXxA=="
+  "resolved" "https://registry.npmjs.org/npm-link-shared/-/npm-link-shared-0.5.6.tgz"
+  "version" "0.5.6"
+  dependencies:
+    "chalk" "^2.1.0"
+    "minimist" "^1.1.1"
 
 "npm-run-path@^2.0.0":
   "integrity" "sha1-NakjLfo11wZ7TLLd8jV7GHFTbF8="
@@ -9250,9 +9274,9 @@
     "whatwg-fetch" "^3.4.1"
 
 "react-collapsible@^2.8.1":
-  "integrity" "sha512-ykV+EpCBYC6UoOsZLtBxrs/kFVgJc2gFMU1/SS2JLG+LrMHSOERpWSG+fexyFYk44hdfJRmc/If+HlSjXcbCiw=="
-  "resolved" "https://registry.npmjs.org/react-collapsible/-/react-collapsible-2.8.1.tgz"
-  "version" "2.8.1"
+  "integrity" "sha512-SiVsLZW8qeh09eARzJ9/fwrwOlPWfAdu+vUJGQaTqVYH61XBnKqnwcTDeGZjL005hatmJSkk2CAtYtb4rz14fA=="
+  "resolved" "https://registry.npmjs.org/react-collapsible/-/react-collapsible-2.8.3.tgz"
+  "version" "2.8.3"
 
 "react-dev-utils@^11.0.0":
   "integrity" "sha512-dx0LvIGHcOPtKbeiSUM4jqpBl3TcY7CDjZdfOIcKeznE7BWr9dg0iPG90G5yfVQ+p/rGNMXdbfStvzQZEVEi4A=="
@@ -9294,7 +9318,7 @@
     "dnd-core" "^11.1.3"
     "hoist-non-react-statics" "^3.3.0"
 
-"react-dom@^17.0.1", "react-dom@>= 16.8.0":
+"react-dom@^16.8.0 || ^17.0.0", "react-dom@^17.0.1", "react-dom@>= 16.8.0", "react-dom@~15 || ~16 || ~17":
   "integrity" "sha512-6eV150oJZ9U2t9svnsspTMrWNyHc6chX0KzDeAOXftRa8bNeOKTTfCJ7KorIwenkHd2xqVTBTCZd79yk/lx/Ug=="
   "resolved" "https://registry.npmjs.org/react-dom/-/react-dom-17.0.1.tgz"
   "version" "17.0.1"
@@ -9418,7 +9442,7 @@
   "resolved" "https://registry.npmjs.org/react-simple-code-editor/-/react-simple-code-editor-0.10.0.tgz"
   "version" "0.10.0"
 
-"react@^17.0.1", "react@>= 16.8.0":
+"react@^16.8.0 || ^17.0.0", "react@^17.0.1", "react@>= 16.8.0", "react@~15 || ~16 || ~17":
   "integrity" "sha512-lG9c9UuMHdcAexXtigOZLX8exLWkW0Ku29qPRU8uhF2R9BN96dLCt0psvzPLlHc5OWkgymP3qwTRgbnw5BKx3w=="
   "resolved" "https://registry.npmjs.org/react/-/react-17.0.1.tgz"
   "version" "17.0.1"
@@ -10589,10 +10613,10 @@
   "resolved" "https://registry.npmjs.org/stackframe/-/stackframe-1.2.0.tgz"
   "version" "1.2.0"
 
-"state-local@^1.0.1":
-  "integrity" "sha512-+IlgkKVNVmGwt9fqBaU76y/Fvj0fuQGDQESnFBD9kVW6T0/HtDyRXeDXmEba3dOMfMufZC6PuKO9eQ9pKJtmiA=="
-  "resolved" "https://registry.npmjs.org/state-local/-/state-local-1.0.6.tgz"
-  "version" "1.0.6"
+"state-local@^1.0.6":
+  "integrity" "sha512-HTEHMNieakEnoe33shBYcZ7NX83ACUjCu8c40iOGEZsngj9zRnkqS9j1pqQPXwobB0ZcVTk27REb7COQ0UR59w=="
+  "resolved" "https://registry.npmjs.org/state-local/-/state-local-1.0.7.tgz"
+  "version" "1.0.7"
 
 "static-extend@^0.1.1":
   "integrity" "sha1-YICcOcv/VTNyJv1eC1IPNB8ftcY="
@@ -11266,7 +11290,7 @@
   "resolved" "https://registry.npmjs.org/typedarray/-/typedarray-0.0.6.tgz"
   "version" "0.0.6"
 
-"typescript@^4.0.5":
+"typescript@4.0.5":
   "integrity" "sha512-ywmr/VrTVCmNTJ6iV2LwIrfG1P+lv6luD8sUJs+2eI9NLGigaN+nUQc13iHqisq7bra9lnmUSYqbJvegraBOPQ=="
   "resolved" "https://registry.npmjs.org/typescript/-/typescript-4.0.5.tgz"
   "version" "4.0.5"

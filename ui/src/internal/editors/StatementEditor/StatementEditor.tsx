@@ -1,9 +1,6 @@
 import React from "react";
-import { ContentEditor } from "types/editor";
-import { NodeForm } from "components";
 import { AiOutlineProfile } from 'react-icons/ai';
-import { AST, ast } from "ast";
-import { useTabs } from "hooks";
+import { ContentEditor, NodeForm, AST, ast, useTabs } from '@seeamess/core';
 import Container from './styles';
 
 export const StatementEditor: ContentEditor = () => {

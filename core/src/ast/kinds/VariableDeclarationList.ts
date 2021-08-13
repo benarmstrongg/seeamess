@@ -1,5 +1,5 @@
 import ts from "typescript";
-import { ast, AST, VariableDeclaration } from "ast";
+import { ast, AST, VariableDeclaration } from "..";
 
 export class VariableDeclarationList extends AST implements ts.VariableDeclarationList {
     declarations: ts.VariableDeclarationList['declarations'];

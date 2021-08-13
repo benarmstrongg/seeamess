@@ -1,6 +1,5 @@
 import ts from "typescript";
-import { AST, Identifier } from "ast";
-import { ast } from "ast/AST";
+import { AST, ast, Identifier } from "..";
 
 export class TypeAliasDeclaration extends AST implements ts.TypeAliasDeclaration {
     _statementBrand;

@@ -1,6 +1,6 @@
 import React, { FC, MouseEvent } from "react";
 import { FaTimes } from "react-icons/fa";
-import { useTabs } from "hooks";
+import { useTabs } from "@seeamess/core";
 import Containers from './styles';
 import classNames from "classnames";
 

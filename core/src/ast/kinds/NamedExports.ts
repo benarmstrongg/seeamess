@@ -1,5 +1,5 @@
 import ts from "typescript";
-import { ast, AST, Identifier } from "ast";
+import { ast, AST, Identifier } from "../../ast";
 
 export class NamedExports extends AST implements ts.NamedExports {
     elements: ts.NamedExports['elements'];

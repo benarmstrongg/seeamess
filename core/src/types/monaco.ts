@@ -1,6 +1,6 @@
 // don't export from index.ts
 import * as MonacoEditor from 'monaco-editor';
-import { AST } from 'ast';
+import { AST } from '../ast';
 
 export type EditorInstance = MonacoEditor.editor.IStandaloneCodeEditor;
 

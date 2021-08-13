@@ -1,5 +1,5 @@
 import ts from "typescript";
-import { AST, ast, FunctionExpression, ParameterDeclaration } from "ast";
+import { AST, ast, FunctionExpression, ParameterDeclaration } from "../../ast";
 import { ReturnStatement } from "./ReturnStatement";
 import { Identifier } from "./Identifier";
 import { ArrowFunction } from "./ArrowFunction";

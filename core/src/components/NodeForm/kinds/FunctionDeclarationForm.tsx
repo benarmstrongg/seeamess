@@ -1,8 +1,8 @@
 import React from "react";
-import { FunctionDeclaration } from "ast";
+import { FunctionDeclaration } from "../../../ast";
 import { NodeFormComponent } from "../types";
-import { Collapsible, NodeFormHeading } from "components";
-import { FunctionExpressionForm } from "components/nodeviews";
+import { Collapsible, NodeFormHeading } from "../../";
+import { FunctionExpressionForm } from "../../nodeviews";
 
 export const FunctionDeclarationForm: NodeFormComponent<FunctionDeclaration> = ({ node }) => {
     const expression = node.getExpression();

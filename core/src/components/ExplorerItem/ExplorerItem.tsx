@@ -1,5 +1,5 @@
-import { AST } from "ast";
-import { useTabs } from "hooks";
+import { AST } from "../../ast";
+import { useTabs } from "../../hooks";
 import React, { FC, ReactElement } from "react";
 import styled from 'styled-components';
 

@@ -1,10 +1,9 @@
 import React from 'react';
-import { ContentEditor } from 'types/editor';
 import { FaReact } from 'react-icons/fa';
 import { ReactFunctionComponent } from '../../content-types/FC';
 import { EditorArea } from './EditorArea/ComponentEditorArea';
 import { ComponentInfoPanel } from './ComponentInfoPanel/ComponentInfoPanel';
-import { useEditor } from 'hooks';
+import { useEditor, ContentEditor } from '@seeamess/core';
 import styled from 'styled-components';
 
 export const ReactComponentEditor: ContentEditor = () => {

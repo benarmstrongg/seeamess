@@ -1,10 +1,7 @@
 import React from "react";
 import { createFileTree, FileEntry } from "./util";
-import { useExplorer } from "hooks";
-import { ExplorerItem, ExplorerGroup } from "components";
 import { FaFile, FaFolder } from "react-icons/fa";
-import { SourceFile } from "ast";
-import { ContentExplorer } from "types";
+import { ContentExplorer, SourceFile, ExplorerGroup, ExplorerItem, useExplorer } from '@seeamess/core';
 
 export const FileExplorer: ContentExplorer = () => {
     const files = useExplorer(SourceFile);

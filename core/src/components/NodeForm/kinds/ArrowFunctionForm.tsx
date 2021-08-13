@@ -1,8 +1,8 @@
 import React from 'react';
-import { ArrowFunction } from 'ast';
+import { ArrowFunction } from '../../../ast';
 import { NodeFormComponent } from "../types";
-import { Collapsible } from 'components';
-import { FunctionExpressionForm } from 'components/nodeviews';
+import { Collapsible } from '../../';
+import { FunctionExpressionForm } from '../../nodeviews';
 
 export const ArrowFunctionForm: NodeFormComponent<ArrowFunction> = ({ node }) => {
     return (

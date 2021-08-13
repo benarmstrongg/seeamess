@@ -1,8 +1,6 @@
 import React from "react";
-import { ExplorerGroup, ExplorerItem } from "components";
-import { useExplorer } from "hooks";
+import { ExplorerGroup, ExplorerItem, useExplorer, ContentExplorer } from "@seeamess/core";
 import { ReactFunctionComponent } from "../content-types/FC";
-import { ContentExplorer } from "types";
 import { FaReact } from "react-icons/fa";
 
 export const ReactComponentExplorer: ContentExplorer = () => {

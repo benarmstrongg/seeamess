@@ -1,7 +1,7 @@
 import React from "react";
-import { PropertySignature } from "ast";
+import { PropertySignature } from "../../../ast";
 import { NodeFormComponent } from "../types";
-import { Collapsible, NodeForm, NodeFormHeading } from "components";
+import { Collapsible, NodeForm, NodeFormHeading } from "../../";
 
 export const PropertySignatureForm: NodeFormComponent<PropertySignature> = ({ node }) => {
     const typeMembers = node.getTypeMembers();

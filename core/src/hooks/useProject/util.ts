@@ -1,5 +1,5 @@
-import { AST } from "ast";
-import { Monaco, TSCompilerOptions, IProject } from "types";
+import { AST } from "../../ast";
+import { Monaco, TSCompilerOptions, IProject } from "../../types";
 import ts from "typescript";
 import { loader as _monaco } from '@monaco-editor/react';
 

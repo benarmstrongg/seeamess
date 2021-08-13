@@ -1,11 +1,7 @@
 import React, { FC, useState } from "react";
-import { ContentEditor } from "types/editor";
-import { EditorButton } from "components";
 import styled from 'styled-components';
-import { AST, SourceFile } from "ast";
-import { useProject } from "hooks";
 import mockEditors from '__tmp/mock-editors';
-import { EditorProvider } from "hooks/useEditor";
+import { EditorProvider, useProject, AST, SourceFile, EditorButton, ContentEditor } from '@seeamess/core';
 
 interface EditorContainerProps {
     obj: AST;

@@ -1,5 +1,5 @@
 import { FC, ReactElement } from "react";
-import { ASTConstructor } from "ast";
+import { ASTConstructor } from "../ast";
 
 
 export interface ContentEditor extends FC {

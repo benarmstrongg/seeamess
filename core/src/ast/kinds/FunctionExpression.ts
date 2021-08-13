@@ -1,5 +1,5 @@
 import ts from "typescript";
-import { ast, AST, Identifier, ParameterDeclaration } from "ast";
+import { ast, AST, Identifier, ParameterDeclaration } from "../../ast";
 
 export class FunctionExpression extends AST implements ts.FunctionExpression {
     _memberExpressionBrand;

@@ -1,5 +1,5 @@
 import ts from "typescript";
-import { AST } from "ast";
+import { AST } from "../../ast";
 
 export class BinaryExpression extends AST implements ts.BinaryExpression {
     _expressionBrand;

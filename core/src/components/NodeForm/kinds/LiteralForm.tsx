@@ -1,7 +1,7 @@
 import React from 'react';
-import { LiteralLikeNode } from 'ast';
+import { LiteralLikeNode } from '../../../ast';
 import { NodeFormComponent } from "../types";
-import { NodeInput } from 'components';
+import { NodeInput } from '../../';
 
 
 export const LiteralForm: NodeFormComponent<LiteralLikeNode> = (props) => {
