@@ -1,4 +1,4 @@
-import { CodeEditor, StatementEditor } from "internal/editors";
+import { CodeEditor, StatementEditor } from "editors";
 import { ReactComponentEditor } from "plugins/react/editors/ComponentEditor/ReactComponentEditor";
 
 const e = {

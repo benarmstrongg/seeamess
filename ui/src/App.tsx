@@ -1,6 +1,6 @@
 import React, { FC } from 'react';
 import { TunnelProvider, ProjectProvider, TabsProvider } from '@seeamess/core';
-import { ExplorerSection, EditorSection } from 'internal/sections';
+import { ExplorerSection, EditorSection } from 'sections';
 import styled from 'styled-components';
 
 const App: FC = () => (

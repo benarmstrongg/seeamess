@@ -1,4 +1,4 @@
-import { FileExplorer } from "internal/explorers/FileExplorer";
+import { FileExplorer } from "explorers/FileExplorer";
 import { ReactComponentExplorer } from "plugins/react/explorers/ComponentExplorer";
 
 const e = {
