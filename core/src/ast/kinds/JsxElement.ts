@@ -1,5 +1,5 @@
 import ts from "typescript";
-import { AST, JsxChild, JsxExpression, JsxFragment, JsxSelfClosingElement, JsxOpeningElement, JsxText, ast } from "ast";
+import { AST, JsxChild, JsxExpression, JsxFragment, JsxSelfClosingElement, JsxOpeningElement, JsxText, ast } from "../../ast";
 
 export class JsxElement extends AST implements ts.JsxElement {
     _expressionBrand;

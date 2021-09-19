@@ -1,5 +1,5 @@
 import ts from "typescript";
-import { AST } from "ast";
+import { AST } from "..";
 
 export class SourceFile extends AST implements ts.SourceFile {
     statements: ts.SourceFile['statements'];

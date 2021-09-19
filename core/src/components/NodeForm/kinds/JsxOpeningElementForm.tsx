@@ -1,6 +1,6 @@
 import React from "react";
-import { NodeForm, NodeFormHeading } from "components";
-import { JsxOpeningElement } from "ast";
+import { NodeForm, NodeFormHeading } from "../../";
+import { JsxOpeningElement } from "../../../ast";
 import { NodeFormComponent } from "../types";
 
 export const JsxOpeningElementForm: NodeFormComponent<JsxOpeningElement> = ({ node }) => {

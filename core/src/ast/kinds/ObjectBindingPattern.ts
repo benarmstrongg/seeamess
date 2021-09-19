@@ -1,5 +1,5 @@
 import ts from "typescript";
-import { ast, AST, BindingElement } from "ast";
+import { ast, AST, BindingElement } from "../../ast";
 
 export class ObjectBindingPattern extends AST implements ts.ObjectBindingPattern {
     elements: ts.ObjectBindingPattern['elements'];

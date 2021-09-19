@@ -1,7 +1,7 @@
-import { ast, AST, SourceFile } from "ast";
-import { useProject } from "hooks";
+import { ast, AST, SourceFile } from "../../ast";
+import { useProject } from "../../hooks";
 import React, { FC, useEffect, useState } from "react";
-import { ContentExplorer } from "types";
+import { ContentExplorer } from "../../types";
 import { ExplorerContext } from "./ExplorerContext";
 import { IExplorer } from "./types";
 

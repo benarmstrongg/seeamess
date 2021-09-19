@@ -1,6 +1,5 @@
-import { AST } from "ast";
-import { IProject } from "hooks/useProject/types";
-import { EditorInstance, Monaco, TSWorker } from "types/monaco";
+import { AST } from "../../ast";
+import { EditorInstance, Monaco, TSWorker, IProject } from "../../types";
 
 export const createEditorInstance = (monaco: Monaco, content: AST): EditorInstance => {
     const elem = document.createElement('div');

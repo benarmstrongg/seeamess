@@ -1,6 +1,6 @@
 import React from "react";
-import { NodeForm } from "components";
-import { ArrayBindingPattern, ObjectBindingPattern } from "ast";
+import { NodeForm } from "../../";
+import { ArrayBindingPattern, ObjectBindingPattern } from "../../../ast";
 import { NodeFormComponent } from "../types";
 
 export const BindingPatternForm: NodeFormComponent<ArrayBindingPattern | ObjectBindingPattern> =

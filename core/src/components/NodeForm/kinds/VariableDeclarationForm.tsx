@@ -1,7 +1,7 @@
 import React from 'react';
 import { NodeFormComponent } from '../types';
-import { NodeInput, NodeForm, Collapsible, NodeFormHeading } from 'components';
-import { ast, VariableDeclaration } from 'ast';
+import { NodeInput, NodeForm, Collapsible, NodeFormHeading } from '../../';
+import { ast, VariableDeclaration } from '../../../ast';
 
 interface VariableDeclarationEditorProps {
     isCollapsible?: boolean;

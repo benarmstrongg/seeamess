@@ -1,8 +1,8 @@
 import React from "react";
-import { ExportDeclaration } from "ast";
+import { ExportDeclaration } from "../../../ast";
 import { NodeFormComponent } from "../types";
-import { Collapsible } from "components";
-import { NamedExportsForm, NamespaceExportForm } from "components/nodeviews";
+import { Collapsible } from "../../";
+import { NamedExportsForm, NamespaceExportForm } from "../../nodeviews";
 
 export const ExportDeclarationForm: NodeFormComponent<ExportDeclaration> = ({ node }) => {
     const exportClause = node.getExportClause();

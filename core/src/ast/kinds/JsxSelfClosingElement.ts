@@ -1,5 +1,5 @@
 import ts from "typescript";
-import { ast, AST, JsxOpeningElement } from "ast";
+import { ast, AST, JsxOpeningElement } from "../../ast";
 
 export class JsxSelfClosingElement extends AST implements ts.JsxSelfClosingElement {
     _primaryExpressionBrand;

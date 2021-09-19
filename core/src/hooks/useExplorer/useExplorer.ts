@@ -1,4 +1,4 @@
-import { AST, ASTConstructor } from "ast";
+import { AST, ASTConstructor } from "../../ast";
 import { useContext } from "react";
 import { ExplorerContext } from "./ExplorerContext";
 import { IExplorer } from "./types";

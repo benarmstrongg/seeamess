@@ -1,5 +1,5 @@
-import { AST } from "ast";
-import { EditorInstance, TSWorker } from "types/monaco";
+import { AST } from "../../ast";
+import { EditorInstance, TSWorker } from "../../types";
 
 export interface IEditor<A extends AST = AST> {
     content: A;

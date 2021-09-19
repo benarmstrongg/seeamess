@@ -1,7 +1,7 @@
 import React from 'react';
-import { ast, ParameterDeclaration } from 'ast';
+import { ast, ParameterDeclaration } from '../../../ast';
 import { NodeFormComponent } from "../types";
-import { NodeInput, NodeForm, Collapsible, NodeFormHeading } from 'components';
+import { NodeInput, NodeForm, Collapsible, NodeFormHeading } from '../../';
 
 export const ParameterDeclarationForm: NodeFormComponent<ParameterDeclaration> = ({ node }) => {
     const type = node.getType();

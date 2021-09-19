@@ -21,7 +21,7 @@ interface InputSelection {
 
 
 
-export const NodeInput: FC<StatementEditorInputProps> = ({ placeholder, value, node }) => {
+export const NodeInput: FC<StatementEditorInputProps> = ({ placeholder, value }) => {
     const [trackedValue, setTrackedValue] = useState(value);
     const [cursorPosition/*,setCursorPosition*/] = useState(0);
     const [cursorSelection/*,setCursorSelection*/] = useState<InputSelection>();
@@ -52,7 +52,7 @@ export const NodeInput: FC<StatementEditorInputProps> = ({ placeholder, value, n
         }
     }
 
-    const handleSelect = (event: SyntheticEvent<HTMLInputElement>) => {
+    const handleSelect = (_event: SyntheticEvent<HTMLInputElement>) => {
         // const { selectionStart, selectionEnd } = event.currentTarget;
         // if (!node.loc || selectionStart === null || selectionEnd === null)
         //     return;

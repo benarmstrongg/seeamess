@@ -1,5 +1,5 @@
 import ts from "typescript";
-import { ast, AST, NamedExports, NamespaceExport } from "ast";
+import { ast, AST, NamedExports, NamespaceExport } from "../../ast";
 
 export class ExportClause extends AST implements Partial<NamedExports>, Partial<NamespaceExport> {
     _declarationBrand;

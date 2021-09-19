@@ -1,5 +1,5 @@
 import ts from "typescript";
-import { ast, AST, ExportClause, Identifier } from "ast";
+import { ast, AST, ExportClause, Identifier } from "../../ast";
 
 export class ExportDeclaration extends AST implements ts.ExportDeclaration {
     _declarationBrand;

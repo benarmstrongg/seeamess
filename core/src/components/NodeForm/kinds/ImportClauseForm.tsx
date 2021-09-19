@@ -1,6 +1,6 @@
 import React from "react";
-import { NodeForm, NodeFormHeading } from "components";
-import { ImportClause } from "ast";
+import { NodeForm, NodeFormHeading } from "../../";
+import { ImportClause } from "../../../ast";
 import { NodeFormComponent } from "../types";
 
 export const ImportClauseForm: NodeFormComponent<ImportClause> = ({ node }) => {

@@ -1,6 +1,6 @@
 import React from "react";
-import { NodeForm, Collapsible, NodeFormHeading } from "components";
-import { CallExpression } from "ast";
+import { NodeForm, Collapsible, NodeFormHeading } from "../../";
+import { CallExpression } from "../../../ast";
 import { NodeFormComponent } from "../types";
 
 export const CallExpressionForm: NodeFormComponent<CallExpression> = ({ node }) => {

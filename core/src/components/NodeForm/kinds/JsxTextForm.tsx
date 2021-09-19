@@ -1,7 +1,7 @@
 import React from "react";
-import { JsxText } from "ast";
+import { JsxText } from "../../../ast";
 import { NodeFormComponent } from "../types";
-import { Collapsible, NodeInput, NodeFormHeading } from "components";
+import { Collapsible, NodeInput, NodeFormHeading } from "../../";
 
 export const JsxTextForm: NodeFormComponent<JsxText> = ({ node }) => {
     const collapsibleHeader = node.text || 'JSX Text';

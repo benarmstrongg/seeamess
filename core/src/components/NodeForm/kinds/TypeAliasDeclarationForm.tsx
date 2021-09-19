@@ -1,6 +1,6 @@
 import React from "react";
-import { NodeForm, Collapsible, NodeFormHeading } from "components";
-import { TypeAliasDeclaration } from "ast";
+import { NodeForm, Collapsible, NodeFormHeading } from "../../";
+import { TypeAliasDeclaration } from "../../../ast";
 import { NodeFormComponent } from "../types";
 
 export const TypeAliasDeclarationForm: NodeFormComponent<TypeAliasDeclaration> = ({ node }) => {

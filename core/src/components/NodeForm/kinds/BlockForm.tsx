@@ -1,6 +1,6 @@
 import React from "react";
-import { NodeForm } from "components";
-import { Block } from "ast";
+import { NodeForm } from "../../";
+import { Block } from "../../../ast";
 import { NodeFormComponent } from "../types";
 
 export const BlockForm: NodeFormComponent<Block> = ({ node }) => {

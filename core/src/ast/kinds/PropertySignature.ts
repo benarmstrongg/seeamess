@@ -1,6 +1,5 @@
 import ts from "typescript";
-import { AST, Identifier } from "ast";
-import { ast } from "ast/AST";
+import { AST, Identifier, ast } from "../../ast";
 
 export class PropertySignature extends AST implements ts.PropertySignature {
     _typeElementBrand;

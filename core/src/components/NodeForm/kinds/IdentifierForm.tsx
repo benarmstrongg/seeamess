@@ -1,7 +1,7 @@
 import React from 'react';
-import { Identifier } from "ast";
+import { Identifier } from "../../../ast";
 import { NodeFormComponent } from '../types';
-import { NodeInput, NodeFormHeading } from 'components';
+import { NodeInput, NodeFormHeading } from '../../';
 
 
 export const IdentifierForm: NodeFormComponent<Identifier> = ({ node, fieldName = '' }) => {

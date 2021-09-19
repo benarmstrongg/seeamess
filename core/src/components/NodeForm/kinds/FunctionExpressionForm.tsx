@@ -1,6 +1,6 @@
 import React from "react";
-import { NodeForm, Collapsible, NodeFormHeading } from "components";
-import { ast, FunctionExpression } from "ast";
+import { NodeForm, Collapsible, NodeFormHeading } from "../../";
+import { ast, FunctionExpression } from "../../../ast";
 import { NodeFormComponent } from "../types";
 
 interface FunctionExpressionEditorProps {

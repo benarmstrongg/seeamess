@@ -1,9 +1,9 @@
 import React from 'react';
 import ts from 'typescript';
-import { Identifier, PropertyAccessExpression, ast } from 'ast';
+import { Identifier, PropertyAccessExpression, ast } from '../../../ast';
 import { NodeFormComponent } from "../types";
-import { IdentifierForm } from 'components/nodeviews';
-import { Collapsible, NodeFormHeading } from 'components';
+import { IdentifierForm } from '../../nodeviews';
+import { Collapsible, NodeFormHeading } from '../../';
 
 interface PropertyAccessExpressionEditorProps {
     isTopLevel?: boolean;

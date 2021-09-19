@@ -1,8 +1,7 @@
 import React from "react";
-import { NodeForm } from "components";
-import { BinaryExpression } from "ast";
+import { NodeForm, Collapsible } from "../../";
+import { BinaryExpression } from "../../../ast";
 import { NodeFormComponent } from "../types";
-import { Collapsible } from "components";
 
 export const BinaryExpressionForm: NodeFormComponent<BinaryExpression> = ({ node }) => {
     const validOperators = [
