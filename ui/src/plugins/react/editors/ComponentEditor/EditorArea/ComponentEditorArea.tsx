@@ -28,8 +28,11 @@ export const EditorArea: FC<EditorAreaProps> = ({ component }) => {
                 />
             </div>
             {viewMode === 'preview' ? (
-                <LiveProvider code={component.getText()} lang="tsx" onErrorCapture={(e) => console.log(1)}
-                // scope={component.props?.array.reduce((o, p) => ({ ...o, [p.getName()]: p.getDefaultValue() }), {})}
+                <LiveProvider
+                    code={component.returnStatement?.getText()?.replace('return', '')}
+                    lang="tsx"
+                    onErrorCapture={(e) => console.log(1)}
+                //  scope={component.props?.array.reduce((o, p) => ({ ...o, [p.getName()]: p.getDefaultValue() }), {})}
                 >
                     <LivePreview />
                     <LiveError onErrorCapture={(e) => console.log(1)} />
