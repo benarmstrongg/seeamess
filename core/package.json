@@ -6,10 +6,10 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "compile": "tsc",
-    "compile:watch": "npm run compile -- -w",
+    "compile:watch": "nodemon -e ts,tsx -x npm run link:local",
     "start": "npm run compile:watch",
-    "reinstall": "rm -rf node_modules  && npm i",
-    "postcompile": "mkdir -p ../ui/node_modules/@seeamess/core && cp -r dist ../ui/node_modules/@seeamess/core"
+    "reinstall": "rm -rf node_modules && npm i",
+    "link:local": "rm -rf ../ui/node_modules/@seeamess && mkdir -p ../ui/node_modules/@seeamess/core && cp -r dist/ ../ui/node_modules/@seeamess/core"
   },
   "author": "",
   "license": "ISC",
